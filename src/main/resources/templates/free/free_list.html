@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+
+<th:block th:replace="~{/include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_list.css}">
+    
+
+    
+<!-- header -->
+<th:block th:replace="~{/include/header :: header2}"></th:block>
+
+
+
+    <!-- sidebar -->
+    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
+
+    
+
+    <section class="section">
+        <div class="container">
+            <h3 class="h3">자유 게시판</h3>
+            <hr>
+
+            <div id="board-search">
+                <div class="container full_collum">
+                    <div class="search-window">
+                        <div class="search-wrap">
+                            <select>
+                                <option>제목</option>
+                                <option>내용</option>
+                            </select>
+                            <input id="search" type="search" name="" placeholder="검색어를 입력해주세요.">
+                            <button type="button" class="btn btn-dark">검색</button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="board-list">
+                <div class="container">
+                    <table class="board-table">
+                        <thead>
+                            <tr>
+                                <th class="th-num">번호</th>
+                                <th class="th-title">제목</th>
+                                <th class="th-writer">작성자</th>
+                                <th class="th-date">등록일</th>
+                                <th class="th-views">조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <th><a href="freedetail.html">테스트3</a></th>
+                                <td>작성자3</td>
+                                <td>2022-04-13</td>
+                                <td>134</td>
+                            </tr>
+        
+                            <tr>
+                                <td>2</td>
+                                <th><a href="freedetail.html">테스트2</a></th>
+                                <td>작성자2</td>
+                                <td>2022-04-01</td>
+                                <td>221</td>
+                            </tr>
+                      
+                            <tr>  
+                                <td>1</td>
+                                <th><a href="freedetail.html">테스트1</a></th>
+                                <td>작성자1</td>
+                                <td>2022-03-08</td>
+                                <td>4598</td>
+                            </tr>
+  
+                        </tbody>
+                    </table>
+                    <div class="wrtie-btn">
+                        <input type="button" value="글쓰기" class="btn-write" onclick="location.href='freereg.html';">
+                    </div>
+                    <div class="text-center"><!-- 부트스트랩의 클래스-->
+                        <ul class="pagination pagination-sm">
+                            <li><a href="#">이전</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">다음</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+</html>

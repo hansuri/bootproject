@@ -1,0 +1,160 @@
+
+.sign_list{
+    display: block;
+    margin: 60px auto;
+    
+    
+}
+
+.h3 {
+    margin-left: 0 auto;
+    text-align: center;
+}
+
+.inner-box {
+    border: 1px solid #111;
+}
+
+.line {
+    border-bottom: 1px solid #111;
+}
+
+.last_row {
+    margin-bottom: 80px;
+}
+
+button, input, select {
+    border-radius: 0;
+    outline: 0;
+    text-decoration: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.join_row{
+    display: block;
+    margin-top: 30px;
+
+}
+
+.box > input {
+    width: 280px;
+    height: 20px;
+    font-size: 15px;
+    
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.box > select{
+
+    width: 280px;
+    height: 20px;
+    font-size: 15px;
+    
+    border: none;
+    box-sizing: border-box;
+    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+    background-size: 20px;
+}
+
+.box{
+    display:  block;
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    height: 40px;
+    padding: 10px;
+}
+
+
+.sub{
+    display: block;
+    margin: 50px auto;
+    width: 300px;
+    height: 50px;
+    
+    border: 1px solid #777;
+    
+}
+
+.bir{
+    overflow: hidden;
+}
+
+/* .box .yy{
+    width: 60px;
+    float: left;
+}
+
+.box .mm{
+    width: 60px;
+    margin: 0 10px;
+    float: left;
+}
+
+.box .dd{
+    width: 60px;
+
+} */
+
+.gender{
+    width: 200px;
+}
+
+h3 {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    
+}
+
+label{
+    
+    font-size: 14px;
+    margin-right: 100px;
+}
+
+
+h2{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.info{
+    margin-top: 80px;
+}
+
+.sa{
+    width: 200px;
+}
+
+.asd > a{
+
+    display: block;
+    width: 20%;
+    margin: 50px auto;
+    
+}
+
+.checks{
+    width: 300px;
+    margin: 0 auto;
+}
+
+input[type='radio'] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+} 
+
+.checks > label{
+    margin-right: 0px;
+}
+

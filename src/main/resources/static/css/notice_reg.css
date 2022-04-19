@@ -1,0 +1,139 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, a, pre {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+}
+
+li.collum_tit {
+    margin-top: 10px;
+}
+
+.collum_tit {
+    background-color: #fdd5d8;
+    position: relative;
+    line-height: 55px;
+    border: 1px solid #ededed;
+    min-width: 950px;
+}
+
+.collum_tit h3 {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    line-height: 55px;
+    margin-left: 20px;
+}
+
+.full_collum ul li ul {
+    display: block;
+    background-color: rgb(255, 244, 244);
+}
+
+.full_collum ul li ul li {
+    padding: 20px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.board_basic_view {
+    border-top: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.board_basic_view tr th {
+    width: 140px;
+    background-color: #fdd5d8;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #ededed;
+    height: 45px;
+    line-height: 45px;
+}
+
+.board_basic_view tr td {
+    border-bottom: 1px solid #ededed;
+    padding-left: 12px;
+    line-height: 30px;
+    height: 45px;
+    text-align: left;
+}
+
+
+input[type='text'].datepicker {
+    width: 100px;
+    background: url(../img/calander.png);
+    background-repeat: no-repeat;
+    background-position-x: 75px;
+    background-position-y: 5px;
+}
+
+.inputw150 {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+}
+
+select {
+    height: 30px;
+    border: 1px solid #d5d5d5;
+    margin-right: 4px;
+}
+
+input[type=text], select {
+    min-width: 60px;
+}
+
+input {
+    height: 30px;
+    border: 1px solid #d5d5d5;
+    margin-right: 4px;
+}
+
+.inputw99p {
+    width: 99.5%;
+    resize: vertical;
+}
+
+
+.btn_area {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.btn_area .save {
+    background-color: #fdd5d8;
+    text-align: center;
+    padding: 0 40px;
+    color: #111;
+    border: none;
+    height: auto;
+    margin: 0;
+}
+
+.btn_area .delete {
+    background-color: #999;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+    border: none;
+    height: auto;
+    margin: 0;
+}

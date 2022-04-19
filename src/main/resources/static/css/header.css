@@ -1,0 +1,75 @@
+body {
+    font-family: 'Merriweather',serif;
+}
+/* header */
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.my-grid h1 {
+    font-size: 50px;
+    letter-spacing: 30px;
+    text-align: center;
+    margin: 0;
+    padding-top: 55px;
+    height: 125px;
+    font-weight: bold;
+    color: #000;
+}
+
+.my-grid > ul > p {
+    margin-left: 30%;
+}
+
+.my-grid > ul {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+li, ol {
+    list-style-type: none;
+}
+.my-grid > ul li {
+    float: left;
+    margin: 10px 20px;
+}
+.my-grid ul > .mypage > a {
+    text-decoration: none;
+    color: black;
+    outline: 0;
+}
+
+.my-grid ul > .logout > a {
+    color: red;
+}
+
+
+
+nav {
+    height: 45px;
+    text-align: center;
+    border-top: 1px solid rgba(19, 18, 18, 0.432);
+    border-bottom: 1px solid rgba(19, 18, 18, 0.432);
+}
+nav ul li {
+    display: inline-block;
+    overflow: hidden;
+}
+nav ul li a {
+    display: block;
+    color: #444;
+    height: 40px;
+    width: 100px;
+    line-height: 40px;
+    padding: 0 30px;
+    margin: 0 21px;
+    box-sizing: border-box;
+    float: left;
+    /* transition: all 0.5s linear 0s;*/
+}
+
+.my-grid {
+    margin: 0 auto;
+    float: none; /* 부트스트랩에서 하나의 박스를 가운데로 보낼 때, 미리정의된 float을 없앤다. */
+}

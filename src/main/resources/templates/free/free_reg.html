@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{/include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_reg.css}">
+
+
+
+<th:block th:replace="~{/include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">자유게시판</h3>
+            <hr>
+
+            <form class="notcieForm" action="####" method="###">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>자유게시판 등록</h3>
+
+                            <ul style="display: block;">
+                                <li>
+                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        <tbody>
+                                            <tr>
+                                                <th>등록일</th>
+                                                <td colspan="5">
+                                                    <input type="date" class="datepicker hasDatepicker">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>아이디</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="user" readonly required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>게시글 종류</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="선택">선택</option>
+                                                        <option value="info">정보</option>
+                                                        <option value="issue">이슈</option>
+                                                        <option value="fun">유머</option>
+                                                        <option value="after">후기</option>
+                                                        <option value="etc">기타</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td colspan="5">
+                                                    <input type="text" class="inputw99p" required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>내용</th>
+                                                <td colspan="5">
+                                                    <div>
+                                                        <textarea class="inputw99p" style="height: 200px;" required></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="btn_area">
+                                        <input type="submit" class="save" value="등록">
+                                        <input type="button" class="delete" value="목록">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+</html>

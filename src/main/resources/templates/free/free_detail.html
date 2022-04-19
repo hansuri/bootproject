@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{/include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_detail.css}">
+
+
+
+</head>
+<body>
+
+<th:block th:replace="~{/include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">자유게시판</h3>
+            <hr>
+
+            <form class="freeDetailForm" action="####" method="###">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>게시글 상세보기</h3>
+
+                            <ul style="display: block;">
+                                <li>
+                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        <tbody>
+                                            <tr>
+                                                <th>글 번호</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="1" readonly required>
+                                                </td>
+
+
+                                                <th>조회수</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="1" readonly required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>작성자</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="user" readonly required>
+                                                </td>
+
+                                                <th>등록일</th>
+                                                <td>
+                                                    <input type="date" class="datepicker hasDatepicker" readonly required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>게시글 종류</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="선택">선택</option>
+                                                        <option value="info">정보</option>
+                                                        <option value="issue">이슈</option>
+                                                        <option value="fun">유머</option>
+                                                        <option value="after">후기</option>
+                                                        <option value="etc">기타</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td colspan="5">
+                                                    <input type="text" class="inputw99p" required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>내용</th>
+                                                <td colspan="5">
+                                                    <div>
+                                                        <textarea class="inputw99p" style="height: 200px;" required></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="btn_area">
+                                        <input type="submit" class="save" value="수정">
+                                        <input type="button" class="delete" value="목록">
+                                        <input type="button" class="delete" value="삭제">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+            <form class="comment-frame" action="###">
+                <div class="CommentBox">
+                    <div class="comment_option">
+                        <h3 class="comment_title">댓글</h3>
+                    </div>
+
+                    <ul class="comment_list">
+                        <li class="CommentItem">
+                            <div class="comment_area">
+                                <div class="comment_box">
+                                    <div class="comment_id_box">
+                                        <div class="comment_id_info">
+                                            <p class="comment_id">user1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment_text_box">
+                                        <p class="comment_text_view">
+                                            <span class="text_comment">################</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="comment_info_box">
+                                        <span class="comment_info_date">2022.04.18. 10:00</span>
+                                    </div>
+
+                                    <div data-v-5213e8a5 class="comment_tool">
+                                        <button class="btn comment_update">수정</button>
+                                        <button class="btn comment_delete">삭제</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="CommentItem">
+                            <div class="comment_area">
+                                <div class="comment_box">
+                                    <div class="comment_id_box">
+                                        <div class="comment_id_info">
+                                            <p class="comment_id">user1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment_text_box">
+                                        <p class="comment_text_view">
+                                            <span class="text_comment">################</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="comment_info_box">
+                                        <span class="comment_info_date">2022.04.18. 10:00</span>
+                                    </div>
+
+                                    <div data-v-5213e8a5 class="comment_tool">
+                                        <button class="btn comment_update">수정</button>
+                                        <button class="btn comment_delete">삭제</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div data-v-3b426d7d class="CommentWriter">
+                        <div class="comment_inbox">
+                            <em data-v-3b426d7d class="comment_inbox_id">userID</em>
+                            <textarea data-v-3b426d7d placeholder="댓글을 남겨보세요" rows="1" class="comment_inbox_text" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
+                        </div>
+
+                        <div data-v-3b426d7d class="comment_attach">
+                            <div data-v-3b426d7d class="register_box">
+                                <a data-v-3b426d7d href="##" role="button" class="button btn_register">등록</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+
+</html>

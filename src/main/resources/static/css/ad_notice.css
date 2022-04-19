@@ -1,0 +1,119 @@
+/* 게시판 글 목록 */
+
+    .section {
+        margin: 0%;
+    }
+
+    #ad_list > h3 {
+        font-weight: 900;
+        color: rgb(164, 164, 164);
+    }
+
+    .list_wrap {
+        margin: 3% 3%;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 5px 5px 20px rgb(0, 0, 0, 15%);
+    }
+
+    .list {
+        border-bottom: solid 0.5px #999;
+        box-shadow: 0px px 5px rgb(0, 0, 0, 7%);
+
+    }
+    .list:last-child {
+        border: none;
+    }
+
+    .list ul li {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+
+    .list ul li .content {
+        
+        display: inline-block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: -10px;
+    }
+    
+    .list ul li .content > .num {
+        float: left;
+        color: rgb(175, 175, 175);
+        width: 3%;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+    .list ul li .content > a {
+        float: left;
+        width: 70%;
+        color: rgb(79, 79, 79); 
+    }
+    
+    .list ul li .content > .id {
+        float: right;
+        color: rgb(175, 175, 175);
+        
+    }
+    
+    .list ul li .content > .date {
+        float: right;
+        margin-left: 10%;
+        color: rgb(117, 117, 117);
+    }
+    
+
+
+    .list ul li .content .title{
+        text-overflow: ellipsis;
+        display: block;
+        overflow: hidden;
+        text-align: left;
+        height: 100%;
+        padding-right: 100px;
+    }
+
+/* 글쓰기 버튼 */
+    .btn-write {
+        background: #555;
+        color: #fff;
+        border-radius: 5px;
+    }
+    
+    .write-btn {
+        display: inline-block;
+      }
+      
+    .btn-write {
+        position: relative;
+        float: right;
+        right: 3%;
+        width: 7%;
+        padding: 5.5px;
+        margin: 12px;
+    }
+
+
+/* 모달 */
+    #modal {
+        display: none;
+        width: 500px;
+        padding: 20px 60px;
+        background-color: #ffffff;
+        border-radius: 3px;
+    }
+
+    #modal .modal_close_btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #4f4f4f;
+    }
+
+    #article {
+        overflow: hidden;
+        position: relative;
+    }

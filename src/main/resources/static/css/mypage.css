@@ -1,0 +1,215 @@
+
+.sign_list{
+    display: block;
+    margin: 200px auto;
+    
+    
+}
+
+.test{
+    margin-right: 300px;
+    overflow: hidden;
+}
+
+.myinfo{
+    display: block;
+    float: right;
+
+}
+
+.sign_list {
+    margin-top: 60px;
+}
+
+.inner-box {
+    border: 1px solid #111;
+}
+
+
+
+.info{
+    margin-left: -150px;
+    margin-top: 200px;
+}
+
+
+.myinfo_table{
+    display: block;
+    float: right;
+    border-collapse: collapse;
+    margin-right: 140px;
+    margin-top: 60px;
+    text-align: right;
+    
+}
+
+
+
+
+.subjec > th{
+    
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    
+}
+
+.value > td{
+    display: inline-block;
+    width: 120px;
+    
+}
+
+
+
+button, input, select {
+    border-radius: 0;
+    outline: 0;
+    text-decoration: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.join_row{
+    display: block;
+
+}
+
+.box > input {
+    width: 280px;
+    height: 20px;
+    font-size: 15px;
+    
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.box > select{
+
+    width: 280px;
+    height: 20px;
+    font-size: 15px;
+    
+    border: none;
+    box-sizing: border-box;
+    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+    background-size: 20px;
+}
+
+.box{
+    display:  block;
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    height: 40px;
+    padding: 10px;
+}
+
+
+.sub{
+    display: block;
+    margin: 50px auto;
+    width: 300px;
+    height: 50px;
+    
+    border: 1px solid #777;   
+}
+
+.bir{
+    overflow: hidden;
+}
+
+/* .box .yy{
+    width: 60px;
+    float: left;
+}
+
+.box .mm{
+    width: 60px;
+    margin: 0 10px;
+    float: left;
+}
+
+.box .dd{
+    width: 60px;
+
+} */
+
+.gender{
+    width: 200px;
+}
+
+h3 {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    
+}
+
+.h3 {
+    margin-left: 0;
+}
+
+label{
+    
+    font-size: 14px;
+    margin-right: 100px;
+}
+
+
+h2{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.sa{
+    width: 200px;
+}
+
+.gep{
+    margin-right: 500px;
+}
+
+.checks {
+    margin-left: 180px;
+}
+/* 
+.checks >#ch11{
+    width: 15px;
+    height: 15px;
+    background-color: #dadada;
+    margin-top: 10px;
+    
+    
+
+}
+
+.checks >#ch12{
+    width: 15px;
+    height: 15px;
+    background-color: #dadada;
+
+}
+
+.checks > label{
+    font-size: 16px;
+    margin-left: 5px;
+} */
+
+
+input[type='radio'] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+.inner-top {
+	margin-top: 50px;
+}
+}

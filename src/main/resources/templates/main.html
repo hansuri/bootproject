@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{/include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+
+
+
+<th:block th:replace="~{/include/header :: header2}"></th:block>
+
+
+
+    <article class="main_article">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="slide" class="col-xs-7 slide-list">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                          <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <img src="img/캠페인.jpg" alt="1">
+                          </div>
+
+                          <div class="item">
+                            <img src="img/캠페인2.jpg" alt="2">
+                          </div>
+                      
+                          <div class="item">
+                            <img src="img/켐페인3.png" alt="3">
+                          </div>
+
+                          <div class="item">
+                            <img src="img/캠페인4.jpg" alt="4">
+                          </div>
+                        </div>
+                      
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div class ="animated-text">
+      <div class="line">@@@@@@@@공지글 입니다@@@@@@@@</div>
+      <div class="line">########공지글 입니다########</div>
+      <div class="line">$$$$$$$$공지글 입니다$$$$$$$$</div>
+      <div class="line">&&&&&&&&공지글 입니다&&&&&&&&</div>
+    </div>
+
+
+    <section class="main_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-7 login-form">
+                    <div class="col-xs-7">
+                        <div class="inner">
+                        <div class="title-box">
+                            로그인
+                        </div>
+                        <form class="login-form-inner" action="###" method="post">
+                            <div class="form-group">
+                                <label>아이디</label>
+                                <input type="text" id="id" class="form-control id" placeholder="아이디">
+                            </div>
+                            <div class="form-group">
+                                <label>비밀번호</label>
+                                <input type="password" id="pw" class="form-control pw" placeholder="비밀번호">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" id="main-btn" class="btn btn-info btn-block">로그인</button>
+                                <button type="button" id="main-btn" class="btn btn-primary btn-block">회원가입</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container_tab">
+          <div class="row">
+  
+            <div class="tabs tabs-css col-xs-7">
+              <ul class="nav nav-tabs tabs-basic">
+                  <li class="active"><a data-toggle="tab" href="#tab1">전체글</a></li>
+                  <li><a data-toggle="tab" href="#tab2">후기</a></li>
+                  <li><a data-toggle="tab" href="#tab3">유용한 정보</a></li>
+                  <li><a data-toggle="tab" href="#tab4">유머</a></li>
+              </ul>
+          
+              <div class="tab-content">
+                  <div id="tab1" class="tab-pane fade in active">
+                  <p>모든게시판에 있는 글 최신순으로 보여주는곳0</p>
+                  <p>모든게시판에 있는 글 최신순으로 보여주는곳1</p>
+                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
+                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
+                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
+              </div>
+              <div id="tab2" class="tab-pane fade">
+                  <p>후기 내용</p>
+              </div>
+              <div id="tab3" class="tab-pane fade">
+                  <p>도움이 될만한 정보(정보페이지)</p>
+              </div>
+              <div id="tab4" class="tab-pane fade">
+                  <h3>유머</h3>
+                  <p>기타</p>
+              </div>
+          </div>
+  
+          </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+    <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+</html>

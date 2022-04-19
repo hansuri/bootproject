@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{/include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/ani_reg.css}">
+    <script th:src="@{/js/style.js}"></script>
+ 
+
+
+
+<th:block th:replace="~{/include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">유기동물 LIST</h3>
+            <hr>
+
+            <form class="notcieForm" action="####" method="###">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>유기동물 등록</h3>
+
+                            <ul style="display: block;">
+                                <li>
+                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        <tbody>
+                                            <tr>
+                                                <th>등록일</th>
+                                                <td colspan="5">
+                                                    <input type="date" class="datepicker hasDatepicker">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>아이디</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="admin" readonly required>
+                                                </td>
+
+                                                <th>동물 성별</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="none">선택</option>
+                                                        <option value="m">수컷</option>
+                                                        <option value="w">암컷</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>이름</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" required>
+                                                </td>
+
+                                                <th>나이</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>동물 종류</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="선택">선택</option>
+                                                        <option value="dog">강아지</option>
+                                                        <option value="cat">고양이</option>
+                                                        <option value="bird">새</option>
+                                                        <option value="hamster">햄스터</option>
+                                                    </select>
+                                                </td>
+
+                                                <th>돌봄 필요 시간</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" required>
+                                                </td>
+
+                                            </tr>
+
+                                                <th>동물 크기</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="선택">선택</option>
+                                                        <option value="l">대형</option>
+                                                        <option value="m">중형</option>
+                                                        <option value="s">소형</option>
+                                                    </select>
+                                                </td>
+
+                                                <th>중성화 여부</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="none">해당아님</option>
+                                                        <option value="y">중성화 ⭕</option>
+                                                        <option value="n">중성화 ❌</option>
+                                                    </select>
+                                                </td>
+
+                                            <tr>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <th>질병유무</th>
+                                                <td>
+                                                    <select class="inputw150">
+                                                        <option value="선택">선택</option>
+                                                        <option value="y">유</option>
+                                                        <option value="n">무</option>
+                                                    </select>
+                                                </td>
+
+                                                <th>예상 유지 비용</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" placeholder="0만원" required>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>내용</th>
+                                                <td colspan="5">
+                                                    <div>
+                                                        <textarea class="inputw99p textarea" style="height: 200px;" required></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr> 
+                                                <th>동물사진</th>
+                                                <td colspan="3">
+                                                <div class="filebox preview-image">
+                                                    <div class="left">
+                                                        <span>첨부이미지</span>
+                                                        <label class="upload-display" for="a_file">
+                                                            <span class="upload-thumb-wrap">
+                                                                <img class="upload-thumb" th:src="@{/img/plus_btn.png}">
+                                                            </span>
+                                                        </label>
+                                                        <input class="upload-name" value="파일선택" disabled="disabled">
+                                                        <input type="file" name="file" id="a_file" class="upload-hidden">
+                                                    </div>
+                                                </div>
+                                                
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="btn_area">
+                                        <input type="submit" class="save" value="등록">
+                                        <input type="button" class="delete" value="목록">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+
+</html>

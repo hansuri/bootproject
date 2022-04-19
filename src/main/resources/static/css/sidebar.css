@@ -1,0 +1,75 @@
+/* 사이드 네비게이션 */
+* {padding: 0; margin: 0; list-style: none;}
+
+.side {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    width: 140px;
+    height: 400px;
+    background-color: white;
+    z-index: 10;
+    margin-top: 150px;
+    margin-left: 30px;
+    border: 1px solid #111;
+}
+
+.my-grid .sidenav {
+    margin-top: 50px;
+}
+
+.my-grid .sidenav li {
+    width: 100%;
+}
+
+.my-grid .sidenav li a {
+    display: block;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    color: black;
+    text-decoration: none;
+    padding: 5px 0 5px 0px; /* 위 오른쪽 아래 왼쪽 */
+    box-sizing: border-box;
+    overflow: hidden; /* 넘치는 글자에 대해서 숨김 */
+    font-size: small;
+}
+
+.my-grid .sidenav li a > span {
+    padding-left: 20px;
+}
+
+.my-grid .sidenav li a:hover {
+    background-color: #888;
+    color: #fff;
+}
+
+.menuBtn {
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    position: absolute; /* 부모영역 기반으로 올림 */
+    left: 0;
+    top: 0;
+    z-index: 20;
+    font-size: 16px;
+    margin-left: 10px;
+    border-bottom: 1px solid #111;
+    background-color: white;
+}
+
+.col-xs-12 .col-md-4 .col-sm-6 {
+    display: none;
+    
+}
+
+@media (max-width: 1500px) {
+    aside.side {
+        display: none;
+    }
+
+}

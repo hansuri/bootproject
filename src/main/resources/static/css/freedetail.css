@@ -1,0 +1,68 @@
+.detail {
+    display: block;
+    margin: 20% auto;
+    position: relative;
+    left: 1;
+    width: 55%;
+    bottom: 60px;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+    border: none;
+    resize: none;
+}
+
+.content.CafeViewer{
+    height: auto;
+    width: 100%;
+}
+
+.CommentBox {
+    display: block;
+}
+
+.comment_inbox {
+    height: auto;
+    width: 100%;
+}
+
+.comment_inbox_name {
+    position: relative;z-index: 2;
+    left: 3%;
+    top: 40px;
+}
+
+.comment_inbox_text{
+    position: relative;z-index: 1;
+    height: 130px;
+    width: 100%;
+    padding: 50px 25px;
+}
+
+.comment_register {
+    position: relative;z-index: 3;
+    left: 85%;
+    bottom: 45px;
+}
+
+.dtbtn-modify {
+    position: relative;
+    top: 72px;
+    left: 90%;
+    padding: 1px;
+}
+
+.dtbtn-delete {
+    position: relative;
+    top: 72px;
+    left: 90%;
+    padding: 1px;
+}
+
+.dt-btn.btn {
+    position: relative;
+    left: 89%;
+    padding: 1px;
+}

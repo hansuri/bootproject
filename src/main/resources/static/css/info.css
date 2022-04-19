@@ -1,0 +1,57 @@
+.sub_con {
+    font-size: 14px;
+    font-weight: 300;
+    color: #58595b;
+    letter-spacing: -1px;
+    line-height: 160%;
+    padding-bottom: 40px;
+}
+
+.txt_c {
+    text-align: center !important;
+}
+
+.fs16 {
+    font-size: 16px !important;
+}
+
+.blue_tit {
+    font-size: 16px;
+    font-weight: bold;
+    color: #328ac3;
+    margin-bottom: 10px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.arr_blue {
+    text-align: left;
+}
+
+.mb30 {
+    margin-bottom: 30px !important;
+}
+
+.arr_blue > li {
+    font-size: 14px;
+    font-weight: normal;
+    color: #58595b;
+    padding-left: 8px;
+    background: url(../images/sub/arrow3.png) no-repeat left 6px;
+    margin-bottom: 10px;
+    line-height: 140%;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+
+.line {
+    border: none;
+    border-top: 1px dashed #b1b7b9;
+    margin: 40px 0;
+}
