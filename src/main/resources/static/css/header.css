@@ -19,7 +19,7 @@ header {
 }
 
 .my-grid > ul > p {
-    margin-left: 30%;
+    margin-left: 20%;
 }
 
 .my-grid > ul {
@@ -72,4 +72,12 @@ nav ul li a {
 .my-grid {
     margin: 0 auto;
     float: none; /* 부트스트랩에서 하나의 박스를 가운데로 보낼 때, 미리정의된 float을 없앤다. */
+}
+
+.a_header {
+	color: black;
+}
+
+.a_header:hover {
+	text-decoration: none;
 }

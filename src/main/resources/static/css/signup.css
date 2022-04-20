@@ -41,9 +41,9 @@ button, input, select {
     width: 280px;
     height: 20px;
     font-size: 15px;
-    
     border: none;
     box-sizing: border-box;
+    margin-bottom: 13px;
 
 }
 
@@ -67,6 +67,7 @@ button, input, select {
     height: 40px;
     padding: 10px;
 }
+
 
 
 .sub{
@@ -158,3 +159,6 @@ input[type='radio'] {
     margin-right: 0px;
 }
 
+.pw_check_box{
+	border: none;
+}

@@ -77,6 +77,7 @@ section, article {
     position: relative;
     left: 180%;
     top: 28px;
+    height: 300px;
 }
 
 .tabs > ul {
@@ -156,6 +157,7 @@ section, article {
 .tabs {
     margin-top: -280px;
     margin-left: 21%;
+    width: 44%;
 }
 
 .tabs-basic {
@@ -179,3 +181,12 @@ section, article {
 /* .tab-content {
     border: 1px solid #555555;
 } */
+
+.a_header {
+	color: black;
+}
+
+.a_header:hover {
+	text-decoration: none;
+}
+

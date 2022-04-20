@@ -63,8 +63,8 @@
                                     <h3><label for="salary">연봉</label></h3>
                                     
                                     <span class="box salary">
-                                        <select  class="sa">
-                                            <option value selected>금액</option>
+                                        <select  class="sa" th:value="${session.userVO.user_salary}">
+                                            <option value="">금액</option>
                                             <option value="2">3000이하</option>
                                             <option value="3">3000~4000</option>
                                             <option value="4">4000~5000</option>
@@ -80,7 +80,7 @@
                                     <h3><label for="size">집 평수</label></h3>
                                     
                                     <span class="box">
-                                        <input type="text" id="size"  placeholder="숫자만입력(기준:평수)">
+                                        <input type="text" id="size"  th:value="${session.userVO.user_size} + '평'">
                                     </span>
                                     <span class="error_box" id="size_msg" style="display: none;"></span>
                                 </div>
@@ -91,7 +91,7 @@
                                     <h3><label for="stay">집에있는시간</label></h3>
                                     
                                     <span class="box">
-                                        <input type="text" id="stay" placeholder="숫자만입력(기준:시)">
+                                        <input type="text" id="stay" th:value="${session.userVO.user_stay}">
                                     </span>
                                     <span class="error_box" id="stay_msg" style="display: none;"></span>
                                 </div>
@@ -100,8 +100,8 @@
                                     <h3><label for="preferred">선호하는 동물</label></h3>
 
                                     <span class="box preferred" id="preferred">
-                                        <select class="pref">
-                                            <option value selected>동물선택</option>
+                                        <select class="pref" th:value="${session.userVO.user_like}">
+                                            <option value="">동물선택</option>
                                             <option value="dog">강아지</option>
                                             <option value="cat">고양이</option>
                                             <option value=".">...?</option>
@@ -153,7 +153,7 @@
                                 </h3>
                                 
                                 <span class="box">
-                                    <input type="text" id="id" class="id" maxlength="20" required>
+                                    <input type="text" id="id" class="id" maxlength="20" th:value="${session.userVO.user_id}">
                                 </span>
                                 <span class="error_box" id="id_msg" style="display: none;"></span>
                             </div>
@@ -166,7 +166,7 @@
                                 </h3>
                                 
                                 <span class="box">
-                                    <input type="password" id="pw" class="pw" placeholder="pw조건" required>
+                                    <input type="password" id="pw" class="pw" th:value="${session.userVO.user_pw}">
                         
                                 </span>
                                 <span class="error_box" id="pw_msg" style="display: none;"></span>
@@ -178,7 +178,7 @@
                                 </h3>
                                 
                                 <span class="box">
-                                    <input type="password" id="pw-check" class="pw" required>
+                                    <input type="password" id="pw-check" class="pw-check">
                                 </span>
                                 <span class="error_box" id="pw_check_msg" style="display: none;"></span>
                             </div>
@@ -190,7 +190,7 @@
                                 </h3>
                                 
                                 <span class="box">
-                                    <input type="text" id="name" class="name" required>
+                                    <input type="text" id="name" class="name" th:value="${session.userVO.user_name}">
                                 </span>
                                 <span class="error_box" id="name_msg" style="display: none;"></span>
                             </div>
@@ -203,7 +203,7 @@
                             <h3><label for="yy">생년월일</label></h3>
 
                             <span class="box yy">
-                                <input type="text" id="yy" class="yy" maxlength="4" placeholder="년(4자)" required>
+                                <input type="text" id="yy" class="yy" maxlength="4" th:value="${session.userVO.user_age}">
                                 
                             </span>
                             <span class="error_box" id="yy_msg" style="display: none;"></span>
@@ -241,7 +241,7 @@
                             <h3><label for="gen">성별</label></h3>
 
                             <span class="box gen">
-                                <select id="gen" class="gender" required>
+                                <select id="gen" class="gender" th:value="${session.userVO.user_gen}">
                                     <option value selected>성별</option>
                                     <option value="m">남</option>
                                     <option value="w">여</option>
@@ -256,7 +256,7 @@
                             <h3><label for="email">이메일</label></h3>
 
                             <span class="box">
-                                <input type="text" id="email" class="email" placeholder="조건" maxlength="50" required>
+                                <input type="text" id="email" class="email" maxlength="50" th:value="${session.userVO.user_email}">
                             </span>
                             <span class="error_box" id="email_msg" style="display: none;"></span>
 
@@ -268,7 +268,7 @@
                             <h3><label for="phon">전화번호</label></h3>
 
                             <span class="box">
-                                <input type="tel" id="phon" class="phon" placeholder="번호만입력하세요" maxlength="12" required>
+                                <input type="tel" id="phon" class="phon" maxlength="13" th:value="${session.userVO.user_pw}">
                             </span>
                             <span class="error_box" id="phon_msg" style="display: none;"></span>
 
