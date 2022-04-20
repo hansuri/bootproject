@@ -87,3 +87,6 @@ CREATE TABLE ADMIN(
    ADMIN_ID VARCHAR(50),
    ADMIN_PW VARCHAR(20)
 );
+
+
+++++++++++++수정
