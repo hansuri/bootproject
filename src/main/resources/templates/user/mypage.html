@@ -91,7 +91,7 @@
                                     <h3><label for="stay">집에있는시간</label></h3>
                                     
                                     <span class="box">
-                                        <input type="text" id="stay" th:value="${session.userVO.user_stay}">
+                                        <input type="text" id="stay" th:value="${session.userVO.user_stay} + '시간'">
                                     </span>
                                     <span class="error_box" id="stay_msg" style="display: none;"></span>
                                 </div>
@@ -181,6 +181,7 @@
                                     <input type="password" id="pw-check" class="pw-check">
                                 </span>
                                 <span class="error_box" id="pw_check_msg" style="display: none;"></span>
+                                <span  class="box pw_check_box"><input type="button" onclick="test()" value="비밀번호 확인"></span>
                             </div>
 
                             <!-- 이름 -->
@@ -203,7 +204,7 @@
                             <h3><label for="yy">생년월일</label></h3>
 
                             <span class="box yy">
-                                <input type="text" id="yy" class="yy" maxlength="4" th:value="${session.userVO.user_age}">
+                                <input type="text" id="yy" class="yy" maxlength="4">
                                 
                             </span>
                             <span class="error_box" id="yy_msg" style="display: none;"></span>
@@ -268,7 +269,7 @@
                             <h3><label for="phon">전화번호</label></h3>
 
                             <span class="box">
-                                <input type="tel" id="phon" class="phon" maxlength="13" th:value="${session.userVO.user_pw}">
+                                <input type="tel" id="phon" class="phon" maxlength="13" th:value="${session.userVO.user_phone}">
                             </span>
                             <span class="error_box" id="phon_msg" style="display: none;"></span>
 
@@ -293,6 +294,23 @@
 
     <!-- footer -->
     <th:block th:replace="~{/include/footer :: footer1}"></th:block>
+    
+<script type="text/javascript">
+ 
+    function test() {
+      var p1 = document.getElementById('pw').value;
+      var p2 = document.getElementById('pw-check').value;
+      if( p1 != p2 ) {
+        alert("비밀번호가 일치 하지 않습니다");
+        return false;
+      } else{
+        alert("비밀번호가 일치합니다");
+        return true;
+      }
+
+    }
+    
+</script>
 
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 

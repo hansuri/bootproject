@@ -22,7 +22,7 @@
 		values(#{user_id},
 				#{user_pw},
 				#{user_name},
-				#{user_age},
+				concat(#{user_year},"-", #{user_month}, "-", #{user_day}),
 				#{user_gen},
 				#{user_email},
 				#{user_phone},

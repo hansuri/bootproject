@@ -88,23 +88,23 @@
                     <h3><label for="yy">생년월일</label></h3>
 
                     <span class="box yy">
-                        <input type="text" id="yy" class="yy" maxlength="4" name="user_age" placeholder="년(4자)">
+                        <input type="text" id="yy" class="yy" maxlength="4" name="user_year" placeholder="년(4자)">
                         
                     </span>
 
                     <span class="box mm">
 
-                        <select class="mm">
-                            <option value selected>월</option>
-                            <option value="01">1</option>
-                            <option value="02">2</option>
-                            <option value="03">3</option>
-                            <option value="04">4</option>
-                            <option value="05">5</option>
-                            <option value="06">6</option>
-                            <option value="07">7</option>
-                            <option value="08">8</option>
-                            <option value="09">9</option>
+                        <select class="mm" name="user_month">
+                            <option value="">월</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -112,7 +112,7 @@
                     </span>
                     <span class="error_box" id="mm_msg" style="display: none;"></span>
                     <span class="box dd"> 
-                        <input type="text" class="dd" maxlength="2" placeholder="일">
+                        <input type="text" class="dd" name="user_day" maxlength="2" placeholder="일">
                     </span>
 
                 </div>

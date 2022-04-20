@@ -29,9 +29,16 @@ public class UserVO {
 	@NotBlank(message = "이름은 필수 입니다.")
 	private String user_name;
 	
-	@NotBlank(message = "나이는 필수 입니다.")
+	@NotBlank(message = "연도는 필수 입니다.")
 	@Pattern(regexp = "[0-9]{4}", message = "yyyy 형식입니다.")
-	private String user_age;
+	private String user_year;
+	
+	@NotBlank(message = "달은 필수 입니다.")
+	private String user_month;
+	
+	@NotBlank(message = "일은 필수 입니다.")
+	@Pattern(regexp = "[0-9]{2}", message = "dd 형식입니다.")
+	private String user_day;
 	
 	@NotBlank(message = "성별은 필수 입니다.")
 	private String user_gen;
