@@ -26,6 +26,10 @@ public class FreeBoardController {
 	@GetMapping("free_detail")
 	public String free_detail() {
 		
+		
+		
+		
+		
 		return "free/free_detail";
 	}
 	
