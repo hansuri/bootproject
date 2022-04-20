@@ -31,6 +31,8 @@
             <h3 class="h3">자유 게시판</h3>
             <hr>
 
+		<form name="free_list" action="free_list" method="get" >
+
             <div id="board-search">
                 <div class="container full_collum">
                     <div class="search-window">
@@ -59,34 +61,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>3</td>
-                                <th><a href="freedetail.html">테스트3</a></th>
-                                <td>작성자3</td>
-                                <td>2022-04-13</td>
-                                <td>134</td>
-                            </tr>
-        
-                            <tr>
-                                <td>2</td>
-                                <th><a href="freedetail.html">테스트2</a></th>
-                                <td>작성자2</td>
-                                <td>2022-04-01</td>
-                                <td>221</td>
-                            </tr>
                       
-                            <tr>  
-                                <td>1</td>
-                                <th><a href="freedetail.html">테스트1</a></th>
-                                <td>작성자1</td>
-                                <td>2022-03-08</td>
-                                <td>4598</td>
+                            <tr th:each="vo, state : ${list}">  
+                                <td>[[${state.index + 1}]]</td>
+                                <th><a href="free_detail">[[${vo.free_list_title}]]</a></th>
+                                <td>[[${vo.free_list_writer}]]</td>
+                                <td>[[${vo.free_list_date}]]</td>
+                                <td>[[${vo.free_list_views}]]</td>
                             </tr>
   
                         </tbody>
                     </table>
                     <div class="wrtie-btn">
-                        <input type="button" value="글쓰기" class="btn-write" onclick="location.href='freereg.html';">
+                        <input type="button" value="글쓰기" class="btn-write" onclick="location.href='free_reg';">
                     </div>
                     <div class="text-center"><!-- 부트스트랩의 클래스-->
                         <ul class="pagination pagination-sm">
@@ -102,7 +89,7 @@
                 </div>
             </div>
 
-
+		  </form>
         </div>
     </section>
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coding404.myweb.free.FreeMapper">
+	
+	<insert id="regist">
+		insert into FREE_LIST(free_list_date,
+							  free_list_writer,
+							  free_list_type,
+							  free_list_title,
+							  free_list_content)
+		values(#{free_list_date},
+			   #{free_list_writer},
+			   #{free_list_type},
+			   #{free_list_title},
+			   #{free_list_content})
+			
+	</insert>
+	
+	<select id="getList" resultType="FreeVO">
+		select * from FREE_LIST
+	</select>
+</mapper>
