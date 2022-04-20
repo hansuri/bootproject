@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coding404.myweb.notice.NoticeMapper">
+
+	<insert id="regist">
+	
+		insert into ADMIN_LIST(
+							   ad_list_title,
+							   ad_list_content,
+							   ad_list_date,
+							   admin_id
+							   )
+		values(
+			   #{ad_list_title},
+			   #{ad_list_content},
+			   #{ad_list_date},
+			   #{admin_id}
+			   )
+	
+	</insert>
+	
+	<select id="getList" resultType="NoticeVO">
+	 
+		select * from ADMIN_LIST
+		where ad_list_writer = 'admin'
+		order by admin_id desc
+	</select>
+	
+	
+	
+	
+	
+	
+
+
+</mapper>
