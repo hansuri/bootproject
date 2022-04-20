@@ -21,7 +21,7 @@
             <h3 class="h3">유기동물 LIST</h3>
             <hr>
 
-            <form class="notcieForm" action="####" method="###">
+            <form class="RegForm" action="RegForm" method="post" enctype="multipart/form-data">
                 <div class="full_collum collum">
                     <ul>
                         <li class="collum_tit">
@@ -34,7 +34,7 @@
                                             <tr>
                                                 <th>등록일</th>
                                                 <td colspan="5">
-                                                    <input type="date" class="datepicker hasDatepicker">
+                                                    <input type="date" class="datepicker hasDatepicker" name="ANIMAL_DATE">
                                                 </td>
                                             </tr>
 
@@ -46,7 +46,7 @@
 
                                                 <th>동물 성별</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_GENDER">
                                                         <option value="none">선택</option>
                                                         <option value="m">수컷</option>
                                                         <option value="w">암컷</option>
@@ -57,19 +57,19 @@
                                             <tr>
                                                 <th>이름</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_NAME" required>
                                                 </td>
 
                                                 <th>나이</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_AGE" required>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>동물 종류</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_TYPE">
                                                         <option value="선택">선택</option>
                                                         <option value="dog">강아지</option>
                                                         <option value="cat">고양이</option>
@@ -80,14 +80,14 @@
 
                                                 <th>돌봄 필요 시간</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_TIME" required>
                                                 </td>
 
                                             </tr>
 
                                                 <th>동물 크기</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_SIZE">
                                                         <option value="선택">선택</option>
                                                         <option value="l">대형</option>
                                                         <option value="m">중형</option>
@@ -97,7 +97,7 @@
 
                                                 <th>중성화 여부</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_NEUTRAL">
                                                         <option value="none">해당아님</option>
                                                         <option value="y">중성화 ⭕</option>
                                                         <option value="n">중성화 ❌</option>
@@ -112,7 +112,7 @@
                                             <tr>
                                                 <th>질병유무</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_DISEASE">
                                                         <option value="선택">선택</option>
                                                         <option value="y">유</option>
                                                         <option value="n">무</option>
@@ -121,7 +121,7 @@
 
                                                 <th>예상 유지 비용</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" placeholder="0만원" required>
+                                                    <input type="text" class="inputw150" placeholder="0만원" name="ANIMAL_COST" required>
                                                 </td>
                                             </tr>
 
@@ -129,7 +129,7 @@
                                                 <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
-                                                        <textarea class="inputw99p textarea" style="height: 200px;" required></textarea>
+                                                        <textarea class="inputw99p textarea" style="height: 200px;" name="ANIMAL_CONTENT" required></textarea>
                                                     </div>
                                                 </td>
                                             </tr>

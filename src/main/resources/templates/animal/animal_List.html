@@ -63,9 +63,10 @@
             
                 
                     <div class="row">
+                    <th:block th:each=" anivo : ${animal}">
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
                             <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
+                                <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
                             </div>
                             
                             
@@ -84,7 +85,8 @@
                             </div>
                             
                         </div>
-
+					</th:block>
+						
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
                             <div class="ani_img">
                                 <img th:src="@{/img/유기견.jpg}" alt="이미지">
