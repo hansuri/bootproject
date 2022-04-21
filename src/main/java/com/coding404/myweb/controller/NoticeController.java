@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.hibernate.Criteria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coding404.myweb.command.NoticeVO;
 import com.coding404.myweb.notice.NoticeService;
+import com.coding404.myweb.util.Criteria;
 import com.coding404.myweb.util.PageVO;
 
 @Controller
@@ -96,11 +97,16 @@ public class NoticeController {
 	
 	//공지게시판 화면처리
 	@GetMapping("/notice")
-	public String notice() {
+	public String notice(Model model, Criteria cri) {
 		
+		ArrayList<NoticeVO> list = noticeService.getList(cri);
+		int total = noticeService.getTotal(cri);
+		PageVO pageVO = new PageVO(cri, total);
 		
-		ArrayList<NoticeVO> list = noticeService.getList();
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
 		
+	System.out.println(pageVO.toString() );
 		
 		return "notice/notice";
 	}

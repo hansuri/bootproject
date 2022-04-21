@@ -2,11 +2,11 @@ package com.coding404.myweb.notice;
 
 import java.util.ArrayList;
 
-import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coding404.myweb.command.NoticeVO;
+import com.coding404.myweb.util.Criteria;
 
 @Service("noticeService")
 public class NoticeServiceImple implements NoticeService {
@@ -24,14 +24,15 @@ public class NoticeServiceImple implements NoticeService {
 	}
 
 	@Override
-	public ArrayList<NoticeVO> getList() {
-		return noticeMapper.getList();
+	public ArrayList<NoticeVO> getList(Criteria cri) {
+		return noticeMapper.getList(cri);
 	}
 
-//	@Override
-//	public int getTotal(Criteria cri) {
-//		return noticeMapper.getTotal(cri);
-//	}
+	@Override
+	public int getTotal(Criteria cri) {
+
+		return noticeMapper.getTotal(cri);
+	}
 
 	
 	

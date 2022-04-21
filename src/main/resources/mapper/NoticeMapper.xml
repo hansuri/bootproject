@@ -10,13 +10,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
 		insert into ADMIN_LIST(
 							   ad_list_title,
 							   ad_list_content,
-							   ad_list_date,
 							   admin_id
 							   )
 		values(
 			   #{ad_list_title},
 			   #{ad_list_content},
-			   #{ad_list_date},
 			   #{admin_id}
 			   )
 	
@@ -24,13 +22,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
 	
 	<select id="getList" resultType="NoticeVO">
 	 
-		select * from ADMIN_LIST
-		where ad_list_writer = 'admin'
-		order by admin_id desc
+		<!-- select * from ADMIN_LIST
+		where admin_id = 'admin'
+		order by ad_list_num asc -->
+		
+		<![CDATA[
+		select * 
+		from (select  A.*,
+			  		  @ROWNUM := @ROWNUM + 1 as RN
+	  		  from ( select *
+			 		 from ADMIN_LIST
+			 		 where admin_id = 'admin'
+			 		 order by ad_list_date ASC) A, (select @ROWNUM := 0)D
+		) B 
+		where RN >= ( #{page}-1 ) * #{amount} and RN <=  #{page} * #{amount}
+		]]>
+		
 	</select>
 	
-	
-	
+	<select id="getTotal" resultType="int">
+		select count(*) as total
+		FROM ADMIN_LIST
+		WHERE admin_id = 'admin'
+	</select>
 	
 	
 	
