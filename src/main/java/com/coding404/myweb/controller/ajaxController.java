@@ -1,6 +1,7 @@
 package com.coding404.myweb.controller;
 
 import java.io.File;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coding404.myweb.animal.AnimalService;
+import com.coding404.myweb.command.animalVO;
 
 @RestController
 public class ajaxController {
@@ -41,5 +43,39 @@ public class ajaxController {
 
 		return result;
 	}
+	
+	@GetMapping("/modalview")
+	public animalVO modalview(@RequestParam("pk") String pk){
+		System.out.println(pk);
+		
+		animalVO vo =  animalservice.modalview(pk);
+		
+		return vo;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

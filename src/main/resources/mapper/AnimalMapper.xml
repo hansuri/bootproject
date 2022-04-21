@@ -48,6 +48,8 @@
   		select * from ANIMAL
   	</select>
   	
-  	
+  	<select id="modalview" resultType="com.coding404.myweb.command.animalVO">
+  		select * from ANIMAL where ANIMAL_NUM = #{PK}
+  	</select>
   	
   </mapper>

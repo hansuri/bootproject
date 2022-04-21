@@ -72,174 +72,23 @@
                             
                             <div class="boxDetail">
                                 <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
+                                	<span>[[${anivo.ANIMAL_NUM}]]</span>
+                                    <span>이름:[[${anivo.ANIMAL_NAME}]]</span>
+                                    <span>종류:[[${anivo.ANIMAL_TYPE}]]</span>
+                                    <span>나이:[[${anivo.ANIMAL_AGE}]]</span>
+                                    <span>성별:[[${anivo.ANIMAL_GENDER}]]</span>
                                     
                                 </div>
                                 
                                 <div class="boxRight">
-                                    <span>등록일</span>
+                                    <span>등록일:[[${anivo.ANIMAL_DATE}]]</span>
                                 </div>
                             </div>
                             
                         </div>
 					</th:block>
 						
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{/img/유기견.jpg}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                    <span>이름</span>
-                                    <span>종류</span>
-                                    <span>나이</span>
-                                    <span>성별</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일</span>
-                                </div>
-                            </div>
-                            
-                        </div>
+                        
                         
                         <div class="wrtie-btn">
                             <input type="button" value="글쓰기" class="btn-write">
@@ -362,13 +211,53 @@
                     return this;
                 };
                 
+                
+                
+                
+                
+                
+              
+             /*    console.log(ani_img[i]);
+                console.log(ani_img[i].nextElementSibling.firstElementChild.firstElementChild.innerHTML);
+                console.log(ani_img[1].nextElementSibling.firstElementChild.firstElementChild.innerHTML);
+                
+                $.ajax({
+                	type:'GET',
+                	url:'/modalview?pk=${}'
+  					
+                }) */
+                
+                
+                $(".box").on("click",".ani_img" , function(e){
+                	
+                	var inner_HTML = ($(e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild));
+                	var inner_HTML = inner_HTML[0].innerHTML;
+                	console.log(inner_HTML)
+                	
+                	$.ajax({
+                	type:'GET',
+                	url:'/modalview?pk='+inner_HTML,
+                	success : function(data){
+                		console.log(data);
+                		console.log(data.animal_AGE);
+                		console.log($(".animal_age"));
+                		$(".animal_age").html(data.animal_AGE);
+                	}
+  					
+                })
+                	
+                	modal('modal');
+                	
+                })
+                
+                /* 
                 var ani_img = document.querySelectorAll('.ani_img');
-        
+                
                 for( var i = 0; i < ani_img.length; i++) {
                     ani_img[i].addEventListener('click', function(){
                         modal('modal');
                     }); 
-                }
+                } */
 
 
                 //하트 토글 

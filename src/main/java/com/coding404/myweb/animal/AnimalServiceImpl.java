@@ -96,6 +96,15 @@ public class AnimalServiceImpl implements AnimalService {
 		
 		return animalMapper.getdetail();
 	}
+
+
+	@Override
+	public animalVO modalview(String pk) {
+		
+		
+		
+		return animalMapper.modalview(pk);
+	}
 	
 	
 	

@@ -15,4 +15,6 @@ public interface AnimalMapper {
 	
 	public ArrayList<animalVO> getdetail(); //상세정보
 	
+	public animalVO modalview(String pk); //모달
+	
 }
