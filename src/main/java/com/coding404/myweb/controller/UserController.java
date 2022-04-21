@@ -2,6 +2,7 @@ package com.coding404.myweb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,22 +31,37 @@ public class UserController {
 	
 	//회원가입 화면처리
 	@GetMapping("/sign")
-	public String sign() {
+	public String sign(UserVO vo, Model model) {
+		
+		model.addAttribute("user", new UserVO());
 		
 		return "user/sign";
 	}
 	
 	//이력 화면처리
 	@GetMapping("/history")
-	public String history() {
+	public String history(HttpSession session,
+						  RedirectAttributes RA) {
 		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
 		
 		return "user/history";
 	}
 	
 	//마이페이지 화면처리
 	@GetMapping("/mypage")
-	public String mypage() {
+	public String mypage(HttpSession session,
+						 RedirectAttributes RA,
+						 Model model) {
+	
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
 		
 		return "user/mypage";
 	}
@@ -60,6 +76,7 @@ public class UserController {
 						   RedirectAttributes RA,
 						   Model model) {
 		
+		
 		//유효성 검사
 		if(errors.hasErrors()) {
 			List<FieldError> list = errors.getFieldErrors();
@@ -67,6 +84,8 @@ public class UserController {
 			for(FieldError err : list) {
 				model.addAttribute("valid_" + err.getField(), err.getDefaultMessage());
 			}
+			
+			model.addAttribute("user", vo);
 			
 			return "user/sign"; //실패시 회원가입 페이지로
 		}
@@ -80,6 +99,45 @@ public class UserController {
 		} else { //실패
 			RA.addFlashAttribute("msg", "회원가입에 실패했습니다.");
 		}
+		
+		return "redirect:/main";
+	}
+	
+	
+	
+	//회원수정
+	@PostMapping("/userUpdate")
+	public String userUpdate(@Valid UserVO vo, Errors errors,
+							 RedirectAttributes RA,
+							 Model model,
+							 HttpSession session) {
+		
+		
+		//유효성 검사
+		if(errors.hasErrors()) {
+			List<FieldError> list = errors.getFieldErrors();
+			
+			for(FieldError err : list) {
+				model.addAttribute("valid_" + err.getField(), err.getDefaultMessage());
+			}
+			
+			return "user/mypage"; //실패시 mypage로
+		}
+		
+		
+		//userUpdate
+		int result = userService.userUpdate(vo);
+		if(result == 1) { //성공 
+			
+			RA.addFlashAttribute("msg", vo.getUser_id() + "님의 정보가 변경되었습니다. 다시 로그인하세요");
+			
+			session.invalidate();
+			
+		} else { //실패
+			RA.addFlashAttribute("msg", "회원정보변경에 실패했습니다.");
+		}
+		
+		
 		
 		return "redirect:/main";
 	}

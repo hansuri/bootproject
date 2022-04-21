@@ -18,6 +18,11 @@ header {
     color: #000;
 }
 
+.my-grid h1:hover {
+	text-decoration: none;
+	color: #000;
+}
+
 .my-grid > ul > p {
     margin-left: 20%;
 }

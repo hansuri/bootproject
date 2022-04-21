@@ -29,16 +29,18 @@ public class UserVO {
 	@NotBlank(message = "이름은 필수 입니다.")
 	private String user_name;
 	
-	@NotBlank(message = "연도는 필수 입니다.")
-	@Pattern(regexp = "[0-9]{4}", message = "yyyy 형식입니다.")
+	@NotBlank(message = "생년월일은 필수 입니다.")
+	@Pattern(regexp = "[0-9]{4}", message = "yyyy-mm-dd 형식입니다.")
 	private String user_year;
 	
-	@NotBlank(message = "달은 필수 입니다.")
+	@NotBlank(message = "생년월일은 필수 입니다.")
 	private String user_month;
 	
-	@NotBlank(message = "일은 필수 입니다.")
-	@Pattern(regexp = "[0-9]{2}", message = "dd 형식입니다.")
+	@NotBlank(message = "생년월일은 필수 입니다.")
+	@Pattern(regexp = "[0-9]{2}", message = "yyyy-mm-dd 형식입니다.")
 	private String user_day;
+	
+	private String user_age;
 	
 	@NotBlank(message = "성별은 필수 입니다.")
 	private String user_gen;
@@ -69,6 +71,7 @@ public class UserVO {
 	@NotBlank(message = "선호동물선택은 필수 입니다.")
 	private String user_like;
 	
+	@NotBlank(message = "동물여부선택은 필수 입니다.")
 	private String optradio;
 	
 	

@@ -212,4 +212,11 @@ input[type='radio'] {
 .inner-top {
 	margin-top: 50px;
 }
+
+.mypage_row {
+	margin-bottom: 30px;
+}
+
+.mypage_error {
+	margin-top: 13px;
 }

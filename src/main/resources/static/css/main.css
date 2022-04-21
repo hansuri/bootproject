@@ -81,14 +81,14 @@ section, article {
 }
 
 .tabs > ul {
-    width: 70%;
+    width: 80%;
     border-block-start-style: none;
     border-right-style: none;
     border-left-style: none;
 }
 
 .tab-content {
-    width: 70%;
+    width: 80%;
     padding: 25px 25px 15px;
 }
 
@@ -156,8 +156,8 @@ section, article {
 /* 탭 영역 */
 .tabs {
     margin-top: -280px;
-    margin-left: 21%;
-    width: 44%;
+    margin-left: 10%;
+    width: 60%;
 }
 
 .tabs-basic {
@@ -190,3 +190,16 @@ section, article {
 	text-decoration: none;
 }
 
+.opt {
+	margin-top: 10px;
+}
+
+.rec_a {
+	color: red;
+	text-decoration: none;
+}
+
+.rec_a:hover {
+	color: red;
+	text-decoration: none;
+}

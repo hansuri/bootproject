@@ -29,7 +29,7 @@ public class MainController {
 	
 	//메인 화면처리
 	@GetMapping("/main")
-	public String main(HttpSession session) {
+	public String main() {
 		
 
 		return "main";

@@ -5,6 +5,7 @@
   
  <mapper namespace="com.coding404.myweb.user.UserMapper">
   
+  	<!-- 회원가입 -->
   	<insert id="join">
   		insert into USER(user_id,
 						user_pw,
@@ -17,7 +18,7 @@
 						user_size,
 						user_stay,
 						user_like,
-						user_ing
+						optradio
 						)
 		values(#{user_id},
 				#{user_pw},
@@ -35,10 +36,28 @@
   	</insert>
   	
   	
+  	<!-- 로그인 -->
   	<select id="login" resultType="UserVO">
   		select * from USER where user_id = #{login_id} and user_pw = #{login_pw}
   	</select>
   	
+  	
+  	<!-- 회원정보수정 -->
+  	<update id="userUpdate">
+  		update USER set user_id = #{user_id},
+  						user_pw = #{user_pw},
+  						user_name = #{user_name},
+  						user_age = concat(#{user_year},"-", #{user_month}, "-", #{user_day}),
+  						user_gen = #{user_gen},
+  						user_email = #{user_email},
+  						user_phone = #{user_phone},
+  						user_salary = #{user_salary},
+  						user_size = #{user_size},
+  						user_stay = #{user_stay},
+  						user_like = #{user_like},
+  						optradio = #{optradio}
+  		Where user_num = #{user_num}
+  	</update>
 
 
   

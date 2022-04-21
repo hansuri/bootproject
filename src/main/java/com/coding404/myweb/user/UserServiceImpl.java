@@ -22,6 +22,13 @@ public class UserServiceImpl implements UserService {
 		return userMapper.login(vo);
 	}
 
+	@Override
+	public int userUpdate(UserVO vo) {    //회원정보수정
+		return userMapper.userUpdate(vo);
+	}
+
+
+
 
 
 	
