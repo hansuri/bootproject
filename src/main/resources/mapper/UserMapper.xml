@@ -58,6 +58,19 @@
   						optradio = #{optradio}
   		Where user_num = #{user_num}
   	</update>
+  	
+  	
+  	<!-- 이력 list 조회 -->
+  	<select id="getHistory" resultType="HistoryVO">
+  		select ADOPT_LIST_NUM, 
+  				USER_ID, ADOPT_LIST_NAME, 
+  				ADOPT_LIST_TYPE, 
+  				ADOPT_LIST_CONTENT, 
+  				DATE_FORMAT(now(), '%Y-%m-%d') as ADOPT_LIST_DATE,
+  				<![CDATA[if(date_format(now(), '%Y-%m-%d') <= DATE_ADD(STR_TO_DATE(ADOPT_LIST_DATE, '%Y-%m-%d'), INTERVAL 3 DAY), '입양진행중', '입양완료') as ADOPT_LIST_PROGRESS]]>
+  		from ADOPTLIST 
+  		where user_id = #{user_id}
+  	</select>
 
 
   

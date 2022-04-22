@@ -115,3 +115,8 @@ tr {
     -webkit-transition: all 0.25s ease-in-out;
     font-size: 15px;
 }
+
+.content_ {
+	overflow: hidden;
+	width: 50%
+}

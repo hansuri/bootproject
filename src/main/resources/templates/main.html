@@ -101,7 +101,7 @@
 	                        </form>
 	                        
 	                        <div class="after_login">
-	                            <div class="form-group">
+	                            <div class="form-group af">
 	                                <label>이름</label>
 	                                <input type="text" class="form-control id" th:value="${session.userVO == null} ? '' : ${session.userVO.user_name} ">
 	                                <label class="opt" >선호 동물: [[${session.userVO == null} ? '' : ${session.userVO.user_like} ]]</label> <br>

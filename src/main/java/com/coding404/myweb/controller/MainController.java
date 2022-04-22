@@ -84,9 +84,12 @@ public class MainController {
 	
 	//로그아웃
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session,
+						 RedirectAttributes RA) {
 		
 		session.invalidate();
+		
+		RA.addFlashAttribute("msg", "로그아웃 되었습니다.");
 		
 		return "redirect:/main";
 	}

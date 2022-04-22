@@ -1,5 +1,6 @@
 package com.coding404.myweb.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coding404.myweb.command.HistoryVO;
 import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.user.UserService;
 
@@ -41,12 +43,21 @@ public class UserController {
 	//이력 화면처리
 	@GetMapping("/history")
 	public String history(HttpSession session,
+						  Model model,
 						  RedirectAttributes RA) {
 		
 		if(session.getAttribute("userVO") == null) {
 			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
 			return "redirect:/main";
 		}
+		
+		UserVO sessionVO = (UserVO)session.getAttribute("userVO");
+		String user_id = sessionVO.getUser_id();
+		
+		ArrayList<HistoryVO> list = userService.getHistory(user_id);
+		
+		model.addAttribute("list", list);
+		
 		
 		return "user/history";
 	}
