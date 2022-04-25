@@ -34,6 +34,12 @@ public class NoticeServiceImple implements NoticeService {
 		return noticeMapper.getTotal(cri);
 	}
 
+	@Override
+	public NoticeVO modalDetail(String num) {
+		
+		return noticeMapper.modalDetail(num);
+	}
+
 	
 	
 }

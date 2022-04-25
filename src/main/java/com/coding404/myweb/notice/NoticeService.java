@@ -12,6 +12,8 @@ public interface NoticeService {
 	public ArrayList<NoticeVO> getList(Criteria cri);
 
 	public int getTotal(Criteria cri);
+	
+	public NoticeVO modalDetail(String num);
 		
 		
 

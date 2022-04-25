@@ -17,4 +17,6 @@ public interface NoticeMapper {
 	
 	public int getTotal(Criteria cri);
 	
+	public NoticeVO modalDetail(String num);
+	
 }

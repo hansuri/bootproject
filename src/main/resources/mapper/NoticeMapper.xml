@@ -47,6 +47,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
 	</select>
 	
 	
+	<select id="modalDetail" resultType="com.coding404.myweb.command.NoticeVO">
+		select * from ADMIN_LIST where ad_list_num = #{num}
+	</select>
+	
+	
 	
 
 

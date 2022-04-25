@@ -40,13 +40,13 @@ public class PageVO {
 		 * page가 15라면 -> 끝페이지 번호 20
 		 * 공식 = (int)Math.ceil( 조회하는 페이지 / 페이지네이션 개수 ) * 페이지네이션 개수 
 		*/
-		this.end = (int)Math.ceil( this.page / 10.0 ) * 10;
+		this.end = (int)Math.ceil( this.page / 5.0 ) * 5;
 		
 		/*
 		 * 2. 첫페이지 계산 
 		 * 공식 = 끝페이지 - 페이지네이션 개수 + 1 
 		 */
-		this.start = this.end - 10 + 1;
+		this.start = this.end - 5 + 1;
 		
 		/*
 		 * 3. 실제 끝페이지 번호 계산 
