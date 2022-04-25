@@ -63,7 +63,8 @@
   	<!-- 이력 list 조회 -->
   	<select id="getHistory" resultType="HistoryVO">
   		select ADOPT_LIST_NUM, 
-  				USER_ID, ADOPT_LIST_NAME, 
+  				USER_ID, 
+  				ADOPT_LIST_NAME, 
   				ADOPT_LIST_TYPE, 
   				ADOPT_LIST_CONTENT, 
   				DATE_FORMAT(now(), '%Y-%m-%d') as ADOPT_LIST_DATE,
