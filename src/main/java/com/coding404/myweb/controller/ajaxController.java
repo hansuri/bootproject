@@ -30,6 +30,9 @@ public class ajaxController {
 		
 		//System.out.println(filepath + "\\" + uuid + "_" + filename);
 		
+		System.out.println(filepath);
+		System.out.println("asd");
+		
 		File file = new File(uploadpath + "\\" + filepath + "\\" + uuid + "_" + filename);
 		
 		byte[] result = null;

@@ -156,7 +156,7 @@
                                                                 <img class="upload-thumb" th:src="@{/img/plus_btn.png}">
                                                             </span>
                                                         </label>
-                                                        <input class="upload-name" value="파일선택" disabled="disabled">[[${valid_ANIMAL_FILENAME}]] [[${msg}]]
+                                                        <input class="upload-name" value="파일선택" disabled="disabled">
                                                         <input type="file" name="file" id="a_file" class="upload-hidden">
                                                     </div>
                                                 </div>
@@ -169,7 +169,7 @@
 
                                     <div class="btn_area">
                                         <input type="submit" class="save" value="등록">
-                                        <input type="button" class="delete" value="목록">
+                                        <input type="button" class="delete" th:onclick="location.href='/animal/animal_List'" value="목록">
                                     </div>
 
                                 </li>
@@ -189,16 +189,23 @@
 
     <th:block th:replace="~{/include/footer :: footer1}"></th:block>
     
+<script th:inline="javascript">
+
+(function() {
+	var msg = JSON.parse('[[${msg}]]');
+	if(msg != null) {
+		alert(msg);
+	}	
+})();
+	
+
+</script>
+
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 
 
 
 
-<script th:inline="javascript">
-
-	
-
-</script>
 
 
 

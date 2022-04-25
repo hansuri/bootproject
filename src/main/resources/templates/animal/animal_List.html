@@ -33,7 +33,13 @@
                             <div class="fl">
                                 <div>
                                     <span class="search_th">▶ 종류 검색</span>
-                                    <input type="text" class="searchType" placeholder="종류"> 
+                                    <select name="searchType">
+                                        <option value="">선택</option>
+                                        <option value="dog">강아지</option>
+                                        <option value="cat">고양이</option>
+                                        <option value="bird">새</option>
+                                        <option value="hamster">햄스터</option>
+                                    </select>
                                 </div>
         
                                 <div>
@@ -90,13 +96,13 @@
 						
                         
                         
-                        <div class="wrtie-btn">
-                            <input type="button" value="글쓰기" class="btn-write">
-                        </div>
                     
                     
                     
                     </div>
+                        <div class="wrtie-btn">
+                            <input type="button" value="글쓰기" class="btn-write" th:onclick="location.href='/animal/animal_Reg'">
+                        </div>
                     
                     <div class="text-center"><!-- 부트스트랩의 클래스-->
                         <ul class="pagination pagination-sm">
@@ -137,14 +143,13 @@
                         <div class="detail_right">
                             <span class="animal_content">참조내용 :  </span>
                             <p class="animal_content2">고구마를 좋아해요 </p>
-                            <p class="animal_content2">배변훈련이 필요해요 </p>
-                            <p class="animal_content2">논밭 배수로에서 발견됐어요 </p>
+                            
                         </div>
                         
                     </div>
                     
                     <div class="detail_pic">
-                        <img th:src="@{/img/hani.JPG}">
+                        <img  class="animal_pic" th:src="@{/img/hani.JPG}">
                         <span class="unlike" id="animal_like"> ❤ </span>
                     </div>
 
@@ -230,18 +235,37 @@
                 
                 $(".box").on("click",".ani_img" , function(e){
                 	
+                	
                 	var inner_HTML = ($(e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild));
                 	var inner_HTML = inner_HTML[0].innerHTML;
                 	console.log(inner_HTML)
+                	
+                	
+                	
                 	
                 	$.ajax({
                 	type:'GET',
                 	url:'/modalview?pk='+inner_HTML,
                 	success : function(data){
                 		console.log(data);
-                		console.log(data.animal_AGE);
-                		console.log($(".animal_age"));
-                		$(".animal_age").html(data.animal_AGE);
+                		
+                		console.log($(".animal_pic"));
+                		console.log("asd")
+                		console.log($(".animal_pic").attr("src"));
+                		
+                		$(".animal_num").html("동물번호:"+data.animal_NUM);
+                		$(".animal_type").html("종류:"+data.animal_TYPE);
+                		$(".animal_name").html("이름:"+data.animal_NAME);
+                		$(".animal_age").html("나이:"+data.animal_AGE);
+                		$(".animal_gender").html("성별:"+data.animal_GENDER);
+                		$(".animal_disease").html("질병유무:"+data.animal_DISEASE);
+                		$(".animal_surgery").html("중성화여부:"+data.animal_NEUTRAL);
+                		$(".animal_care").html("돌봄필요시간:"+data.animal_TIME);
+                		$(".animal_cost").html("돌봄유지비용:"+data.animal_COST);
+                		$(".animal_content2").html(data.animal_CONTENT);
+                		$(".animal_pic").attr("src","../display?filepath=" + data.animal_PATH +'&' + 'uuid=' + data.animal_UUID +'&' + 'filename=' + data.animal_FILENAME );
+                		
+                		
                 	}
   					
                 })
@@ -273,6 +297,17 @@
         
             </script>
 
+<script th:inline="javascript">
+
+(function() {
+	var msg = JSON.parse('[[${msg}]]');
+	if(msg != null) {
+		alert(msg);
+	}	
+})();
+	
+
+</script>
         
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 </html>

@@ -111,7 +111,10 @@ public class AnimalController {
 		
 		//1.빈 형태로 넘어오는 이미지 제거
 //		list = list.stream().filter((f) -> f.isEmpty() == false).collect(Collectors.toList());
-		
+//		if(vo.getANIMAL_FILENAME() ==null) {
+//			ra.addAttribute("msg", "사진은 필수입니다");
+//			return "redirect:/animal/animal_reg";
+//		}
 		
 		//2.업로드 된 확장자가 이미지만 가능하도록 처리
 //		for(MultipartFile f : list) {
@@ -126,6 +129,12 @@ public class AnimalController {
 		//3.파일 업로드 코드는 서비스 영역으로 위임
 		//vo를 등록
 		int result = animalService.regist(vo,f);
+		
+		if(result == 1 ) {
+			ra.addAttribute("msg", "동물을 등록했습니다.");
+		} else {
+			ra.addAttribute("msg", "동물 등록에 실패했습니다.");
+		}
 		
 		
 		
