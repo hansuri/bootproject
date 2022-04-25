@@ -64,7 +64,7 @@
                       
                             <tr th:each="vo, state : ${list}">  
                                 <td>[[${state.index + 1}]]</td>
-                                <th><a href="free_detail">[[${vo.free_list_title}]]</a></th>
+                                <th><a th:href="@{/free/free_detail(free_list_num=${vo.free_list_num})}">[[${vo.free_list_title}]]</a></th>
                                 <td>[[${vo.free_list_writer}]]</td>
                                 <td>[[${vo.free_list_date}]]</td>
                                 <td>[[${vo.free_list_views}]]</td>
@@ -96,6 +96,14 @@
 
     <th:block th:replace="~{/include/footer :: footer1}"></th:block>
     
+<script th:inline="javascript">
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null){
+			alert(msg);
+		}
+	})();
+</script>
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 
 </html>

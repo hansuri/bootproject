@@ -25,4 +25,26 @@ public class FreeServiceImpl implements FreeService{
 		return freeMapper.getList();
 	}
 
+	@Override
+	public FreeVO getDetail(int free_list_num) {
+		return freeMapper.getDetail(free_list_num);
+	}
+
+	@Override
+	public int delete(int free_list_num) {
+		return freeMapper.delete(free_list_num);
+	}
+
+	@Override
+	public int update(FreeVO vo) {
+		return freeMapper.update(vo);
+	}
+
+	@Override
+	public int viewsUpdate(int free_list_num) {
+		return freeMapper.viewsUpdate(free_list_num);
+	}
+
+
+
 }

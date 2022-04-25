@@ -22,7 +22,7 @@
             <h3 class="h3">자유게시판</h3>
             <hr>
 
-            <form class="freeDetailForm" action="####" method="###">
+            <form class="free_detail" name="updateForm" action="updateForm" method="post">
                 <div class="full_collum collum">
                     <ul>
                         <li class="collum_tit">
@@ -35,38 +35,44 @@
                                             <tr>
                                                 <th>글 번호</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" value="1" readonly required>
+                                                    <input type="text" class="inputw150" name="free_list_num" th:value="${freeVO.free_list_num}" readonly required>
+                                                    <!-- [[${freeVO.free_list_num}]] -->
+                                                    
                                                 </td>
 
 
                                                 <th>조회수</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" value="1" readonly required>
+                                                    <input type="text" class="inputw150" name="free_list_views" th:value="${freeVO.free_list_views}" readonly required>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>작성자</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" value="user" readonly required>
+                                                    <span type="text" class="inputw150" name="free_list_writer" th:value="${freeVO.free_list_writer}" readonly required>
+                                                	[[${freeVO.free_list_writer}]]
+                                                	</span>
                                                 </td>
 
                                                 <th>등록일</th>
-                                                <td>
-                                                    <input type="date" class="datepicker hasDatepicker" readonly required>
+                                                <td name="free_list_regdate" th:value="${freeVO.free_list_date}">
+                                                    <span type="date" class="datepicker hasDatepicker" readonly required>
+                                                	[[${freeVO.free_list_date}]]
+                                                    </span>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>게시글 종류</th>
-                                                <td>
-                                                    <select class="inputw150">
+                                                <td th:value="${freeVO.free_list_type}">
+                                                     <select class="inputw150" name="free_list_type">
                                                         <option value="선택">선택</option>
-                                                        <option value="info">정보</option>
-                                                        <option value="issue">이슈</option>
-                                                        <option value="fun">유머</option>
-                                                        <option value="after">후기</option>
-                                                        <option value="etc">기타</option>
+                                                        <option value="정보" th:selected="${freeVO.free_list_type == '정보'}">정보</option>
+                                                        <option value="이슈" th:selected="${freeVO.free_list_type == '이슈'}">이슈</option>
+                                                        <option value="유머" th:selected="${freeVO.free_list_type == '유머'}">유머</option>
+                                                        <option value="후기" th:selected="${freeVO.free_list_type == '후기'}">후기</option>
+                                                        <option value="기타" th:selected="${freeVO.free_list_type == '기타'}">기타</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -74,15 +80,16 @@
                                             <tr>
                                                 <th>제목</th>
                                                 <td colspan="5">
-                                                    <input type="text" class="inputw99p" required>
+                                                    <input type="text" class="inputw99p" name="free_list_title" th:value="${freeVO.free_list_title}" required >
                                                 </td>
+                                                
                                             </tr>
 
                                             <tr>
                                                 <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
-                                                        <textarea class="inputw99p" style="height: 200px;" required></textarea>
+                                                        <input type="text" name="free_list_content" th:value="${freeVO.free_list_content}" class="inputw99p" style="height: 200px;" required >
                                                     </div>
                                                 </td>
                                             </tr>
@@ -91,9 +98,9 @@
                                     </table>
 
                                     <div class="btn_area">
-                                        <input type="submit" class="save" value="수정">
-                                        <input type="button" class="delete" value="목록">
-                                        <input type="button" class="delete" value="삭제">
+                                        <input type="submit" class="save"  value="수정" onclick="updateHandler()">
+                                        <input type="button" class="delete" value="목록" th:onclick="location.href='/free/free_list'">
+                                        <input type="button" class="delete" value="삭제" onclick="deleteHandler()">
                                     </div>
 
                                 </li>
@@ -195,6 +202,32 @@
 
     <th:block th:replace="~{/include/footer :: footer1}"></th:block>
     
+    
+<script type="text/javascript">
+	
+	function deleteHandler() {
+		
+		document.updateForm.action = "freeDelete"
+		document.updateForm.submit();
+	}
+	
+	function updateHandler() {
+		if(document.updateForm.free_list_title.value == '') {
+			alert("제목은 필수 입니다.");
+			document.updateForm.free_list_title.focus();
+			return;
+		} else if(document.updateForm.free_list_content.value == '') {
+			alert("내용은 필수 입니다.");
+			document.updateForm.free_list_content.focus();
+			return;
+			
+		} else {
+			document.updateForm.action = "updateForm"
+			document.updateForm.submit();
+		}
+	}
+</script>
+
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 
 

@@ -22,4 +22,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" resultType="FreeVO">
 		select * from FREE_LIST
 	</select>
+	
+	<select id="getDetail" resultType="FreeVO">
+		select * from FREE_LIST
+		where free_list_num = #{free_list_num}
+	</select>
+
+	<update id="update">
+		update FREE_LIST
+		set free_list_type = #{free_list_type},
+			free_list_title = #{free_list_title},
+			free_list_content = #{free_list_content}
+			
+		where free_list_num = #{free_list_num}
+	</update>
+	
+	<delete id="delete">
+		delete from FREE_LIST
+		where free_list_num = #{free_list_num}
+	</delete>
+	
+	<update id="viewsUpdate">
+		update FREE_LIST set free_list_views = free_list_views + 1 where free_list_num = #{free_list_num}
+	</update>
+	
 </mapper>
