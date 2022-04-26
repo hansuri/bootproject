@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coding404.myweb.command.CommentVO;
 import com.coding404.myweb.command.FreeVO;
 
 @Service("freeService")
@@ -44,6 +45,21 @@ public class FreeServiceImpl implements FreeService{
 	public int viewsUpdate(int free_list_num) {
 		return freeMapper.viewsUpdate(free_list_num);
 	}
+
+	@Override
+	public int CommentRegist(CommentVO vo) {
+		return freeMapper.CommentRegist(vo);
+	}
+
+	@Override
+	public ArrayList<CommentVO> getCommentList(int free_list_num) {
+		return freeMapper.getCommentList(free_list_num);
+	}
+
+//	@Override
+//	public int CommentUpdate(CommentVO vo) {
+//		return freeMapper.CommentUpdate(vo);
+//	}
 
 
 

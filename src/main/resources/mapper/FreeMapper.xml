@@ -46,4 +46,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update FREE_LIST set free_list_views = free_list_views + 1 where free_list_num = #{free_list_num}
 	</update>
 	
+	
+	<!-- 댓글 -->
+	<insert id="CommentRegist">
+		insert into COMMENT (
+							 comment_id,
+							 user_list_num,
+							 comment_content)
+		values (#{comment_id},
+				#{user_list_num},
+				#{comment_content}
+				)
+		
+	</insert>
+	
+	<select id="getCommentList" resultType="CommentVO">
+		select comment_id,
+			   comment_content,
+			   DATE_FORMAT(comment_date, '%Y-%m-%d %H:%i:%s')
+		from COMMENT
+		where user_list_num = #{free_list_num}
+	</select>
+	
+<!-- 	<update id="CommentUpdate">
+		update COMMENT 
+		set comment_content = #{comment_content}
+		where comment_num = #{comment_num} 
+	</update> -->
 </mapper>

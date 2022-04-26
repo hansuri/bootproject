@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coding404.myweb.command.CommentVO;
 import com.coding404.myweb.command.FreeVO;
 import com.coding404.myweb.free.FreeService;
 
@@ -51,9 +52,14 @@ public class FreeBoardController {
 		freeService.viewsUpdate(free_list_num);
 		model.addAttribute("freeVO", freeVO);
 		
-		return null;
+		ArrayList<CommentVO> list = freeService.getCommentList(free_list_num);
+		model.addAttribute("list", list);
+		
+		
+		return "free/free_detail";
 	}
 	
+
 	
 	//자유게시판 등록 폼
 	@PostMapping("/freeForm")
@@ -93,4 +99,15 @@ public class FreeBoardController {
 		
 		return "redirect:/free/free_list";
 	}
+	
+	//댓글등록
+	@PostMapping("/commentReg")
+	public String commentReg(CommentVO vo) {
+		
+		System.out.println(vo);
+		int result = freeService.CommentRegist(vo);
+		
+		return "redirect:/free/free_list";
+	}
+	
 }
