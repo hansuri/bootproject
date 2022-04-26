@@ -164,6 +164,7 @@ select {
     top: 20px;
     right: 25px;
     color: #4f4f4f;
+    cursor: pointer;
 }
 
 #article {

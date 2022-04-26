@@ -21,7 +21,9 @@
             <h3 class="h3">유기동물 LIST</h3>
             <hr>
 
-            <form class="noticeForm" action="####" method="###">
+
+            <form class="RegForm" action="RegForm" method="post" enctype="multipart/form-data">
+
                 <div class="full_collum collum">
                     <ul>
                         <li class="collum_tit">
@@ -34,7 +36,7 @@
                                             <tr>
                                                 <th>등록일</th>
                                                 <td colspan="5">
-                                                    <input type="date" class="datepicker hasDatepicker">
+                                                    <input type="date" class="datepicker hasDatepicker" th:value="${nowdate}" name="ANIMAL_DATE" readonly="readonly">
                                                 </td>
                                             </tr>
 
@@ -42,66 +44,74 @@
                                                 <th>아이디</th>
                                                 <td>
                                                     <input type="text" class="inputw150" value="admin" readonly required>
+                                                    
                                                 </td>
 
                                                 <th>동물 성별</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_GENDER" >
                                                         <option value="none">선택</option>
-                                                        <option value="m">수컷</option>
-                                                        <option value="w">암컷</option>
+                                                        <option value="m" th:selected="${anivo.ANIMAL_GENDER} == 'm'">수컷</option>
+                                                        <option value="w" th:selected="${anivo.ANIMAL_GENDER} == 'w'">암컷</option>
                                                     </select>
+                                                    [[${valid_ANIMAL_GENDER}]]
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>이름</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_NAME" th:value="${anivo.ANIMAL_NAME}" >
+                                                    [[${valid_ANIMAL_NAME}]]
                                                 </td>
 
                                                 <th>나이</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_AGE" th:value="${anivo.ANIMAL_AGE}" >
+                                                    [[${valid_ANIMAL_AGE}]]
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>동물 종류</th>
                                                 <td>
-                                                    <select class="inputw150">
-                                                        <option value="선택">선택</option>
-                                                        <option value="dog">강아지</option>
-                                                        <option value="cat">고양이</option>
-                                                        <option value="bird">새</option>
-                                                        <option value="hamster">햄스터</option>
+                                                    <select class="inputw150" name="ANIMAL_TYPE">
+                                                        <option value="">선택</option>
+                                                        <option value="dog" th:selected="${anivo.ANIMAL_TYPE} == 'dog' ? 'selected' ">강아지</option>
+                                                        <option value="cat" th:selected="${anivo.ANIMAL_TYPE} == 'cat' ? 'selected' ">고양이</option>
+                                                        <option value="bird" th:selected="${anivo.ANIMAL_TYPE} == 'bird' ? 'selected' ">새</option>
+                                                        <option value="hamster" th:selected="${anivo.ANIMAL_TYPE} == 'hamster' ? 'selected' ">햄스터</option>
                                                     </select>
+                                                    [[${valid_ANIMAL_TYPE}]]
                                                 </td>
 
                                                 <th>돌봄 필요 시간</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" required>
+                                                    <input type="text" class="inputw150" name="ANIMAL_TIME" th:value="${anivo.ANIMAL_TIME}">
+                                                    [[${valid_ANIMAL_TIME}]]
                                                 </td>
 
                                             </tr>
 
                                                 <th>동물 크기</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_SIZE">
                                                         <option value="선택">선택</option>
-                                                        <option value="l">대형</option>
-                                                        <option value="m">중형</option>
-                                                        <option value="s">소형</option>
+                                                        <option value="l" th:selected="${anivo.ANIMAL_SIZE} == 'l' ? 'selected' ">대형</option>
+                                                        <option value="m" th:selected="${anivo.ANIMAL_SIZE} == 'm' ? 'selected' ">중형</option>
+                                                        <option value="s" th:selected="${anivo.ANIMAL_SIZE} == 's' ? 'selected' ">소형</option>
                                                     </select>
+                                                    [[${valid_ANIMAL_SIZE}]]
                                                 </td>
 
                                                 <th>중성화 여부</th>
                                                 <td>
-                                                    <select class="inputw150">
-                                                        <option value="none">해당아님</option>
-                                                        <option value="y">중성화 ⭕</option>
-                                                        <option value="n">중성화 ❌</option>
+                                                    <select class="inputw150" name="ANIMAL_NEUTRAL">
+                                                        <option value="">해당아님</option>
+                                                        <option value="y" th:selected="${anivo.ANIMAL_NEUTRAL} == 'y' ? 'selected' ">중성화 ⭕</option>
+                                                        <option value="n" th:selected="${anivo.ANIMAL_NEUTRAL} == 'n' ? 'selected' ">중성화 ❌</option>
                                                     </select>
+                                                    [[${valid_ANIMAL_NEUTRAL}]]
                                                 </td>
 
                                             <tr>
@@ -112,16 +122,18 @@
                                             <tr>
                                                 <th>질병유무</th>
                                                 <td>
-                                                    <select class="inputw150">
+                                                    <select class="inputw150" name="ANIMAL_DISEASE">
                                                         <option value="선택">선택</option>
-                                                        <option value="y">유</option>
-                                                        <option value="n">무</option>
+                                                        <option value="y" th:selected="${anivo.ANIMAL_DISEASE} == 'y' ? 'selected' ">유</option>
+                                                        <option value="n" th:selected="${anivo.ANIMAL_DISEASE} == 'n' ? 'selected' ">무</option>
                                                     </select>
+                                                    [[${valid_ANIMAL_DISEASE}]]
                                                 </td>
 
                                                 <th>예상 유지 비용</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" placeholder="0만원" required>
+                                                    <input type="text" class="inputw150" placeholder="0만원" name="ANIMAL_COST" th:value="${anivo.ANIMAL_COST}" >
+                                                   [[${valid_ANIMAL_COST}]]
                                                 </td>
                                             </tr>
 
@@ -129,7 +141,8 @@
                                                 <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
-                                                        <textarea class="inputw99p textarea" style="height: 200px;" required></textarea>
+                                                        <textarea class="inputw99p textarea" style="height: 200px;" name="ANIMAL_CONTENT"  >[[${anivo.ANIMAL_CONTENT}]]</textarea>
+                                                        [[${valid_ANIMAL_CONTENT}]]
                                                     </div>
                                                 </td>
                                             </tr>
@@ -145,6 +158,7 @@
                                                                 <img class="upload-thumb" th:src="@{/img/plus_btn.png}">
                                                             </span>
                                                         </label>
+                                                        
                                                         <input class="upload-name" value="파일선택" disabled="disabled">
                                                         <input type="file" name="file" id="a_file" class="upload-hidden">
                                                     </div>
@@ -158,7 +172,7 @@
 
                                     <div class="btn_area">
                                         <input type="submit" class="save" value="등록">
-                                        <input type="button" class="delete" value="목록">
+                                        <input type="button" class="delete" th:onclick="location.href='/animal/animal_List'" value="목록">
                                     </div>
 
                                 </li>
@@ -178,7 +192,50 @@
 
     <th:block th:replace="~{/include/footer :: footer1}"></th:block>
     
+<script th:inline="javascript">
+
+(function() {
+	var msg = JSON.parse('[[${msg}]]');
+	if(msg != null) {
+		alert(msg);
+	}	
+})();
+	
+	
+	var save = document.querySelector(".save")
+	save.onclick = function(e){
+		
+		var file = document.querySelector(".upload-name")
+		if(file.value == "파일선택"){
+			alert("사진은 필수입니다");
+			e.preventDefault();
+		}
+
+		
+		
+	}
+	
+
+
+</script>
+
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </html>
