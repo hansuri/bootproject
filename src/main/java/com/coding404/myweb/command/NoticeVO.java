@@ -24,9 +24,8 @@ public class NoticeVO {
 	//글 등록
 	@NotBlank(message = "제목은 필수 입니다")
 	private String ad_list_title;
-	@NotBlank(message = "관리자만 작성 가능합니다")
 	private String ad_list_writer;
-	@NotBlank(message = "공지글 작성은 필수입니다")
+	@NotBlank(message = "글 작성은 필수입니다")
 	private String ad_list_content;
 	
 	

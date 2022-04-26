@@ -47,7 +47,8 @@
                                             <tr>
                                                 <th>제목</th>
                                                 <td colspan="5">
-                                                    <input type="text" class="inputw99p" name="ad_list_title" required>
+                                                    <input type="text" class="inputw99p" name="ad_list_title">
+                                                    <span class="valid">[[${valid_ad_list_title}]]</span>
                                                 </td>
                                             </tr>
 
@@ -55,7 +56,8 @@
                                                 <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
-                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;" required></textarea>
+                                                    	<span class="valid">[[${valid_ad_list_content}]]</span>
+                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;"></textarea>
                                                     </div>
                                                 </td>
                                             </tr>
