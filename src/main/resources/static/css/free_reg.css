@@ -21,6 +21,17 @@ li.collum_tit {
     min-width: 950px;
 }
 
+.a_header {
+	font-size: 50px;
+    letter-spacing: 30px;
+    text-align: center;
+    margin: 0;
+    padding-top: 55px;
+    height: 125px;
+    font-weight: bold;
+    color: #000;
+}
+
 .collum_tit h3 {
     display: inline-block;
     color: rgb(0, 0, 0);
