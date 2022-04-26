@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.coding404.myweb.user.UserMapper">
+  
+  	<!-- 회원가입 -->
+  	<insert id="join">
+  		insert into USER(user_id,
+						user_pw,
+						user_name,
+						user_age,
+						user_gen,
+						user_email,
+						user_phone,
+						user_salary,
+						user_size,
+						user_stay,
+						user_like,
+						optradio
+						)
+		values(#{user_id},
+				#{user_pw},
+				#{user_name},
+				concat(#{user_year},"-", #{user_month}, "-", #{user_day}),
+				#{user_gen},
+				#{user_email},
+				#{user_phone},
+				#{user_salary},
+				#{user_size},
+				#{user_stay},
+				#{user_like},
+				#{optradio}
+				)
+  	</insert>
+  	
+  	
+  	<!-- 로그인 -->
+  	<select id="login" resultType="UserVO">
+  		select * from USER where user_id = #{login_id} and user_pw = #{login_pw}
+  	</select>
+  	
+  	
+  	<!-- 회원정보수정 -->
+  	<update id="userUpdate">
+  		update USER set user_id = #{user_id},
+  						user_pw = #{user_pw},
+  						user_name = #{user_name},
+  						user_age = concat(#{user_year},"-", #{user_month}, "-", #{user_day}),
+  						user_gen = #{user_gen},
+  						user_email = #{user_email},
+  						user_phone = #{user_phone},
+  						user_salary = #{user_salary},
+  						user_size = #{user_size},
+  						user_stay = #{user_stay},
+  						user_like = #{user_like},
+  						optradio = #{optradio}
+  		Where user_num = #{user_num}
+  	</update>
+  	
+  	
+  	<!-- 이력 list 조회 -->
+  	<select id="getHistory" resultType="HistoryVO">
+  		select ADOPT_LIST_NUM, 
+  				USER_ID, 
+  				ADOPT_LIST_NAME, 
+  				ADOPT_LIST_TYPE, 
+  				ADOPT_LIST_CONTENT, 
+  				DATE_FORMAT(now(), '%Y-%m-%d') as ADOPT_LIST_DATE,
+  				<![CDATA[if(date_format(now(), '%Y-%m-%d') <= DATE_ADD(STR_TO_DATE(ADOPT_LIST_DATE, '%Y-%m-%d'), INTERVAL 3 DAY), '입양진행중', '입양완료') as ADOPT_LIST_PROGRESS]]>
+  		from ADOPTLIST 
+  		where user_id = #{user_id}
+  	</select>
+
+
+  
+ </mapper>

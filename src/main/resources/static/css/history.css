@@ -3,7 +3,7 @@
     background-color: #fff;
 }
 
-body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, a, pre {
+body, p, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, pre {
     padding: 0px;
     margin: 0px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -114,4 +114,9 @@ tr {
     transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
     font-size: 15px;
+}
+
+.content_ {
+	overflow: hidden;
+	width: 50%
 }
