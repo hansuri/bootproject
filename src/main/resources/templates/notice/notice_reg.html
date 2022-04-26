@@ -19,7 +19,7 @@
             <h3 class="h3">공지</h3>
             <hr>
 
-            <form class="notcieForm" action="####" method="###">
+            <form class="noticeForm" action="noticeForm" method="post">
                 <div class="full_collum collum">
                     <ul>
                         <li class="collum_tit">
@@ -32,21 +32,23 @@
                                             <tr>
                                                 <th>등록일</th>
                                                 <td colspan="5">
-                                                    <input type="date" class="datepicker hasDatepicker">
+                                                    <input type="date" class="datepicker hasDatepicker" value="[[${#temporals.format(vo.prod_regdate, 'yyyy-MM-dd') }]]">
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>아이디</th>
                                                 <td>
-                                                    <input type="text" class="inputw150" value="admin" readonly required>
+                                                    <input type="text" class="inputw150" name="admin_id" value="admin" readonly required>
+                                                   <!-- <span class="valid">[[${valid_admin_id}]]</span>  --> 
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <th>제목</th>
                                                 <td colspan="5">
-                                                    <input type="text" class="inputw99p" required>
+                                                    <input type="text" class="inputw99p" name="ad_list_title">
+                                                    <span class="valid">[[${valid_ad_list_title}]]</span>
                                                 </td>
                                             </tr>
 
@@ -54,7 +56,8 @@
                                                 <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
-                                                        <textarea class="inputw99p" style="height: 200px;" required></textarea>
+                                                    	<span class="valid">[[${valid_ad_list_content}]]</span>
+                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;"></textarea>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -63,8 +66,8 @@
                                     </table>
 
                                     <div class="btn_area">
-                                        <input type="submit" class="save" value="등록">
-                                        <input type="button" class="delete" value="목록">
+                                        <input type="submit" class="save" value="등록" >
+                                        <input type="button" class="delete" value="목록" th:onclick="|location.href='@{/notice/notice}'|">
                                     </div>
 
                                 </li>
@@ -78,7 +81,26 @@
     </section>
 
 
-
+	<script th:inline="javascript">
+	
+	//메세지 출력문
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+	
+	//목록으로 이동버튼 
+		/* var listBtn = document.getElementById("listBtn");
+		listBtn.onclick = function() {
+		
+		event.preventDefault(); 
+		document.notice.submit();
+		
+	} */
+	
+</script>
 
 
 
