@@ -121,7 +121,7 @@ public class AnimalController {
 			if(f.getContentType().contains("image") == false) { //이미지를 포함하고 있지 않은경우
 				ra.addFlashAttribute("msg", "jpg,png,jpeg 이미지 형식만 등록가능");
 				
-				return "redirect:/animal/animal_reg";
+				return "redirect:/animal/animal_Reg";
 				
 			}
 		

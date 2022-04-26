@@ -156,6 +156,7 @@
                                                                 <img class="upload-thumb" th:src="@{/img/plus_btn.png}">
                                                             </span>
                                                         </label>
+                                                        
                                                         <input class="upload-name" value="파일선택" disabled="disabled">
                                                         <input type="file" name="file" id="a_file" class="upload-hidden">
                                                     </div>
@@ -198,6 +199,21 @@
 	}	
 })();
 	
+	
+	var save = document.querySelector(".save")
+	save.onclick = function(e){
+		
+		var file = document.querySelector(".upload-name")
+		if(file.value == "파일선택"){
+			alert("사진은 필수입니다");
+			e.preventDefault();
+		}
+
+		
+		
+	}
+	
+
 
 </script>
 
