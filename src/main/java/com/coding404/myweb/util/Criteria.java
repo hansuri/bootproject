@@ -10,13 +10,13 @@ public class Criteria {
 	private int amount;
 	
 	//검색키워드 추가 
-//	private String searchTitle;
-//	private String searchContent;
-//	private String startDate;
-//	
+	private String searchType;
+	private String searchAge;
+	private String searchMW;
+	
 	
 	public Criteria() {
-		this(1, 10);
+		this(1, 8);
 	}
 	
 	public Criteria(int page, int amount) {

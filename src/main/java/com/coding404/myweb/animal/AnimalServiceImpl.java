@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.coding404.myweb.command.RecVO;
 import com.coding404.myweb.command.animalVO;
+import com.coding404.myweb.util.Criteria;
 
 @Service("AnimalService")
 public class AnimalServiceImpl implements AnimalService {
@@ -91,10 +93,10 @@ public class AnimalServiceImpl implements AnimalService {
 	
 	
 	@Override
-	public ArrayList<animalVO> getdetail() {
+	public ArrayList<animalVO> getdetail(Criteria cri) {
 		
 		
-		return animalMapper.getdetail();
+		return animalMapper.getdetail(cri);
 	}
 
 
@@ -104,6 +106,21 @@ public class AnimalServiceImpl implements AnimalService {
 		
 		
 		return animalMapper.modalview(pk);
+	}
+
+
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		return animalMapper.getTotal(cri);
+	}
+
+
+	@Override
+	public ArrayList<RecVO> getrec(String User_id) {
+		
+		
+		return animalMapper.getrec(User_id);
 	}
 	
 	

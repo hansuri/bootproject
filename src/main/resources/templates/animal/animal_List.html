@@ -6,6 +6,7 @@
 	<link rel="stylesheet" th:href="@{/css/common.css}">
 	<link rel="stylesheet" th:href="@{/css/animalList.css}">
 	<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+	
 
 
 
@@ -28,7 +29,12 @@
                     <h3 class="h3">유기 동물</h3>
                     <hr>
             
-                    <form name="animalList" action="###" method="get">
+                    <form name="animal_List" action="animal_List" method="get">
+                    	
+                    	<input type="hidden" name="page" th:value="1">
+                    	<input type="hidden" name="amount" th:value="${pageVO.amount}">
+                    	
+                    
                         <div class="search_block flfull">
                             <div class="fl">
                                 <div>
@@ -44,7 +50,7 @@
         
                                 <div>
                                     <span class="search_th">▶ 나이 검색</span>
-                                    <input type="text" class="searchAge" placeholder="나이">
+                                    <input type="text" class="searchAge" name="searchAge" placeholder="나이">
                                 </div>
         
                                 <div class="sel">
@@ -104,7 +110,7 @@
                             <input type="button" value="글쓰기" class="btn-write" th:onclick="location.href='/animal/animal_Reg'">
                         </div>
                     
-                    <div class="text-center"><!-- 부트스트랩의 클래스-->
+                   <!--  <div class="text-center">부트스트랩의 클래스
                         <ul class="pagination pagination-sm">
                             <li><a href="#">이전</a></li>
                             <li><a href="#">1</a></li>
@@ -114,7 +120,133 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">다음</a></li>
                         </ul>
-                    </div>
+                    </div> -->
+                    <!-- 페이지네이션 -->
+	<!-- 	        <div class="page text-center">
+					<ul class="pagination pagination-sm">
+					<th:block th:if="${pageVO.realEnd != 0}">
+						<li><a th:href="@{/animal/animal_List(page=1, amount=${pageVO.amount})}"><<
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.prev}">
+						<li style="margin-right:5px;">
+							<a th:href="@{/animal/animal_List(page=${pageVO.start - 1}, amount=${pageVO.amount}) }"><
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					<th:block th:each="page : ${pageVO.pageList}">
+						<li th:class="${pageVO.page == page ? 'on' : '' }">
+							<a th:href="@{/animal/animal_List(page=${page}, amount=${pageVO.amount}) }">[[${page}]]</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.next}">
+						<li style="margin-left:5px;">
+							<a th:href="@{/animal/animal_List(page=${pageVO.end + 1}, amount=${pageVO.amount}) }">>
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+						
+					<th:block th:if="${pageVO.next}">	
+						<li>
+							<a th:href="@{/animal/animal_List(page=${pageVO.realEnd}, amount=${pageVO.amount}) }">>>
+								<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					</ul>
+				</div> -->
+                    
+                    
+                    <!-- <th:block th:replace="~{/include/page_animal&rec_list :: page('/animal/animal_list',${PageVO})}"></th:block> -->
+    
+	<div class="page text-center col-md-12 col-sm-6 col-xs-4">
+	<ul class="pagination pagination-sm">
+	<th:block th:if="${pageVO.realEnd != 0}">
+		<li><a th:href="@{${pageName}(page=1, 
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}"><<
+											    
+				<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+		
+		
+	<th:block th:if="${pageVO.prev}">
+		<li style="margin-right:5px;">
+			<a th:href="@{${pageName}(page=${pageVO.start - 1},
+			 								   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}"><
+											   
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+	<th:block th:each="page : ${pageVO.pageList}">
+		<li th:class="${pageVO.page == page ? 'on' : '' }">
+			<a th:href="@{${pageName}(page=${page},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">[[${page}]]</a>
+											    
+		</li>
+	</th:block>
+		
+		
+	<th:block th:if="${pageVO.next}">
+		<li style="margin-left:5px;">
+			<a th:href="@{${pageName}(page=${pageVO.end + 1},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">>
+											   
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+		
+	<th:block th:if="${pageVO.next}">	
+		<li>
+			<a th:href="@{${pageName}(page=${pageVO.realEnd},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">">>"
+											   
+				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+	</ul>
+	</div>
+									
+	
+
                 </div>
             </div>    
         </div>
@@ -307,7 +439,32 @@
 })();
 	
 
+ var searchBtn = document.getElementById("searchBtn");
+ searchBtn.onclick = function(){
+	 console.log(1);
+	 
+	 event.preventDefault();
+	 document.animal_List.submit();
+	 
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
-        
+
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 </html>

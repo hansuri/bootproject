@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coding404.myweb.animal.AnimalService;
+import com.coding404.myweb.command.RecVO;
+import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.animalVO;
+import com.coding404.myweb.util.Criteria;
 
 @Controller
 @RequestMapping("/rec")
@@ -37,12 +41,24 @@ public class RecController {
 	
 	//동물게시판 화면처리
 	@GetMapping("/rec_list")
-	public String animal_List(Model model) {
+	public String animal_List(Model model , Criteria cri,
+							  RedirectAttributes ra,
+							  HttpSession session) {
 		
-		ArrayList<animalVO> list =  animalService.getdetail();
+		UserVO vo = (UserVO)session.getAttribute("userVO");
 		
-		System.out.println(list.toString());
-		model.addAttribute("animal" , list);
+		if(vo == null) {
+			ra.addFlashAttribute("msg", "로그인 후 사용가능 합니다");
+			return "redirect:/main";
+		}
+		
+		String user_id = vo.getUser_id();
+		
+		ArrayList<RecVO> reclist = animalService.getrec(user_id);
+		
+		model.addAttribute("reclist", reclist);
+		
+	
 		
 		
 		return "rec/rec_list";

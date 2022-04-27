@@ -31,64 +31,29 @@
             <h3 class="h3">추천 동물</h3>
             <hr>
 
-            <form name="animalList" action="###" method="get">
-                <div class="search_block flfull">
-                    <div class="fl">
-                        <div>
-                            <span class="search_th">▶ 종류 검색</span>
-                                    <select name="searchType">
-                                        <option value="">선택</option>
-                                        <option value="dog">강아지</option>
-                                        <option value="cat">고양이</option>
-                                        <option value="bird">새</option>
-                                        <option value="hamster">햄스터</option>
-                                    </select> 
-                        </div>
-
-                        <div>
-                            <span class="search_th">▶ 나이 검색</span>
-                            <input type="text" class="searchAge" placeholder="나이">
-                        </div>
-
-                        <div class="sel">
-                            <span class="search_th">성별 검색</span>
-                            <select name="searchMW">
-                                <option value="">선택</option>
-                                <option value="m">수컷</option>
-                                <option value="w">암컷</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="fr">
-                        <div class="search_btn_are">
-                            <a href="##" class="normal_btn purplebtn" id="searchBtn">검색</a>
-                        </div>
-                    </div>
-                </div>
-            </form>
+           
 
             <hr>
             <div class="row">
-            <th:block th:each=" anivo : ${animal}">
+            <th:block th:each=" recvo : ${reclist}">
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
                             <div class="ani_img">
-                                <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
+                                <img th:src="@{../display(filepath=${recvo.ANIMAL_PATH}, uuid=${recvo.ANIMAL_UUID} , filename=${recvo.ANIMAL_FILENAME})}" alt="이미지">
                             </div>
                             
                             
                             <div class="boxDetail">
                                 <div class="boxLeft">
-                                	<span>[[${anivo.ANIMAL_NUM}]]</span>
-                                    <span>이름:[[${anivo.ANIMAL_NAME}]]</span>
-                                    <span>종류:[[${anivo.ANIMAL_TYPE}]]</span>
-                                    <span>나이:[[${anivo.ANIMAL_AGE}]]</span>
-                                    <span>성별:[[${anivo.ANIMAL_GENDER}]]</span>
+                                	<span>[[${recvo.ANIMAL_NUM}]]</span>
+                                    <span>이름:[[${recvo.ANIMAL_NAME}]]</span>
+                                    <span>종류:[[${recvo.ANIMAL_TYPE}]]</span>
+                                    <span>나이:[[${recvo.ANIMAL_AGE}]]</span>
+                                    <span>성별:[[${recvo.ANIMAL_GENDER}]]</span>
                                     
                                 </div>
                                 
                                 <div class="boxRight">
-                                    <span>등록일:[[${anivo.ANIMAL_DATE}]]</span>
+                                    <span>등록일:[[${recvo.ANIMAL_DATE}]]</span>
                                 </div>
                             </div>
                             
@@ -244,18 +209,7 @@
             </div>
  -->
         </div>
-            <div class="text-center"><!-- 부트스트랩의 클래스-->
-                <ul class="pagination pagination-sm">
-                    <li><a href="#">이전</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">다음</a></li>
-                </ul>
-            </div>
-
+            
 
         <div class="container col-x" id="modal">
             <h3>상세보기</h3>

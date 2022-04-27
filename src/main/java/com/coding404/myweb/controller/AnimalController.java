@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coding404.myweb.animal.AnimalService;
+import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.animalVO;
+import com.coding404.myweb.util.Criteria;
+import com.coding404.myweb.util.PageVO;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 
 
@@ -39,27 +43,52 @@ public class AnimalController {
 	
 	//동물등록 화면처리
 	@GetMapping("/animal_Reg")
-	public String animal_Reg(Model model) {
+	public String animal_Reg(Model model,
+							HttpSession session,
+							RedirectAttributes ra) {
+		
+		UserVO vo = (UserVO)session.getAttribute("userVO");
+		
+		if(vo == null) {
+			ra.addFlashAttribute("msg", "관리자만 사용가능한 기능입니다");
+			return "redirect:/animal/animal_List";
+		}
 		
 		
+		if(vo.getUser_id().contains("admin")) {
+			
+			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+			String nowdate = sd.format(new Date());
+			
+			model.addAttribute("anivo", new animalVO());
+			model.addAttribute("nowdate", nowdate);
+			
+			return "animal/animal_Reg";
+		}else {
+			ra.addFlashAttribute("msg", "관리자만 사용가능한 기능입니다");
+			return "redirect:/animal/animal_List";
+		}
 		
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		String nowdate = sd.format(new Date());
 		
-		model.addAttribute("anivo", new animalVO());
-		model.addAttribute("nowdate", nowdate);
-		
-		return "animal/animal_Reg";
 	}
 	
 	//동물게시판 화면처리
 	@GetMapping("/animal_List")
-	public String animal_List(Model model) {
+	public String animal_List(Model model , Criteria cri) {
 		
-		ArrayList<animalVO> list =  animalService.getdetail();
+		System.out.println(cri.toString());
+		System.out.println("test");
 		
-		System.out.println(list.toString());
+		
+		ArrayList<animalVO> list =  animalService.getdetail(cri);
+		int total = animalService.getTotal(cri);
+		PageVO pageVO = new PageVO(cri,total);
+		
+		
 		model.addAttribute("animal" , list);
+		model.addAttribute("pageVO", pageVO);
+		
+		
 		
 		
 		return "animal/animal_List";
