@@ -38,6 +38,7 @@ public class MainController {
 		ArrayList<NoticeVO> noticeList = userService.getNoticeNew();
 		model.addAttribute("noticeList", noticeList);
 		
+		//게시글 데이터 가져오기
 		ArrayList<FreeVO> freeList = userService.getFreeNew();
 		model.addAttribute("freeList", freeList);
 		ArrayList<FreeVO> freeInfoList = userService.getInfoNew();
