@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.coding404.myweb.command.CommentVO;
 import com.coding404.myweb.command.FreeVO;
+import com.coding404.myweb.util.Criteria;
+import com.coding404.myweb.util.Criteria3;
 
 @Service("freeService")
 public class FreeServiceImpl implements FreeService{
@@ -22,8 +24,8 @@ public class FreeServiceImpl implements FreeService{
 	
 	//목록
 	@Override
-	public ArrayList<FreeVO> getList() {
-		return freeMapper.getList();
+	public ArrayList<FreeVO> getList(Criteria3 cri) {
+		return freeMapper.getList(cri);
 	}
 
 	@Override
@@ -54,6 +56,11 @@ public class FreeServiceImpl implements FreeService{
 	@Override
 	public ArrayList<CommentVO> getCommentList(int free_list_num) {
 		return freeMapper.getCommentList(free_list_num);
+	}
+
+	@Override
+	public int getTotal(Criteria3 cri) {
+		return freeMapper.getTotal(cri);
 	}
 
 //	@Override

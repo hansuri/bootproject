@@ -15,6 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.coding404.myweb.command.CommentVO;
 import com.coding404.myweb.command.FreeVO;
 import com.coding404.myweb.free.FreeService;
+import com.coding404.myweb.util.Criteria;
+import com.coding404.myweb.util.Criteria3;
+import com.coding404.myweb.util.Page3VO;
+import com.coding404.myweb.util.PageVO;
 
 @Controller
 @RequestMapping("/free")
@@ -34,11 +38,14 @@ public class FreeBoardController {
 	
 	//자유게시판 화면처리
 	@GetMapping("free_list")
-	public String free_list(Model model) {
+	public String free_list(Model model, Criteria3 cri) {
 		
-		ArrayList<FreeVO> list = freeService.getList();
+		ArrayList<FreeVO> list = freeService.getList(cri);
+		int total = freeService.getTotal(cri);
+		Page3VO pageVO = new Page3VO(cri, total);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
 		
 		return "free/free_list";
 	}
