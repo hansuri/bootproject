@@ -37,12 +37,13 @@
                 <div class="container full_collum">
                     <div class="search-window">
                         <div class="search-wrap">
-                            <select>
-                                <option>제목</option>
-                                <option>내용</option>
+                            <select name="searchType">
+                                <option value="searchTitle" >제목</option>
+                                <option value="searchContent">내용</option>
+                                <option value="searchWriter">작성자</option>
                             </select>
-                            <input id="search" type="search" name="" placeholder="검색어를 입력해주세요.">
-                            <button type="button" class="btn btn-dark">검색</button>
+                            <input id="search" type="text" name="search" placeholder="검색어를 입력해주세요.">
+                            <a href="#" class="btn btn-dark" id="searchBtn">검색</a>
                         </div>                        
                     </div>
                 </div>
@@ -72,20 +73,61 @@
   
                         </tbody>
                     </table>
+                    <!-- 글쓰기버튼 -->
                     <div class="wrtie-btn">
                         <input type="button" value="글쓰기" class="btn-write" onclick="location.href='free_reg';">
                     </div>
-                    <div class="text-center"><!-- 부트스트랩의 클래스-->
-                        <ul class="pagination pagination-sm">
-                            <li><a href="#">이전</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">다음</a></li>
-                        </ul>
-                    </div>
+                    
+                    <!-- 페이지네이션 -->
+                    <div class="page text-center col-md-12 col-sm-6 col-xs-4">
+					<ul class="pagination pagination-sm">
+					<th:block th:if="${pageVO.realEnd != 0}">
+						<li><a th:href="@{/free/free_list(page=1, amount=${pageVO.amount},
+																  search=${pageVO.cri.search})}"><<
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.prev}">
+						<li style="margin-right:5px;">
+							<a th:href="@{/free/free_list(page=${pageVO.start - 1}, amount=${pageVO.amount},
+																					search=${pageVO.cri.search}) }"><
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					<th:block th:each="page : ${pageVO.pageList}">
+						<li th:class="${pageVO.page == page ? 'on' : '' }">
+							<a th:href="@{/free/free_list(page=${page}, amount=${pageVO.amount},
+																		search=${pageVO.cri.search}) }">[[${page}]]</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.next}">
+						<li style="margin-left:5px;">
+							<a th:href="@{/free/free_list(page=${pageVO.end + 1}, amount=${pageVO.amount},
+																				  search=${pageVO.cri.search}) }">>
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+						
+					<th:block th:if="${pageVO.next}">	
+						<li>
+							<a th:href="@{/free/free_list(page=${pageVO.realEnd}, amount=${pageVO.amount},
+																				  search=${pageVO.cri.search}) }">>>
+								<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					</ul>
+				</div>
                 </div>
             </div>
 
@@ -103,6 +145,13 @@
 			alert(msg);
 		}
 	})();
+	
+	var searchBtn = document.getElementById("searchBtn");
+	searchBtn.onclick = function() {
+		
+		event.preventDefault();
+		document.free_list.submit();
+	}
 </script>
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
 

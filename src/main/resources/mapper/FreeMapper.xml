@@ -19,9 +19,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			
 	</insert>
 	
+	
+	
+	
 	<select id="getList" resultType="FreeVO">
-		select * from FREE_LIST
+		<!-- select * from FREE_LIST -->
+		
+		<![CDATA[
+		select * 
+		from (select  A.*,
+			  		  @ROWNUM := @ROWNUM + 1 as RN
+	  		  from ( select *
+			 		 from FREE_LIST where 1=1
+		]]>
+						<if test="searchType != '' and  searchType != null" >
+							<if test="searchType == 'searchTitle'">
+								<![CDATA[AND FREE_LIST_TITLE LIKE CONCAT('%', #{search}, '%' ) ]]>
+							</if>
+						</if>
+						
+						<if test="searchType != '' and  searchType != null">
+							<if test="searchType == 'searchContent'">
+								<![CDATA[AND FREE_LIST_CONTENT LIKE CONCAT('%', #{search}, '%' ) ]]>
+							</if>
+						</if>
+						
+						<if test="searchType != '' and searchType != null">
+							<if test="searchType == 'searchWriter'">
+								<![CDATA[AND FREE_LIST_WRITER LIKE CONCAT('%', #{search}, '%' ) ]]>
+							</if>
+						</if>
+			 		 order by free_list_num DESC) A, (select @ROWNUM := 0)D
+		) B 
+		<![CDATA[
+		where RN > ( #{page}-1 ) * #{amount} and RN <=  #{page} * #{amount}
+		]]>
 	</select>
+	
+	
+	
 	
 	<select id="getDetail" resultType="FreeVO">
 		select * from FREE_LIST
@@ -46,6 +82,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update FREE_LIST set free_list_views = free_list_views + 1 where free_list_num = #{free_list_num}
 	</update>
 	
+	<select id="getTotal" resultType="int">
+		select count(*) as total
+		from FREE_LIST where 1=1
+		<if test="searchType != '' and  searchType != null" >
+			<if test="searchType == 'searchTitle'">
+				<![CDATA[AND FREE_LIST_TITLE LIKE CONCAT('%', #{search}, '%' ) ]]>
+			</if>
+		</if>
+		
+		<if test="searchType != '' and  searchType != null">
+			<if test="searchType == 'searchContent'">
+				<![CDATA[AND FREE_LIST_CONTENT LIKE CONCAT('%', #{search}, '%' ) ]]>
+			</if>
+		</if>
+		
+		<if test="searchType != '' and searchType != null">
+			<if test="searchType == 'searchWriter'">
+				<![CDATA[AND FREE_LIST_WRITER LIKE CONCAT('%', #{search}, '%' ) ]]>
+			</if>
+		</if>
+ 	</select>
 	
 	<!-- 댓글 -->
 	<insert id="CommentRegist">
@@ -73,4 +130,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set comment_content = #{comment_content}
 		where comment_num = #{comment_num} 
 	</update> -->
+	
+	
 </mapper>
