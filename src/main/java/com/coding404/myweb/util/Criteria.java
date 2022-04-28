@@ -9,11 +9,7 @@ public class Criteria {
 	private int page;
 	private int amount;
 	
-	//검색키워드 추가 
-//	private String searchTitle;
-//	private String searchContent;
-//	private String startDate;
-//	
+
 	
 	public Criteria() {
 		this(1, 10);

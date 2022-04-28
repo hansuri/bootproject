@@ -20,22 +20,23 @@
                 <h3 class="h3 col-md-12 col-sm-6 col-xs-4">공지게시판</h3>
                 <hr class="col-md-11 col-sm-6 col-xs-4">
 
-<!-- 공지글 목 -->
+<!-- 공지글 목록 -->
                 <div class="list_wrap col-md-11 col-sm-7 col-xs-5">
                 
-                	<th:block th:each="vo : ${list}">
-                    <div class="list">
+                	<th:block>
+                    <div class="list" th:each="vo, state : ${list}">
                         <ul>
                             <li>
-                                <span class="content">
-                                    <p class="num">[[${vo.ad_list_num}]]</p>
+                                <span class="content" >
+                               		<p class="num">[[${state.index+1}]]</p>
+                                   	<p style="display : none" class="num" >[[${vo.ad_list_num}]]</p>
                                     <a href="##"><p class="title">[[${vo.ad_list_title}]]</p></a>
                                     <p class="date">[[${#temporals.format(vo.ad_list_date, 'yyyy-MM-dd') }]]</p>
                                     <p class="id">[[${vo.admin_id}]]</p>
                                 </span>
                             </li>
                         </ul>
-                    </div>
+                    </div> 
                     </th:block>
                 </div>
 
