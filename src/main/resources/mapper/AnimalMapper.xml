@@ -63,13 +63,13 @@
   						<![CDATA[and ANIMAL_GENDER = #{searchMW}]]>
   						</if>
   						
-  						order by animal_num)A, (select @ROWNUM :=0)D
+  						order by animal_num DESC)A, (select @ROWNUM :=0)D
   				
   				
   				
   		<![CDATA[	
   				) B
-  		where RN >= (#{page}-1) *#{amount} and RN <= #{page} * #{amount}
+  		where RN > (#{page}-1) *#{amount} and RN <= #{page} * #{amount}
   		
   		
   		]]>
@@ -129,7 +129,15 @@
 			limit 0, 12;
   	</select>
   	
+  	<!-- 이력추가 -->
+  	<insert id="insertHistory">
+  		insert into ADOPTLIST(USER_ID, ADOPT_LIST_NAME, ADOPT_LIST_TYPE, ADOPT_LIST_CONTENT)
+  		values(#{user_id}, #{adopt_list_name}, #{adopt_list_type}, #{adopt_list_content})
+  	</insert>
   	
+  	<delete id="deleteAnimal">
+  		delete from ANIMAL where ANIMAL_NUM = #{num}
+  	</delete>
   	
   	
   </mapper>

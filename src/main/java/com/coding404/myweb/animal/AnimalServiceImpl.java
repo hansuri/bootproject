@@ -1,6 +1,7 @@
 package com.coding404.myweb.animal;
 
 import java.io.File;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,9 +13,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.coding404.myweb.command.HistoryVO;
 import com.coding404.myweb.command.RecVO;
 import com.coding404.myweb.command.animalVO;
-import com.coding404.myweb.util.Criteria;
+
+import com.coding404.myweb.util.Criteria2;
+
 
 @Service("AnimalService")
 public class AnimalServiceImpl implements AnimalService {
@@ -93,7 +97,7 @@ public class AnimalServiceImpl implements AnimalService {
 	
 	
 	@Override
-	public ArrayList<animalVO> getdetail(Criteria cri) {
+	public ArrayList<animalVO> getdetail(Criteria2 cri) {
 		
 		
 		return animalMapper.getdetail(cri);
@@ -110,7 +114,7 @@ public class AnimalServiceImpl implements AnimalService {
 
 
 	@Override
-	public int getTotal(Criteria cri) {
+	public int getTotal(Criteria2 cri) {
 		
 		return animalMapper.getTotal(cri);
 	}
@@ -121,6 +125,19 @@ public class AnimalServiceImpl implements AnimalService {
 		
 		
 		return animalMapper.getrec(User_id);
+	}
+
+
+	@Override
+	public int insertHistory(HistoryVO vo) {
+		return animalMapper.insertHistory(vo);
+	}
+
+
+	@Override
+	public int deleteAnimal(String num) {
+
+		return animalMapper.deleteAnimal(num);
 	}
 	
 	
