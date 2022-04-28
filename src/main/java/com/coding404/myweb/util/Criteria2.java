@@ -16,7 +16,7 @@ public class Criteria2 {
 	
 	
 	public Criteria2() {
-		this(1, 12);
+		this(1, 2);
 	}
 	
 	public Criteria2(int page, int amount) {

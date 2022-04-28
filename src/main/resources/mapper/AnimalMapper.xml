@@ -51,10 +51,10 @@
   						@ROWNUM := @ROWNUM +1 as RN
   				 from (select * 
   				 		from ANIMAL
-  				 		 
+  				 		 where 1=1
   		]]>
   				 		<if test="searchType !='' and searchType != null">
-  						 <![CDATA[where ANIMAL_TYPE = #{searchType}]]>
+  						 <![CDATA[and ANIMAL_TYPE = #{searchType}]]>
   						</if>		
   						<if test="searchAge !='' and searchAge != null">
   						<![CDATA[and ANIMAL_AGE = #{searchAge}]]>
@@ -77,9 +77,9 @@
   	<select id="getTotal" resultType="int">
   		select count(*) as total
   		from ANIMAL
-  		 
+  		where 1=1
   		<if test="searchType !='' and searchType != null">
-  			<![CDATA[where ANIMAL_TYPE like #{searchType}]]>
+  			<![CDATA[and ANIMAL_TYPE like #{searchType}]]>
   		</if>		
   		<if test="searchAge !='' and searchAge != null">
   			<![CDATA[and ANIMAL_AGE like #{searchAge}]]>
