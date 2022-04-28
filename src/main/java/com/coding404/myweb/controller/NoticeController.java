@@ -3,6 +3,7 @@ package com.coding404.myweb.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coding404.myweb.command.HistoryVO;
 import com.coding404.myweb.command.NoticeVO;
+import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.notice.NoticeService;
 import com.coding404.myweb.util.Criteria;
 import com.coding404.myweb.util.PageVO;
@@ -33,8 +36,27 @@ public class NoticeController {
 	
 	//공지게시판등록 화면처리
 	@GetMapping("/notice_reg")
-	public String notice_reg() {
+	public String notice_reg(HttpSession session,
+			  				 RedirectAttributes RA) {
 		
+		
+	
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		
+		UserVO sessionVO = (UserVO)session.getAttribute("userVO");
+		String admin_id = sessionVO.getUser_id();
+		
+			if(!admin_id.equals("admin") ) {
+				
+				RA.addFlashAttribute("msg", "관리자만 작성 가능합니다.");
+				
+				return "redirect:/notice/notice";
+			}
+		
+
 		return "notice/notice_reg";
 	}
 		

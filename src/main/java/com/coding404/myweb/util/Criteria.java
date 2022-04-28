@@ -9,11 +9,8 @@ public class Criteria {
 	private int page;
 	private int amount;
 	
-	//검색키워드 추가 
-	private String searchType;
-	private String searchAge;
-	private String searchMW;
-	
+
+
 	
 	public Criteria() {
 		this(1, 10);
