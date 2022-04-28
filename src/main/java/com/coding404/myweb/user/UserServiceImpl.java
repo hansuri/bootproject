@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coding404.myweb.command.FreeVO;
 import com.coding404.myweb.command.HistoryVO;
+import com.coding404.myweb.command.NoticeVO;
 import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.loginVO;
 
@@ -33,6 +35,31 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ArrayList<HistoryVO> getHistory(String user_id) { //이력 list 조회
 		return userMapper.getHistory(user_id);
+	}
+
+	@Override
+	public ArrayList<NoticeVO> getNoticeNew() {
+		return userMapper.getNoticeNew();
+	}
+
+	@Override
+	public ArrayList<FreeVO> getFreeNew() {
+		return userMapper.getFreeNew();
+	}
+
+	@Override
+	public ArrayList<FreeVO> getInfoNew() {
+		return userMapper.getInfoNew();
+	}
+
+	@Override
+	public ArrayList<FreeVO> getAfterNew() {
+		return userMapper.getAfterNew();
+	}
+
+	@Override
+	public ArrayList<FreeVO> getFunNew() {
+		return userMapper.getFunNew();
 	}
 
 

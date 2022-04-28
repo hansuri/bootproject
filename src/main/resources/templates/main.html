@@ -66,10 +66,9 @@
     </article>
 
     <div class ="animated-text">
-      <div class="line">@@@@@@@@공지글 입니다@@@@@@@@</div>
-      <div class="line">########공지글 입니다########</div>
-      <div class="line">$$$$$$$$공지글 입니다$$$$$$$$</div>
-      <div class="line">&&&&&&&&공지글 입니다&&&&&&&&</div>
+	<th:block  th:each="noticeVO : ${noticeList}">
+      <div class="line">[[${noticeVO.ad_list_title}]]</div>
+	</th:block>
     </div>
 
 
@@ -132,21 +131,24 @@
           
               <div class="tab-content">
                   <div id="tab1" class="tab-pane fade in active">
-                  <p>모든게시판에 있는 글 최신순으로 보여주는곳0</p>
-                  <p>모든게시판에 있는 글 최신순으로 보여주는곳1</p>
-                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
-                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
-                  <p>모든게시판에 있는 글 최신순으로 보여주는곳2</p>
+                  <th:block th:each="freeList : ${freeList}">
+                  <p>[[${freeList.free_list_title}]]</p>
+                  </th:block>
               </div>
               <div id="tab2" class="tab-pane fade">
-                  <p>후기 내용</p>
+                  <th:block th:each="freeAfterList : ${freeAfterList}">
+                  <p>[[${freeAfterList.free_list_title}]]</p>
+                  </th:block>
               </div>
               <div id="tab3" class="tab-pane fade">
-                  <p>도움이 될만한 정보(정보페이지)</p>
+                  <th:block th:each="freeInfoList : ${freeInfoList}">
+                  <p>[[${freeInfoList.free_list_title}]]</p>
+                  </th:block>
               </div>
               <div id="tab4" class="tab-pane fade">
-                  <h3>유머</h3>
-                  <p>기타</p>
+                  <th:block th:each="freeFunList : ${freeFunList}">
+                  <p>[[${freeFunList.free_list_title}]]</p>
+                  </th:block>
               </div>
           </div>
   

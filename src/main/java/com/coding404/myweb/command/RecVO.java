@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RecVO {
+
 	   
 	   private Integer user_num;
 	   private String user_id;
@@ -54,3 +55,4 @@ public class RecVO {
 	   private Integer opt_cnt;
 
 	}
+

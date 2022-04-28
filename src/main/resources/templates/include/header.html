@@ -40,10 +40,19 @@
                         <li class="logout"><a th:href="@{/logout}">LOGOUT</a></li>
                     </ul>
 
-                    <nav>
-                        <ul>
+                    <nav class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav" id="goCen">
                             <li><a th:href="@{/info}">INFO</a></li>
-                            <li><a th:href="@{/notice/notice}">게시판</a></li>
+                            <li class="dropdown">
+			                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판
+			                    <span class="caret"></span></a>
+			                    <ul class="dropdown-menu">
+			                      <li><a href="/notice/notice">공지게시판</a></li>
+			                      <li><a href="/animal/animal_List">동물게시판</a></li>
+			                      <li><a href="/rec/rec_list">추천게시판</a></li>
+			                      <li><a href="/free/free_list">자유게시판</a></li>
+			                    </ul>
+			                </li>
                             <li><a th:href="@{/user/history}">history</a></li>
                         </ul>
                     </nav>

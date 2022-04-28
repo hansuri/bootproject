@@ -2,7 +2,9 @@ package com.coding404.myweb.user;
 
 import java.util.ArrayList;
 
+import com.coding404.myweb.command.FreeVO;
 import com.coding404.myweb.command.HistoryVO;
+import com.coding404.myweb.command.NoticeVO;
 import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.loginVO;
 
@@ -15,6 +17,13 @@ public interface UserService {
 	public int userUpdate(UserVO vo); //회원정보수정
 	
 	public ArrayList<HistoryVO> getHistory(String user_id); //이력 list 조회
+	
+	public ArrayList<NoticeVO> getNoticeNew(); //최신공지글 5개
+	public ArrayList<FreeVO> getFreeNew(); //최신전체자유글 5개
+	public ArrayList<FreeVO> getInfoNew(); //최신정보자유글 5개
+	public ArrayList<FreeVO> getAfterNew(); //최신후기자유글 5개
+	public ArrayList<FreeVO> getFunNew(); //최신유머자유글 5개
+	
 
 
 }

@@ -1,5 +1,6 @@
 package com.coding404.myweb.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coding404.myweb.command.FreeVO;
+import com.coding404.myweb.command.NoticeVO;
 import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.loginVO;
 import com.coding404.myweb.user.UserService;
@@ -26,12 +29,25 @@ public class MainController {
 	@Qualifier("userService")
 	private UserService userService;
 	
+
 	
 	//메인 화면처리
 	@GetMapping("/main")
-	public String main() {
+	public String main(Model model) {
+	
+		ArrayList<NoticeVO> noticeList = userService.getNoticeNew();
+		model.addAttribute("noticeList", noticeList);
 		
-
+		//게시글 데이터 가져오기
+		ArrayList<FreeVO> freeList = userService.getFreeNew();
+		model.addAttribute("freeList", freeList);
+		ArrayList<FreeVO> freeInfoList = userService.getInfoNew();
+		model.addAttribute("freeInfoList", freeInfoList);
+		ArrayList<FreeVO> freeAfterList = userService.getAfterNew();
+		model.addAttribute("freeAfterList", freeAfterList);
+		ArrayList<FreeVO> freeFunList = userService.getFunNew();
+		model.addAttribute("freeFunList", freeFunList);
+		
 		return "main";
 	}
 	
