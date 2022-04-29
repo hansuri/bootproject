@@ -137,11 +137,13 @@
                                     <div class="comment_info_box">
                                         <span class="comment_info_date">[[${vo.comment_date}]]</span>
                                     </div>
-
+                                    
+								<!-- <form action=commentUpdate method="post"> -->
                                     <div data-v-5213e8a5 class="comment_tool">
                                         <button class="btn comment_update">수정</button>
                                         <button class="btn comment_delete">삭제</button>
                                     </div>
+								<!-- </form> -->
 
                                 </div>
                             </div>
@@ -201,6 +203,7 @@
 		} else {
 			document.updateForm.action = "updateForm"
 			document.updateForm.submit();
+			
 		}
 	}
 	
