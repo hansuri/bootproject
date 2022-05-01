@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coding404.myweb.animal.AnimalService;
+import com.coding404.myweb.command.HistoryVO;
 import com.coding404.myweb.command.RecVO;
 import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.command.animalVO;
@@ -65,7 +66,38 @@ public class RecController {
 	}
 	
 	
-	
+	@PostMapping("/insertHistory")
+	public String insertHistory(animalVO vo,
+								@RequestParam("animal_num") String num,
+								HttpSession session) {
+
+//		System.out.println(num);
+		animalVO aniVO =  animalService.modalview(num);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		if(userVO == null) {
+			return "redirect:/main";
+		}
+		String user_id = userVO.getUser_id();
+		
+		
+		HistoryVO hisVO = new HistoryVO();
+		hisVO.setUser_id(user_id);
+		hisVO.setAdopt_list_name(aniVO.getANIMAL_NAME());
+		hisVO.setAdopt_list_type(aniVO.getANIMAL_TYPE());
+		hisVO.setAdopt_list_content(aniVO.getANIMAL_CONTENT());
+		
+		
+		
+		animalService.insertHistory(hisVO);
+		
+		animalService.deleteAnimal(num);
+		
+		
+		
+		
+		return "redirect:/user/history";
+	}
 	
 	
 }
