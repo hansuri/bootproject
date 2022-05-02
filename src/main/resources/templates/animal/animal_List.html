@@ -41,24 +41,24 @@
                                     <span class="search_th">▶ 종류 검색</span>
                                     <select name="searchType">
                                         <option value="">선택</option>
-                                        <option value="dog">강아지</option>
-                                        <option value="cat">고양이</option>
-                                        <option value="bird">새</option>
-                                        <option value="hamster">햄스터</option>
+                                        <option value="dog" th:selected="${pageVO.cri.searchType} == dog">강아지</option>
+                                        <option value="cat" th:selected="${pageVO.cri.searchType} == cat">고양이</option>
+                                        <option value="bird" th:selected="${pageVO.cri.searchType} == bird">새</option>
+                                        <option value="hamster" th:selected="${pageVO.cri.searchType} == hamster">햄스터</option>
                                     </select>
                                 </div>
         
                                 <div>
                                     <span class="search_th">▶ 나이 검색</span>
-                                    <input type="text" class="searchAge" name="searchAge" placeholder="나이">
+                                    <input type="text" class="searchAge" name="searchAge" placeholder="나이" th:value="${pageVO.cri.searchAge}">
                                 </div>
         
                                 <div class="sel">
                                     <span class="search_th">성별 검색</span>
                                     <select name="searchMW">
                                         <option value="">선택</option>
-                                        <option value="m">수컷</option>
-                                        <option value="w">암컷</option>
+                                        <option value="m" th:selected="${pageVO.cri.searchMW} == m">수컷</option>
+                                        <option value="w" th:selected="${pageVO.cri.searchMW} == w">암컷</option>
                                     </select>
                                 </div>
                             </div>
