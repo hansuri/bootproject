@@ -59,6 +59,14 @@ public class MainController {
 	}
 	
 	
+	//동물병원정보
+	@GetMapping("/clinic")
+	public String clinic() {
+		
+		return "clinic";
+	}
+	
+	
 	///////////
 	
 	//로그인
