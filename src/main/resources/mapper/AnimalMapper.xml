@@ -140,4 +140,39 @@
   	</delete>
   	
   	
+  	
+  	<select id="getupdateselect"  resultType="com.coding404.myweb.command.animalVO">
+  		select * from ANIMAL where ANIMAL_NUM = #{NUM}
+  	</select>
+  	
+  	
+  	<update id="updateanimal">
+  		update ANIMAL set 
+  					
+  							ANIMAL_TYPE = #{ANIMAL_TYPE},
+  							ANIMAL_SIZE = #{ANIMAL_SIZE},
+  							ANIMAL_NAME = #{ANIMAL_NAME},
+  							ANIMAL_GENDER = #{ANIMAL_GENDER},
+  							ANIMAL_AGE = #{ANIMAL_AGE},
+  							ANIMAL_CONTENT = #{ANIMAL_CONTENT},
+  							ANIMAL_DISEASE = #{ANIMAL_DISEASE},
+  							ANIMAL_NEUTRAL = #{ANIMAL_NEUTRAL},
+  							ANIMAL_COST = #{ANIMAL_COST},
+  							ANIMAL_TIME = #{ANIMAL_TIME},
+  							ANIMAL_DATE = #{ANIMAL_DATE},
+  							ANIMAL_FILENAME = #{ANIMAL_FILENAME},
+  							ANIMAL_PATH = #{ANIMAL_PATH},
+  							ANIMAL_UUID = #{ANIMAL_UUID}
+  							
+  				where ANIMAL_NUM = #{ANIMAL_NUM}			
+  							
+  		
+  				
+  				
+  	</update>
+  	
+  	
+  	
+  	
+  	
   </mapper>
