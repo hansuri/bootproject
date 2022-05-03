@@ -102,11 +102,11 @@
 	                        <div class="after_login">
 	                            <div class="form-group af">
 	                                <label>이름</label>
-	                                <input type="text" class="form-control id" th:value="${session.userVO == null} ? '' : ${session.userVO.user_name} ">
+	                                <input type="text" class="form-control id" th:value="${session.userVO == null} ? '' : ${session.userVO.user_name} " readonly>
 	                                <label class="opt" >선호 동물: [[${session.userVO == null} ? '' : ${session.userVO.user_like} ]]</label> <br>
 	                                <label><a th:href="@{/rec/rec_list}" class="rec_a">▶동물추천 받기◀</a></label>
-	                                <label>입양 신청동물 수: 0개</label> <br>
-	                                <label>등록한 게시글 수: 0개</label> <br>
+	                                <label>입양 신청동물 수: [[${cntAdopt}]]개</label> <br>
+	                                <label>등록한 게시글 수: [[${cntFree}]]개</label> <br>
 	                            </div>
 	                        </form>
                         
@@ -132,22 +132,22 @@
               <div class="tab-content">
                   <div id="tab1" class="tab-pane fade in active">
                   <th:block th:each="freeList : ${freeList}">
-                  <p>[[${freeList.free_list_title}]]</p>
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeList.free_list_num})}">[[${freeList.free_list_title}]]</a></p>
                   </th:block>
               </div>
               <div id="tab2" class="tab-pane fade">
                   <th:block th:each="freeAfterList : ${freeAfterList}">
-                  <p>[[${freeAfterList.free_list_title}]]</p>
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeAfterList.free_list_num})}">[[${freeAfterList.free_list_title}]]</a></p>
                   </th:block>
               </div>
               <div id="tab3" class="tab-pane fade">
                   <th:block th:each="freeInfoList : ${freeInfoList}">
-                  <p>[[${freeInfoList.free_list_title}]]</p>
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeInfoList.free_list_num})}">[[${freeInfoList.free_list_title}]]</a></p>
                   </th:block>
               </div>
               <div id="tab4" class="tab-pane fade">
                   <th:block th:each="freeFunList : ${freeFunList}">
-                  <p>[[${freeFunList.free_list_title}]]</p>
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeFunList.free_list_num})}">[[${freeFunList.free_list_title}]]</a></p>
                   </th:block>
               </div>
           </div>

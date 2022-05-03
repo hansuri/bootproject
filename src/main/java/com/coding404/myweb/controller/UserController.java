@@ -62,6 +62,36 @@ public class UserController {
 		return "user/history";
 	}
 	
+	//전체 이력 화면처리
+	@GetMapping("/totalHistory")
+	public String totalHistory(HttpSession session,
+							   Model model,
+							   RedirectAttributes RA) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "관리자만 접근 가능합니다!");
+			return "redirect:/main";
+		}
+		
+		UserVO sessionVO = (UserVO)session.getAttribute("userVO");
+		String user_id = sessionVO.getUser_id();
+		
+		if(!user_id.equals("admin")) {
+			RA.addFlashAttribute("msg", "관리자만 접근 가능합니다!");
+			return "redirect:/main";
+		}
+		
+		ArrayList<HistoryVO> list = userService.getTotalHistory();
+		
+		model.addAttribute("list", list);
+		
+		
+		return "user/totalHistory";
+	}
+	
+	
+	
+	
 	//마이페이지 화면처리
 	@GetMapping("/mypage")
 	public String mypage(HttpSession session,

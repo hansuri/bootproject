@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public ArrayList<HistoryVO> getTotalHistory() { //총 이력 list 조회
+		return userMapper.getTotalHistory();
+	}
+	
+	@Override
 	public ArrayList<NoticeVO> getNoticeNew() {
 		return userMapper.getNoticeNew();
 	}
@@ -61,6 +66,17 @@ public class UserServiceImpl implements UserService {
 	public ArrayList<FreeVO> getFunNew() {
 		return userMapper.getFunNew();
 	}
+
+	@Override
+	public int getFree(String user_id) {
+		return userMapper.getFree(user_id);
+	}
+
+	@Override
+	public int getAdopt(String user_id) {
+		return userMapper.getAdopt(user_id);
+	}
+
 
 
 
