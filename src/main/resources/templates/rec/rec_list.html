@@ -32,8 +32,6 @@
             <hr>
 
            
-
-            <hr>
             <div class="row">
             <th:block th:each=" recvo : ${reclist}">
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
@@ -44,7 +42,7 @@
                             
                             <div class="boxDetail">
                                 <div class="boxLeft">
-                                	<span>[[${recvo.ANIMAL_NUM}]]</span>
+                                	<span style="display: none">[[${recvo.ANIMAL_NUM}]]</span>
                                     <span>이름:[[${recvo.ANIMAL_NAME}]]</span>
                                     <span>종류:[[${recvo.ANIMAL_TYPE}]]</span>
                                     <span>나이:[[${recvo.ANIMAL_AGE}]]</span>
@@ -53,7 +51,7 @@
                                 </div>
                                 
                                 <div class="boxRight">
-                                    <span>등록일:[[${recvo.ANIMAL_DATE}]]</span>
+                                    <span>등록일:[[${#strings.substring(recvo.ANIMAL_DATE,0,10)}]]</span>
                                 </div>
                             </div>
                             
@@ -214,6 +212,7 @@
         <div class="container col-x" id="modal">
             <h3>상세보기</h3>
             <hr>
+            <form action="insertHistory" name="insertHistory" method="post">
             <div class="row">
 
                 <div class="detail_wrap">
@@ -221,6 +220,7 @@
                     <div class="detail_content">
 
                         <div class="detail_left">
+                        	<input type="hidden" class="animal_num" name="animal_num" id="animalPk" >
                             <span class="animal_num">등록번호 : 123123123123</span>
                             <span class="animal_type">개 > 중형견 </span>
                             <span class="animal_name">복순이</span>
@@ -250,7 +250,7 @@
                 
             </div>
             <a class="modal_close_btn"> X </a>
-
+			</form>
         </div>
 
 
@@ -342,6 +342,7 @@
         		$(".animal_cost").html("돌봄유지비용:"+data.animal_COST);
         		$(".animal_content2").html(data.animal_CONTENT);
         		$(".animal_pic").attr("src","../display?filepath=" + data.animal_PATH +'&' + 'uuid=' + data.animal_UUID +'&' + 'filename=' + data.animal_FILENAME );
+        		$("#animalPk").val(data.animal_NUM);
         		
         		
         	}

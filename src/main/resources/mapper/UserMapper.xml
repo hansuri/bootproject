@@ -67,10 +67,25 @@
   				ADOPT_LIST_NAME, 
   				ADOPT_LIST_TYPE, 
   				ADOPT_LIST_CONTENT, 
-  				DATE_FORMAT(now(), '%Y-%m-%d') as ADOPT_LIST_DATE,
+  				DATE_FORMAT(ADOPT_LIST_DATE, '%Y-%m-%d') as ADOPT_LIST_DATE,
   				<![CDATA[if(date_format(now(), '%Y-%m-%d') <= DATE_ADD(STR_TO_DATE(ADOPT_LIST_DATE, '%Y-%m-%d'), INTERVAL 3 DAY), '입양진행중', '입양완료') as ADOPT_LIST_PROGRESS]]>
   		from ADOPTLIST 
   		where user_id = #{user_id}
+  		order by adopt_list_num desc
+  	</select>
+  	
+  	
+  	<!-- 총 이력 list 조회 -->
+  	<select id="getTotalHistory" resultType="HistoryVO">
+  		  		select ADOPT_LIST_NUM, 
+  				USER_ID, 
+  				ADOPT_LIST_NAME, 
+  				ADOPT_LIST_TYPE, 
+  				ADOPT_LIST_CONTENT, 
+  				DATE_FORMAT(ADOPT_LIST_DATE, '%Y-%m-%d') as ADOPT_LIST_DATE,
+  				<![CDATA[if(date_format(now(), '%Y-%m-%d') <= DATE_ADD(STR_TO_DATE(ADOPT_LIST_DATE, '%Y-%m-%d'), INTERVAL 3 DAY), '입양진행중', '입양완료') as ADOPT_LIST_PROGRESS]]>
+  		from ADOPTLIST 
+  		order by adopt_list_num desc
   	</select>
   	
   	
@@ -114,6 +129,28 @@
 		order by free_list_date desc
 		limit 0, 5
   	</select>
+  	
+  	<!-- 게시글 수 -->
+  	<select id="getFree" resultType="int">
+  		select count(*) from FREE_LIST
+  		where free_list_writer = #{user_id}
+  	</select>
+  	
+	<!-- 공지 수 -->  	
+  	<select id="getAdopt" resultType="int">
+  		select count(*) from ADOPTLIST
+  		where user_id = #{user_id}
+  	</select>
+  	
+  	<!-- 이력 삭제 -->
+  	<delete id="delAdopt_list">
+  		delete from ADOPTLIST where adopt_list_num = #{adopt_list_num}
+  	</delete>
+  	
+  	<!-- 동물리스트 복구 -->
+  	<update id="updateAnimal">
+  		update ANIMAL set list_num = 0 where animal_name = #{adopt_list_name}
+  	</update>
   	
   	
 
