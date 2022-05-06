@@ -281,23 +281,6 @@ public class AnimalController {
 		
 		
 		
-		//파일확인(form형식을 multipart타입으로 반드시 선언)
-//		for(MultipartFile f: list) {
-//			System.out.println(f.isEmpty()); //비어있다면 true
-//			System.out.println(f.getContentType()); //파일의 타입
-//		}
-		
-		
-		//1.빈 형태로 넘어오는 이미지 제거
-//		list = list.stream().filter((f) -> f.isEmpty() == false).collect(Collectors.toList());
-//		if(vo.getANIMAL_FILENAME() ==null) {
-//			ra.addAttribute("msg", "사진은 필수입니다");
-//			return "redirect:/animal/animal_reg";
-//		}
-		
-		//2.업로드 된 확장자가 이미지만 가능하도록 처리
-//		for(MultipartFile f : list) {
-			
 		
 		
 		if(f.getContentType().contains("image") == false) { //이미지를 포함하고 있지 않은경우
