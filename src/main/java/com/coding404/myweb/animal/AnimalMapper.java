@@ -3,6 +3,7 @@ package com.coding404.myweb.animal;
 import java.util.ArrayList;
 
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -31,4 +32,8 @@ public interface AnimalMapper {
 	public int insertHistory(HistoryVO vo); //이력 추가
 	
 	public int deleteAnimal(String num); //삭제
+	
+	public animalVO getupdateselect(String num);
+	
+	public int updateanimal(animalVO vo);// 업데이트
 }

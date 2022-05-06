@@ -62,7 +62,7 @@
   						<if test="searchMW !='' and searchMW != null">
   						<![CDATA[and ANIMAL_GENDER = #{searchMW}]]>
   						</if>
-  						
+  						and LIST_NUM = 0
   						order by animal_num DESC)A, (select @ROWNUM :=0)D
   				
   				
@@ -87,6 +87,7 @@
   		<if test="searchMW !='' and searchMW != null">
   			<![CDATA[and ANIMAL_GENDER like #{searchMW}]]>
   		</if>
+  		and LIST_NUM = 0
   	</select>
   	
   	
@@ -135,9 +136,45 @@
   		values(#{user_id}, #{adopt_list_name}, #{adopt_list_type}, #{adopt_list_content})
   	</insert>
   	
-  	<delete id="deleteAnimal">
-  		delete from ANIMAL where ANIMAL_NUM = #{num}
-  	</delete>
+  	<update id="deleteAnimal">
+  		<!-- delete from ANIMAL where ANIMAL_NUM = #{num} -->
+  		update ANIMAL set list_num = 1 where ANIMAL_NUM = #{num}
+  	</update>
+  	
+  	
+  	
+  	<select id="getupdateselect"  resultType="com.coding404.myweb.command.animalVO">
+  		select * from ANIMAL where ANIMAL_NUM = #{NUM}
+  	</select>
+  	
+  	
+  	<update id="updateanimal">
+  		update ANIMAL set 
+  					
+  							ANIMAL_TYPE = #{ANIMAL_TYPE},
+  							ANIMAL_SIZE = #{ANIMAL_SIZE},
+  							ANIMAL_NAME = #{ANIMAL_NAME},
+  							ANIMAL_GENDER = #{ANIMAL_GENDER},
+  							ANIMAL_AGE = #{ANIMAL_AGE},
+  							ANIMAL_CONTENT = #{ANIMAL_CONTENT},
+  							ANIMAL_DISEASE = #{ANIMAL_DISEASE},
+  							ANIMAL_NEUTRAL = #{ANIMAL_NEUTRAL},
+  							ANIMAL_COST = #{ANIMAL_COST},
+  							ANIMAL_TIME = #{ANIMAL_TIME},
+  							ANIMAL_DATE = #{ANIMAL_DATE},
+  							ANIMAL_FILENAME = #{ANIMAL_FILENAME},
+  							ANIMAL_PATH = #{ANIMAL_PATH},
+  							ANIMAL_UUID = #{ANIMAL_UUID}
+  							
+  				where ANIMAL_NUM = #{ANIMAL_NUM}			
+  							
+  		
+  				
+  				
+  	</update>
+  	
+  	
+  	
   	
   	
   </mapper>

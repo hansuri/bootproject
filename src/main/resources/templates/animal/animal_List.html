@@ -73,9 +73,10 @@
         
                     <hr>
             
-                
                     <div class="row">
                     <th:block th:each=" anivo : ${animal}">
+                	<!-- <th:block th:if="${anivo.LIST_NUM} == 1"> -->
+                  	
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
                             <div class="ani_img">
                                 <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
@@ -99,14 +100,10 @@
                             </div>
                             
                         </div>
-					</th:block>
-						
-                        
-                        
-                    
-                    
-                    
+                    <!-- </th:block> -->
+					</th:block>				
                     </div>
+                    
                         <div class="wrtie-btn">
                             <input type="button" value="글쓰기" class="btn-write" th:onclick="location.href='/animal/animal_Reg'">
                         </div>
@@ -236,7 +233,7 @@
 											   searchType=${pageVO.cri.searchType},
 											   searchAge=${pageVO.cri.searchAge},
 											   searchMW=${pageVO.cri.searchMW}
-											   )}">">>"
+											   )}">>>
 											   
 				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 			</a>
@@ -254,8 +251,11 @@
 
         <div class="container" id="modal">
             <h3>상세보기</h3>
-            <hr>
+            
             <form action="insertHistory" name="insertHistory" method="post">
+	            <input type="button" value="수정" id="updateAnimal"  name="updateAnimal" style="width : 8%">
+            
+            <hr>
             <div class="row">
 
                 <div class="detail_wrap">
@@ -263,20 +263,20 @@
                     <div class="detail_content">
                         <div class="detail_left">
 							<input type="hidden" class="animal_num" name="animal_num" id="animalPk" >
-                            <span class="animal_num">등록번호 : 123123123123</span>
-                            <span class="animal_type">개 > 중형견 </span>
-                            <span class="animal_name">복순이</span>
-                            <span class="animal_age">3개월</span>
-                            <span class="animal_gender">여</span>
-                            <span class="animal_disease">피부병</span>
-                            <span class="animal_surgery">중성화 여부 : ❌</span>
-                            <span class="animal_care">돌봄 난이도 : 중 </span>
-                            <span class="animal_cost">유지비 : 상 </span>
+                            <span class="animal_num"></span>
+                            <span class="animal_type"></span>
+                            <span class="animal_name"></span>
+                            <span class="animal_age"></span>
+                            <span class="animal_gender"></span>
+                            <span class="animal_disease"></span>
+                            <span class="animal_surgery"></span>
+                            <span class="animal_care"></span>
+                            <span class="animal_cost"></span>
                         </div>
                         
                         <div class="detail_right">
                             <span class="animal_content">참조내용 :  </span>
-                            <p class="animal_content2">고구마를 좋아해요 </p>
+                            <p class="animal_content2"></p>
                             
                         </div>
                         
@@ -455,7 +455,13 @@
 
 
 
-
+	$("#updateAnimal").click(function(){
+		
+		
+		document.insertHistory.action = "getpkUpdate";
+		document.insertHistory.submit();
+		
+	})
 
  	
 
