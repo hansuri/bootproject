@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.coding404.myweb.free.FreeMapper">
 	
+	<!-- 등록 -->
 	<insert id="regist">
 		insert into FREE_LIST(free_list_date,
 							  free_list_writer,
@@ -21,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
-	
+	<!-- 조회 -->
 	<select id="getList" resultType="FreeVO">
 		<!-- select * from FREE_LIST -->
 		
@@ -58,12 +59,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
-	
+	<!-- 상세보기 -->
 	<select id="getDetail" resultType="FreeVO">
 		select * from FREE_LIST
 		where free_list_num = #{free_list_num}
 	</select>
-
+	
+	<!-- 수정 -->
 	<update id="update">
 		update FREE_LIST
 		set free_list_type = #{free_list_type},
@@ -73,15 +75,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where free_list_num = #{free_list_num}
 	</update>
 	
+	<!-- 삭제 -->
 	<delete id="delete">
 		delete from FREE_LIST
 		where free_list_num = #{free_list_num}
 	</delete>
 	
+	<!-- 조회수 -->
 	<update id="viewsUpdate">
 		update FREE_LIST set free_list_views = free_list_views + 1 where free_list_num = #{free_list_num}
 	</update>
 	
+	<!-- 검색 -->
 	<select id="getTotal" resultType="int">
 		select count(*) as total
 		from FREE_LIST where 1=1
@@ -104,7 +109,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
  	</select>
 	
-	<!-- 댓글 -->
+	<!-- 댓글등록 -->
 	<insert id="CommentRegist">
 		insert into COMMENT (
 							 comment_id,
@@ -117,19 +122,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</insert>
 	
+	<!-- 댓글보기 -->
 	<select id="getCommentList" resultType="CommentVO">
-		select comment_id,
-			   comment_content,
-			   DATE_FORMAT(comment_date, '%Y-%m-%d %H:%i:%s')
+		select *
+			   <!-- DATE_FORMAT(comment_date, '%Y-%m-%d %H:%i:%s') -->
 		from COMMENT
 		where user_list_num = #{free_list_num}
 	</select>
 	
-<!-- 	<update id="CommentUpdate">
-		update COMMENT 
-		set comment_content = #{comment_content}
-		where comment_num = #{comment_num} 
-	</update> -->
+	<!-- 댓글삭제 -->
+	<delete id="commentDelete">
+		delete from COMMENT
+		where comment_num = #{comment_num}
+	</delete>
+	
 	
 	
 </mapper>

@@ -63,10 +63,11 @@ public class FreeServiceImpl implements FreeService{
 		return freeMapper.getTotal(cri);
 	}
 
-//	@Override
-//	public int CommentUpdate(CommentVO vo) {
-//		return freeMapper.CommentUpdate(vo);
-//	}
+	@Override
+	public int commentDelete(int comment_num) {
+		return freeMapper.commentDelete(comment_num);
+	}
+
 
 
 

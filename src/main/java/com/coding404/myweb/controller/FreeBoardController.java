@@ -1,11 +1,17 @@
 package com.coding404.myweb.controller;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +37,18 @@ public class FreeBoardController {
 	
 	//자유게시판등록 화면처리
 	@GetMapping("free_reg")
-	public String free_reg() {
+	public String free_reg(FreeVO vo,
+						   HttpSession session,
+			   			   RedirectAttributes RA,
+			   			   Model model) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		
+		model.addAttribute("freeVO", vo);
+		
 		
 		return "free/free_reg";
 	}
@@ -60,7 +77,7 @@ public class FreeBoardController {
 		model.addAttribute("freeVO", freeVO);
 		
 		ArrayList<CommentVO> list = freeService.getCommentList(free_list_num);
-		model.addAttribute("list", list);
+		model.addAttribute("list2", list);
 		
 		
 		return "free/free_detail";
@@ -70,31 +87,104 @@ public class FreeBoardController {
 	
 	//자유게시판 등록 폼
 	@PostMapping("/freeForm")
-	public String freeForm(FreeVO vo) {
+	public String freeForm(@Valid FreeVO vo, Errors errors, 
+						   HttpSession session,
+						   RedirectAttributes RA,
+						   Model model) {
+		// valid, errors (같이붙여놔야함)
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		
+		if(errors.hasErrors() ) {
+			List<FieldError> list = errors.getFieldErrors();
+			
+			for( FieldError err : list) {
+				
+				
+				if(err.isBindingFailure()) {
+					model.addAttribute("valid_" + err.getField(), "형식을 확인하세요");
+				}else {
+					model.addAttribute("valid_" + err.getField(), err.getDefaultMessage());
+				}
+			};
+			
+			
+			
+			model.addAttribute("freeVO", vo);
+			
+			return "free/free_reg";
+			
+		}
 		
 		int result = freeService.regist(vo);
+		
+		if(result == 1 ) {
+			RA.addFlashAttribute("msg", "게시글을 등록했습니다.");
+		} else {
+			RA.addFlashAttribute("msg", "게시글 등록에 실패했습니다.");
+		}
 		
 		return "redirect:/free/free_list";
 	}
 	
 	//수정
 	@PostMapping("/updateForm")
-	public String updateForm(FreeVO vo,
-							Model model) {
+	public String updateForm(@Valid FreeVO vo, Errors errors,
+							 Model model,
+							 HttpSession session,
+							 RedirectAttributes RA) {
 		
-		freeService.update(vo);
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
 		
-		model.addAttribute("freeVO", vo);
+		if(errors.hasErrors() ) {
+			List<FieldError> list = errors.getFieldErrors();
+			
+			for( FieldError err : list) {
+				
+				
+				if(err.isBindingFailure()) {
+					model.addAttribute("valid_" + err.getField(), "형식을 확인하세요");
+				}else {
+					model.addAttribute("valid_" + err.getField(), err.getDefaultMessage());
+				}
+			};
+			
+			
+			model.addAttribute("freeVO", vo);
+			
+			return "free/free_detail";
+			
+		}
 		
-		return "redirect:/free/free_list";
+		int dlit = vo.getFree_list_num();
+		
+		int result = freeService.update(vo);
+		
+		if(result == 1 ) {
+			RA.addFlashAttribute("msg", "게시글을 수정했습니다.");
+		} else {
+			RA.addFlashAttribute("msg", "게시글 수정에 실패했습니다.");
+		}
+		
+		return "redirect:/free/free_detail?free_list_num="+dlit;
 	}
 	
 	//삭제
 	@PostMapping("/freeDelete")
 	public String FreeDelete(FreeVO vo,
-							 RedirectAttributes RA) {
+							 RedirectAttributes RA,
+							 HttpSession session) {
 		
-		System.out.println(vo);
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+
 			
 		int result = freeService.delete(vo.getFree_list_num());
 		
@@ -109,12 +199,51 @@ public class FreeBoardController {
 	
 	//댓글등록
 	@PostMapping("/commentReg")
-	public String commentReg(CommentVO vo) {
+	public String commentReg(CommentVO vo,
+							 RedirectAttributes RA,
+							 HttpSession session,
+							 @RequestParam("listNum")int N) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		
 		
 		System.out.println(vo);
 		int result = freeService.CommentRegist(vo);
 		
-		return "redirect:/free/free_list";
+		
+		return "redirect:/free/free_detail?free_list_num="+N;
+	}
+	
+	//댓글 수정
+	@PostMapping("/commentUpdate")
+	public String commentUpdate() {
+		
+		
+		return null;
+	}
+	
+	
+	//댓글 삭제
+	@PostMapping("/commentDelete")
+	public String commentDelete(@RequestParam("cn") int cn,
+								CommentVO vo,
+								RedirectAttributes RA,
+								@RequestParam("listNum")int N,
+								HttpSession session) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		
+		
+		int result = freeService.commentDelete(cn);		
+		
+		
+		return "redirect:/free/free_detail?free_list_num="+N;
 	}
 	
 }
