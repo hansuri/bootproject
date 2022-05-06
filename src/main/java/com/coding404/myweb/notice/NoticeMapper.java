@@ -17,6 +17,13 @@ public interface NoticeMapper {
 	
 	public int getTotal(Criteria cri);
 	
+	
+	public int delete(int getNum); //삭제 
+	
 	public NoticeVO modalDetail(String num);
+
+	public int update(NoticeVO vo);
+	
+	public NoticeVO updateToReg(int getNum);
 	
 }
