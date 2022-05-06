@@ -77,6 +77,16 @@ public class UserServiceImpl implements UserService {
 		return userMapper.getAdopt(user_id);
 	}
 
+	@Override
+	public int delAdopt_list(int adopt_list_num) {  //이력 삭제
+		return userMapper.delAdopt_list(adopt_list_num);
+	}
+
+	@Override
+	public int updateAnimal(String adopt_list_name) {
+		return userMapper.updateAnimal(adopt_list_name);
+	}
+
 
 
 

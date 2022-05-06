@@ -38,18 +38,21 @@
                                 <th>진행상황</th>
                                 <th>비고</th>
                             </tr>
-
+		
+						<form class="adopt_form" name="adopt_form" action="adopt_form" method="post">
                             <tr th:each="vo, state : ${list}">
+                            	<input type="hidden" name="adopt_list_num" th:value="${vo.adopt_list_num}">
+                            	<input type="hidden" name="adopt_list_name" th:value="${vo.adopt_list_name}">
                                 <td>[[${state.index + 1}]]</td>
                                 <td>[[${vo.adopt_list_name}]]</td>
                                 <td>[[${vo.adopt_list_type}]]</td>
                                 <td  class="content_">[[${vo.adopt_list_content}]]</td>
                                 <td>[[${vo.adopt_list_date}]]</td>
                                 <td>[[${vo.adopt_list_progress}]]</td>
-                                <td th:if="${vo.adopt_list_progress} == '입양진행중'"><button type="button" class="cancell">취소</button></td>
+                                <td th:if="${vo.adopt_list_progress} == '입양진행중'"><button type="submit" class="cancell">취소</button></td>
                                 <td th:unless="${vo.adopt_list_progress} == '입양진행중'">...</td>
                             </tr>
-                            
+                        </form>
                         </tbody>
                     </table>
                 </li>

@@ -136,11 +136,21 @@
   		where free_list_writer = #{user_id}
   	</select>
   	
+	<!-- 공지 수 -->  	
   	<select id="getAdopt" resultType="int">
   		select count(*) from ADOPTLIST
   		where user_id = #{user_id}
   	</select>
   	
+  	<!-- 이력 삭제 -->
+  	<delete id="delAdopt_list">
+  		delete from ADOPTLIST where adopt_list_num = #{adopt_list_num}
+  	</delete>
+  	
+  	<!-- 동물리스트 복구 -->
+  	<update id="updateAnimal">
+  		update ANIMAL set list_num = 0 where animal_name = #{adopt_list_name}
+  	</update>
   	
   	
 
