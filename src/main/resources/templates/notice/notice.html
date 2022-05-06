@@ -98,12 +98,18 @@
 
 
 <!-- 상세정보 모달창 -->
-			<th:block th:each="vo : ${list}">
+			
             <div id="article">
+
                 <div id="modal">
-                    <p class="modal_title">[[${vo.ad_list_title}]]</p>
-                    <p class="modal_content">[[${vo.ad_list_content}]]</p>
-                    <a class="modal_close_btn"> X </a>
+                    <form action="noticeDelete" name="updateBtn" method="post" >
+	                    <p class="modal_title"></p>
+	                    <p class="modal_content"></p>
+	                    <a class="modal_close_btn" > X </a>
+	                    <input type="hidden" name="getNum" class="getListNum">
+                    	<button type="button" class="modal_update_btn">수정</button>
+				    	<button type="submit" class="modal_delete_btn">삭제</button>
+					</form>
                 </div>
             </div>
 			</th:block>
@@ -154,6 +160,8 @@
                 bg.remove();
                 modal.style.display = 'none';
             });
+           
+            
             
             modal.setStyle({
                 position: 'fixed',
@@ -178,7 +186,6 @@
         
         
       /*   var title = document.querySelectorAll('.title');
-
         for( var i = 0; i < title.length; i++) {
             title[i].addEventListener('click', function(){
                 modal('modal');
@@ -206,7 +213,7 @@
                    
                    $(".modal_title").html(data.ad_list_title);
                    $(".modal_content").html(data.ad_list_content);
-                   
+                   $(".getListNum").val(data.ad_list_num);
                    
                 }
                  
@@ -215,7 +222,13 @@
                 modal('modal');
                 
              })
-        
+             
+             
+             $(".modal_update_btn").click(function(){
+            	 document.updateBtn.action = "noticeUpdateToReg";
+            	 document.updateBtn.submit();
+             })
+             
     </script>
     
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>

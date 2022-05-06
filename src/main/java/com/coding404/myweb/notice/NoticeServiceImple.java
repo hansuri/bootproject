@@ -40,6 +40,25 @@ public class NoticeServiceImple implements NoticeService {
 		return noticeMapper.modalDetail(num);
 	}
 
+	@Override
+	public int delete(int getNum) {
+		
+		return noticeMapper.delete(getNum);
+	}
+
+	@Override
+	public int update(NoticeVO vo) {
+		
+		return noticeMapper.update(vo);
+	}
+
+	@Override
+	public NoticeVO updateToReg(int getNum) {
+		
+		return noticeMapper.updateToReg(getNum);
+	}
+
+	
 	
 	
 }

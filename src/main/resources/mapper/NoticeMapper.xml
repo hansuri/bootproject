@@ -47,6 +47,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
 	</select>
 	
 	
+	<delete id="delete">
+		delete from ADMIN_LIST
+		where ad_list_num = #{getNum}
+	</delete>
+	
+	<select id="updateToReg" resultType="com.coding404.myweb.command.NoticeVO">
+		select * from ADMIN_LIST
+		where ad_list_num = #{getNum}
+	</select>
+	
+	<update id="update">
+		update ADMIN_LIST
+		set ad_list_title = #{ad_list_title},
+			ad_list_content = #{ad_list_content}
+		where ad_list_num = #{ad_list_num}
+	</update>
+	
+	
 	<select id="modalDetail" resultType="com.coding404.myweb.command.NoticeVO">
 		select * from ADMIN_LIST where ad_list_num = #{num}
 	</select>
