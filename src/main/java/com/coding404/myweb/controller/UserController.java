@@ -199,8 +199,9 @@ public class UserController {
 			RA.addFlashAttribute("msg", "이력 삭제에 실패했습니다..");
 		}
 		
+		System.out.println(vo.toString());
 		
-		userService.updateAnimal(vo.getAdopt_list_name());  //동물리스트에 복구
+		userService.update_Animal(vo);  //동물리스트에 복구
 		
 		
 		return "redirect:/user/totalHistory";

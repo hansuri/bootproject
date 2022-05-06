@@ -81,7 +81,8 @@
   				USER_ID, 
   				ADOPT_LIST_NAME, 
   				ADOPT_LIST_TYPE, 
-  				ADOPT_LIST_CONTENT, 
+  				ADOPT_LIST_CONTENT,
+  				animal_num, 
   				DATE_FORMAT(ADOPT_LIST_DATE, '%Y-%m-%d') as ADOPT_LIST_DATE,
   				<![CDATA[if(date_format(now(), '%Y-%m-%d') <= DATE_ADD(STR_TO_DATE(ADOPT_LIST_DATE, '%Y-%m-%d'), INTERVAL 3 DAY), '입양진행중', '입양완료') as ADOPT_LIST_PROGRESS]]>
   		from ADOPTLIST 
@@ -148,8 +149,8 @@
   	</delete>
   	
   	<!-- 동물리스트 복구 -->
-  	<update id="updateAnimal">
-  		update ANIMAL set list_num = 0 where animal_name = #{adopt_list_name}
+  	<update id="update_Animal">
+  		update ANIMAL set list_num = 0 where animal_num = #{animal_num}
   	</update>
   	
   	

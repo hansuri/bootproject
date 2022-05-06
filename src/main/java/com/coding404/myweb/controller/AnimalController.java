@@ -202,6 +202,7 @@ public class AnimalController {
 		hisVO.setAdopt_list_name(aniVO.getANIMAL_NAME());
 		hisVO.setAdopt_list_type(aniVO.getANIMAL_TYPE());
 		hisVO.setAdopt_list_content(aniVO.getANIMAL_CONTENT());
+		hisVO.setAnimal_num(aniVO.getANIMAL_NUM());
 		
 		
 		

@@ -38,6 +38,7 @@ public class NoticeController {
 	//공지게시판등록 화면처리
 	@GetMapping("/notice_reg")
 	public String notice_reg(HttpSession session,
+							 Model model,
 			  				 RedirectAttributes RA) {
 		
 		
@@ -57,6 +58,8 @@ public class NoticeController {
 				return "redirect:/notice/notice";
 			}
 		
+			model.addAttribute("noticeVO", new NoticeVO());
+			
 
 		return "notice/notice_reg";
 	}
