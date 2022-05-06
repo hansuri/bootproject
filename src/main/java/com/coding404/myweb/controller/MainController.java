@@ -33,7 +33,28 @@ public class MainController {
 	
 	//메인 화면처리
 	@GetMapping("/main")
-	public String main(Model model) {
+	public String main(Model model,
+					   HttpSession session) {
+		
+		UserVO vo = (UserVO)session.getAttribute("userVO");
+		if(vo != null) {
+			String user_id = vo.getUser_id();
+			
+			int cntFree = userService.getFree(user_id);
+			if(cntFree != 0) {
+				model.addAttribute("cntFree", cntFree);			
+			} else {
+				model.addAttribute("cntFree", 0);
+			}
+			
+			
+			int cntAdopt = userService.getAdopt(user_id);
+			if(cntAdopt != 0) {			
+				model.addAttribute("cntAdopt", cntAdopt);
+			} else {
+				model.addAttribute("cntAdopt", 0);
+			}
+		}
 	
 		ArrayList<NoticeVO> noticeList = userService.getNoticeNew();
 		model.addAttribute("noticeList", noticeList);
@@ -48,6 +69,7 @@ public class MainController {
 		ArrayList<FreeVO> freeFunList = userService.getFunNew();
 		model.addAttribute("freeFunList", freeFunList);
 		
+		
 		return "main";
 	}
 	
@@ -56,6 +78,14 @@ public class MainController {
 	public String info() {
 		
 		return "info";
+	}
+	
+	
+	//동물병원정보
+	@GetMapping("/clinic")
+	public String clinic() {
+		
+		return "clinic";
 	}
 	
 	

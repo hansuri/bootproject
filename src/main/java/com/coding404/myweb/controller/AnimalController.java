@@ -281,6 +281,7 @@ public class AnimalController {
 		
 		
 		
+
 		
 		
 		if(f.getContentType().contains("image") == false) { //이미지를 포함하고 있지 않은경우

@@ -62,6 +62,36 @@ public class UserController {
 		return "user/history";
 	}
 	
+	//전체 이력 화면처리
+	@GetMapping("/totalHistory")
+	public String totalHistory(HttpSession session,
+							   Model model,
+							   RedirectAttributes RA) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "관리자만 접근 가능합니다!");
+			return "redirect:/main";
+		}
+		
+		UserVO sessionVO = (UserVO)session.getAttribute("userVO");
+		String user_id = sessionVO.getUser_id();
+		
+		if(!user_id.equals("admin")) {
+			RA.addFlashAttribute("msg", "관리자만 접근 가능합니다!");
+			return "redirect:/main";
+		}
+		
+		ArrayList<HistoryVO> list = userService.getTotalHistory();
+		
+		model.addAttribute("list", list);
+		
+		
+		return "user/totalHistory";
+	}
+	
+	
+	
+	
 	//마이페이지 화면처리
 	@GetMapping("/mypage")
 	public String mypage(HttpSession session,
@@ -151,6 +181,29 @@ public class UserController {
 		
 		
 		return "redirect:/main";
+	}
+	
+	
+	//이력관리 (입양취소)
+	@PostMapping("/adopt_form")
+	public String adopt_form(HistoryVO vo,
+							 RedirectAttributes RA) {
+		
+		
+		int result = userService.delAdopt_list(vo.getAdopt_list_num()); //이력 삭제
+		
+		if(result == 1) { //성공 
+			RA.addFlashAttribute("msg", "해당 이력이 삭제되었습니다.");
+			
+		} else { //실패
+			RA.addFlashAttribute("msg", "이력 삭제에 실패했습니다..");
+		}
+		
+		
+		userService.updateAnimal(vo.getAdopt_list_name());  //동물리스트에 복구
+		
+		
+		return "redirect:/user/totalHistory";
 	}
 
 }
