@@ -93,6 +93,8 @@ public class RecController {
 		
 		animalService.deleteAnimal(num);
 		
+
+		
 		
 		
 		

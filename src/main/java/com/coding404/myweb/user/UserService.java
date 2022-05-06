@@ -29,7 +29,7 @@ public interface UserService {
 	public int getAdopt(String user_id); // 이력 수
 	
 	public int delAdopt_list(int adopt_list_num); //이력 삭제
-	public int updateAnimal(String adopt_list_name); //동물리스트 복구
+	public int update_Animal(HistoryVO vo); //동물리스트 복구
 
 
 }
