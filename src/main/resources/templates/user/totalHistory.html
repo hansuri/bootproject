@@ -43,6 +43,7 @@
                             <tr th:each="vo, state : ${list}">
                             	<input type="hidden" name="adopt_list_num" th:value="${vo.adopt_list_num}">
                             	<input type="hidden" name="adopt_list_name" th:value="${vo.adopt_list_name}">
+                            	<input type="hidden" name="animal_num" th:value="${vo.animal_num}">
                                 <td>[[${state.index + 1}]]</td>
                                 <td>[[${vo.adopt_list_name}]]</td>
                                 <td>[[${vo.adopt_list_type}]]</td>

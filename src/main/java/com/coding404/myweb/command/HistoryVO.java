@@ -19,5 +19,7 @@ public class HistoryVO {
 	private String adopt_list_content;
 	private String adopt_list_date;
 	private String adopt_list_progress;
+	
+	private int animal_num;
 
 }

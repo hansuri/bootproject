@@ -83,8 +83,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateAnimal(String adopt_list_name) {
-		return userMapper.updateAnimal(adopt_list_name);
+	public int update_Animal(HistoryVO vo) {
+		return userMapper.update_Animal(vo);
 	}
 
 
