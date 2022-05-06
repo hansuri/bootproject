@@ -73,10 +73,10 @@
         
                     <hr>
             
-                
                     <div class="row">
                     <th:block th:each=" anivo : ${animal}">
-                  
+                	<!-- <th:block th:if="${anivo.LIST_NUM} == 1"> -->
+                  	
                         <div class="col-md-3 col-sm-6 col-xs-12 box"> 
                             <div class="ani_img">
                                 <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
@@ -100,14 +100,10 @@
                             </div>
                             
                         </div>
-					</th:block>
-						
-                        
-                        
-                    
-                    
-                    
+                    <!-- </th:block> -->
+					</th:block>				
                     </div>
+                    
                         <div class="wrtie-btn">
                             <input type="button" value="글쓰기" class="btn-write" th:onclick="location.href='/animal/animal_Reg'">
                         </div>
@@ -237,7 +233,7 @@
 											   searchType=${pageVO.cri.searchType},
 											   searchAge=${pageVO.cri.searchAge},
 											   searchMW=${pageVO.cri.searchMW}
-											   )}">">>"
+											   )}">>>
 											   
 				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 			</a>
@@ -461,7 +457,7 @@
 
 	$("#updateAnimal").click(function(){
 		
-		console.log($(".animal_num").first()[0].defaultValue);
+		
 		document.insertHistory.action = "getpkUpdate";
 		document.insertHistory.submit();
 		
