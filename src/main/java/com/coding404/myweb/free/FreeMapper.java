@@ -22,5 +22,5 @@ public interface FreeMapper {
 	//--------------------댓글----------------
 	public int CommentRegist(CommentVO vo); //댓글 등록
 	public ArrayList<CommentVO> getCommentList(int free_list_num);//댓글 목록
-//	public int CommentUpdate(CommentVO vo); //댓글 수정
+	public int commentDelete(int comment_num); //댓글 삭제
 }
