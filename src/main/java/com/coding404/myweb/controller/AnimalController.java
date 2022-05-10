@@ -231,7 +231,7 @@ public class AnimalController {
 		String nowdate = sd.format(new Date());
 		
 		model.addAttribute("nowdate", nowdate);
-		
+		model.addAttribute("hide", "hide");
 		
 		return "animal/animal_Reg";
 	}

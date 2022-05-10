@@ -177,8 +177,8 @@
                                     </table>
 
                                     <div class="btn_area">
-                                    	<input type="button" class="update" value="수정">
-                                        <input type="submit" class="save" value="등록">
+                                    	<input type="button" class="update" th:if="${hide} == hide" value="수정">
+                                        <input type="submit" class="save" th:if="${hide} != hide" value="등록">
                                         <input type="button" class="delete" th:onclick="location.href='/animal/animal_List'" value="목록">
                                     </div>
 
