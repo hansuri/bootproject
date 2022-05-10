@@ -283,6 +283,28 @@ input {
     margin-top: 10px;
 }
 
+.CommentBox .button_btn_register{
+	border-style: none;
+	width: 50px;
+	height: 20px;
+	background: none;
+}
+
+.CommentBox .button_btn_register1{
+	border-style: none;
+	width: 50px;
+	height: 20px;
+	background: none;
+	position: relative;
+	bottom: 40px;
+	left: 90%;
+}
+
+.CommentBox .cup {
+	width: 100%; 
+	height: 80px;
+}
+
 .CommentWriter .comment_inbox {
     position: relative;
     margin-bottom: 10px;
@@ -338,3 +360,11 @@ textarea.comment_inbox_text[data-v-3b426d7d] {
     float: right;
     margin-top: -20px;
 }
+
+.CommentWriter .register_box .button_btn_register{
+	border-style: none;
+	width: 50px;
+	height: 20px;
+	background: none;
+}
+
