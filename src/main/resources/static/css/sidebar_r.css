@@ -26,8 +26,8 @@
         }
 
         .li_first{
-            background-color: #999;
-            color: aliceblue;
+            background-color: #eafbe8;
+            color: black;
         }
 
         .side_r_a{
@@ -42,17 +42,20 @@
         
         .side_r_a > a > img {
         	width: 100%;
-        	height: 100%
+        	height: 100%;
+        	margin: 6px 0;
         }
         
         .side_r_b > a > img {
         	width: 100%;
-        	height: 100%
+        	height: 100%;
+        	margin: -3px 0;
         }
         
         .side_r_c > a > img {
         	width: 100%;
-        	height: 100%
+        	height: 100%;
+        	margin: 6px 0;
         }
         
     @media (max-width: 1500px) {
