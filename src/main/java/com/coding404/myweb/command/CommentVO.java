@@ -16,4 +16,5 @@ public class CommentVO {
 	private Integer user_list_num; //유저리스트번호
 	private String comment_content; //댓글내용
 	private String comment_date; //날짜
+	private String update_comment; //댓글수정
 }

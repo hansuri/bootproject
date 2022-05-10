@@ -136,6 +136,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where comment_num = #{comment_num}
 	</delete>
 	
+	<!-- 댓글수정 -->
+	<update id="commentUpdate">
+		update COMMENT
+		set COMMENT_CONTENT = #{update_comment}
+		where COMMENT_NUM = #{comment_num}
+	</update>
 	
 	
 </mapper>

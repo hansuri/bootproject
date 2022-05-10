@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.coding404.myweb.command.CommentVO;
 import com.coding404.myweb.command.FreeVO;
+import com.coding404.myweb.command.UserVO;
 import com.coding404.myweb.free.FreeService;
 import com.coding404.myweb.util.Criteria;
 import com.coding404.myweb.util.Criteria3;
@@ -70,14 +71,16 @@ public class FreeBoardController {
 	//자유게시판상세보기 화면처리
 	@GetMapping("/free_detail")
 	public String free_detail(@RequestParam("free_list_num") int free_list_num,
-							  Model model) {
+							  Model model, HttpSession session) {
 		
 		FreeVO freeVO = freeService.getDetail(free_list_num);
 		freeService.viewsUpdate(free_list_num);
 		model.addAttribute("freeVO", freeVO);
 		
-		ArrayList<CommentVO> list = freeService.getCommentList(free_list_num);
-		model.addAttribute("list2", list);
+		ArrayList<CommentVO> list2 = freeService.getCommentList(free_list_num);
+		model.addAttribute("list2", list2);
+		
+		
 		
 		
 		return "free/free_detail";
@@ -136,9 +139,18 @@ public class FreeBoardController {
 							 HttpSession session,
 							 RedirectAttributes RA) {
 		
+		int N = vo.getFree_list_num();
+		
 		if(session.getAttribute("userVO") == null) {
 			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
 			return "redirect:/main";
+		}
+		
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		String user_id = userVO.getUser_id();
+		if(!user_id.equals(vo.getFree_list_writer())) {
+			RA.addFlashAttribute("msg", "로그인정보와 일치하지 않습니다!");
+			return "redirect:/free/free_detail?free_list_num="+N;
 		}
 		
 		if(errors.hasErrors() ) {
@@ -161,7 +173,6 @@ public class FreeBoardController {
 			
 		}
 		
-		int dlit = vo.getFree_list_num();
 		
 		int result = freeService.update(vo);
 		
@@ -171,7 +182,7 @@ public class FreeBoardController {
 			RA.addFlashAttribute("msg", "게시글 수정에 실패했습니다.");
 		}
 		
-		return "redirect:/free/free_detail?free_list_num="+dlit;
+		return "redirect:/free/free_detail?free_list_num="+N;
 	}
 	
 	//삭제
@@ -180,12 +191,21 @@ public class FreeBoardController {
 							 RedirectAttributes RA,
 							 HttpSession session) {
 		
+		int N = vo.getFree_list_num();
+		
 		if(session.getAttribute("userVO") == null) {
 			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
 			return "redirect:/main";
 		}
-
-			
+		
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		String user_id = userVO.getUser_id();
+		if(!user_id.equals(vo.getFree_list_writer())) {
+			RA.addFlashAttribute("msg", "로그인정보와 일치하지 않습니다!");
+			return "redirect:/free/free_detail?free_list_num="+N;
+		}
+		
+		
 		int result = freeService.delete(vo.getFree_list_num());
 		
 		if(result == 1) {
@@ -201,15 +221,10 @@ public class FreeBoardController {
 	@PostMapping("/commentReg")
 	public String commentReg(CommentVO vo,
 							 RedirectAttributes RA,
-							 HttpSession session,
-							 @RequestParam("listNum")int N) {
+							 HttpSession session
+							 ) {
 		
-		if(session.getAttribute("userVO") == null) {
-			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
-			return "redirect:/main";
-		}
-		
-		
+		int N = vo.getUser_list_num();
 		System.out.println(vo);
 		int result = freeService.CommentRegist(vo);
 		
@@ -219,26 +234,55 @@ public class FreeBoardController {
 	
 	//댓글 수정
 	@PostMapping("/commentUpdate")
-	public String commentUpdate() {
+	public String commentUpdate(HttpSession session,
+								CommentVO vo,
+								RedirectAttributes RA,
+								Model model
+								) {
+		
+		if(session.getAttribute("userVO") == null) {
+			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
+			return "redirect:/main";
+		}
+		int N = vo.getUser_list_num();
+
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		String user_id = userVO.getUser_id();		
+		
+		if(!user_id.equals(vo.getComment_id())) {
+			RA.addFlashAttribute("msg", "로그인정보와 일치하지 않습니다!");
+			return "redirect:/free/free_detail?free_list_num="+N;
+		}
+		
+		int result = freeService.commentUpdate(vo);
 		
 		
-		return null;
+		return "redirect:/free/free_detail?free_list_num="+N;
 	}
 	
 	
 	//댓글 삭제
 	@PostMapping("/commentDelete")
-	public String commentDelete(@RequestParam("cn") int cn,
+	public String commentDelete(@RequestParam("comment_num") int cn,
 								CommentVO vo,
 								RedirectAttributes RA,
-								@RequestParam("listNum")int N,
 								HttpSession session) {
+		int N = vo.getUser_list_num();
 		
 		if(session.getAttribute("userVO") == null) {
 			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
 			return "redirect:/main";
 		}
 		
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		String user_id = userVO.getUser_id();
+		
+		if(!user_id.equals(vo.getComment_id())) {
+			RA.addFlashAttribute("msg", "로그인정보와 일치하지 않습니다!");
+			return "redirect:/free/free_detail?free_list_num="+N;
+		}
+		
+		System.out.println(vo);
 		
 		int result = freeService.commentDelete(cn);		
 		

@@ -27,10 +27,10 @@
   
   #board-search .search-window .search-wrap select {
     position: relative;
-    right: 58px;
+    right: 54px;
     top: 35px;
     bottom: 0;
-    width: 28%;
+    width: 22%;
     padding: 7px;
     font-size: 13px;
   }
