@@ -27,14 +27,14 @@ section, article {
 
 /* 부트스트랩 버튼 */
 .form-control {
-    border-radius: 0px;
+    border-radius: 4px;
 }
 .form-control:focus {
     border: 1px solid #000;
     box-shadow: none;
 }
 .btn {
-    border-radius: 0;
+    border-radius: 4px;
 }
 
 /* 제목 */
@@ -50,7 +50,7 @@ section, article {
 
 
 .main_article {
-    margin-top : 60px;
+    margin-top : 40px;
 }
 
 
@@ -68,11 +68,12 @@ section, article {
 
 .form-group {
     width: 200px;
+    padding: 4%;
 }
 
 
 .inner {
-    margin: 0 auto;
+    margin: 0 auto 20% auto;
     width: 10%;
     position: relative;
     left: 180%;
@@ -155,7 +156,7 @@ section, article {
 
 /* 탭 영역 */
 .tabs {
-    margin-top: -280px;
+    margin-top: -22%;
     margin-left: 10%;
     width: 60%;
 }
@@ -175,7 +176,7 @@ section, article {
 .tabs-basic > li.active > a,
 .tabs-basic > li.active > a:hover,
 .tabs-basic > li.active > a:focus {
-    border-color: #ddd;
+  border-radius: 4px 4px 0 0;
 }
 
 /* .tab-content {
@@ -205,5 +206,8 @@ section, article {
 }
 
 .af {
-	background-color: #ededed;
+	background-color: #FFF6D0;
+	border-radius: 4px;
+	padding: 50px 15px;
+
 }

@@ -12,8 +12,6 @@
 
 
     <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
-    
-    <th:block th:replace="~{/include/sidebar_r :: sidebar_r}"></th:block>
 
 
     <section class="section">
@@ -105,12 +103,12 @@
 
                 <div id="modal">
                     <form action="noticeDelete" name="updateBtn" method="post" >
-	                    <p class="modal_title"></p>
-	                    <p class="modal_content"></p>
-	                    <a class="modal_close_btn" > X </a>
+	                    <p id="modal_title" class="modal_title"></p>
+	                    <p id="modal_content" class="modal_content"></p>
+	                    <a id="modal_close_btn" class="modal_close_btn" > ✘ </a>
 	                    <input type="hidden" name="getNum" class="getListNum">
-                    	<button type="button" class="modal_update_btn">수정</button>
-				    	<button type="submit" class="modal_delete_btn">삭제</button>
+                    	<button id="modal_update_btn" type="button" class="modal_update_btn">수정</span></button>
+				    	<button id="modal_delete_btn" type="submit" class="modal_delete_btn">삭제</button>
 					</form>
                 </div>
             </div>
@@ -178,7 +176,57 @@
                 msTransform: 'translate(-50%, -50%)',
                 webkitTransform: 'translate(-50%, -50%)'
             });
-        }
+            
+            
+            modal_title.setStyle({
+            	fontWeight: '600',
+            	fontSize: '15px',
+            	color: '#555'
+            	
+            	
+            	
+            });
+            
+            modal_close_btn.setStyle({
+            	color: '#555555',
+            	fontSize: '16px',
+            	cursor: 'pointer'
+            });
+            
+            
+            modal_update_btn.setStyle({
+			    color: '#fff',
+			    backgroundColor: '#FF8873',
+			    borderRadius: '3px',
+			    float: 'right',
+			    right: '5%',
+			    width: '15%',
+			    padding: '3px',
+			 	marginRight: '-10%',
+			    border: '0px',
+			    outline: 'none',
+			    right: '50px'
+            	
+            });
+            
+            
+			modal_delete_btn.setStyle({
+				
+			    color: '#FF8873',
+			    backgroundColor: '#FFF',
+			    borderRadius: '3px',
+			    float: 'right',
+			    width: '15%',
+			    padding: '3px',
+			    marginRight: '2%',
+			    border: '2px solid #FF8873',
+			    outline: 'none'
+			    
+
+            });
+            
+           
+		}
         
         // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
         Element.prototype.setStyle = function(styles) {

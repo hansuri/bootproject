@@ -4,10 +4,7 @@
         margin: 0%;
     }
 
-    #ad_list > h3 {
-        font-weight: 900;
-        color: rgb(164, 164, 164);
-    }
+ 
 
     .list_wrap {
         margin: 3% 3%;
@@ -78,9 +75,11 @@
 
 /* 글쓰기 버튼 */
     .btn-write {
-        background: #555;
+        background: #FF8873;
         color: #fff;
         border-radius: 5px;
+        outline: none;
+        border: none;
     }
     
     .write-btn {

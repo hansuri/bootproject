@@ -6,17 +6,25 @@
     
 }
 
+
+
 .h3 {
     margin-left: 0 auto;
     text-align: center;
 }
 
 .inner-box {
-    border: 1px solid #111;
+    background-color: #FFF6D0;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    padding-top: 2%;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .line {
-    border-bottom: 1px solid #111;
+    border-bottom: 1px dashed #b1b7b9;
+
 }
 
 .last_row {
@@ -33,17 +41,21 @@ button, input, select {
 
 .join_row{
     display: block;
-    margin-top: 30px;
+    padding-top: 3%;
+    color: #555;
+
 
 }
 
 .box > input {
     width: 280px;
     height: 20px;
-    font-size: 15px;
+    font-size: 14px;
     border: none;
     box-sizing: border-box;
     margin-bottom: 13px;
+    color: #555;
+    background-color: transparent;
 
 }
 
@@ -51,8 +63,7 @@ button, input, select {
 
     width: 280px;
     height: 20px;
-    font-size: 15px;
-    
+    font-size: 14px;
     border: none;
     box-sizing: border-box;
     background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
@@ -62,21 +73,30 @@ button, input, select {
 .box{
     display:  block;
     width: 300px;
-    margin: 0 auto;
-    border: 1px solid #dadada;
+    margin: 2px auto 0 auto;
+    border: 1.5px solid #8888;
+    border-radius: 4px;
     height: 40px;
     padding: 10px;
+
 }
 
 
 
 .sub{
     display: block;
-    margin: 50px auto;
+    margin: 2% auto;
+	outline: none;
+	border: none;
     width: 300px;
-    height: 50px;
+	height: 40px;
+	font-size: 14px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 13px;
+	color: #fff;
+    background-color: #FF8873;
     
-    border: 1px solid #777;
     
 }
 
@@ -122,6 +142,8 @@ h2{
     display: block;
     width: 200px;
     margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
 }
 
 .info{
@@ -160,5 +182,7 @@ input[type='radio'] {
 }
 
 .pw_check_box{
+	margin-top: 3%;
 	border: none;
+	background-color: #FFD473;
 }
