@@ -80,8 +80,7 @@ public class AnimalController {
 	@GetMapping("/animal_List")
 	public String animal_List(Model model , Criteria2 cri) {
 		
-		System.out.println(cri.toString());
-		System.out.println("test");
+		
 		
 		
 		ArrayList<animalVO> list =  animalService.getdetail(cri);
@@ -185,13 +184,15 @@ public class AnimalController {
 	@PostMapping("/insertHistory")
 	public String insertHistory(animalVO vo,
 								@RequestParam("animal_num") String num,
-								HttpSession session) {
+								HttpSession session,
+								RedirectAttributes ra) {
 
 //		System.out.println(num);
 		animalVO aniVO =  animalService.modalview(num);
 		
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		if(userVO == null) {
+			ra.addFlashAttribute("msg", "로그인후 이용가능합니다");
 			return "redirect:/main";
 		}
 		String user_id = userVO.getUser_id();
@@ -257,8 +258,7 @@ public class AnimalController {
 		
 		model.addAttribute("nowdate", nowdate);
 		
-		System.out.println("--------------------------------");
-		System.out.println(f +"file경로확인");
+		
 		
 		
 		if(errors.hasErrors() ) {

@@ -87,6 +87,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.update_Animal(vo);
 	}
 
+	@Override
+	public int getAnimal(String user_id) {
+		
+		return userMapper.getAnimal(user_id);
+	}
+
 
 
 
