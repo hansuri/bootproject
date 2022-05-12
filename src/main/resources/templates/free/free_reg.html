@@ -115,21 +115,19 @@ document.getElementById('now_date').valueAsDate = new Date();
 })();
 
 	function regHandler() {
-		 if(document.freeForm.free_list_type.value == '') {
-			alert("게시글 종류는 필수 입니다.");
-			document.freeForm.free_list_type.focus();
-			return;
-		} else if(document.freeForm.free_list_content.value == '') {
-			alert("내용은 필수 입니다.");
-			document.freeForm.free_list_content.focus();
-			return;
-		} else if(document.freeForm.free_list_title.value == '') {
-			alert("제목은 필수 입니다.");
-			document.freeForm.free_list_title.focus();
-			return;
-		} else {
-			
-		}
+		if(document.getElementsByName("free_list_type")[0].value == '') {
+	         alert("게시글 종류는 필수 입니다.");
+	         document.freeForm.free_list_type.focus();
+	         
+	      } else if(document.getElementsByName("free_list_title")[0].value == '') {
+	         alert("제목은 필수 입니다.");
+	         document.freeForm.free_list_title.focus();
+	         
+	      } else if(document.getElementsByName("free_list_content")[0].value == '') {
+	         alert("내용은 필수 입니다.");
+	         document.freeForm.free_list_content.focus();
+	         
+	      }
 			document.freeForm.action = "freeForm"
 			document.freeForm.submit();
 
