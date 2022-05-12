@@ -28,13 +28,15 @@ header {
 }
 
 .my-grid > ul > p {
-    margin-left: 20%;
+	text-align: right;
+	margin-right: 20px;
+	
 }
 
 .my-grid > ul {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+	position: absolute;
+	top: 30px;
+	right: 0px;
 }
 li, ol {
     list-style-type: none;
@@ -50,7 +52,10 @@ li, ol {
 }
 
 .my-grid ul > .logout > a {
-    color: red;
+	color: #FFf;
+	background-color: #FF8873;
+	border-radius: 4px;
+	padding: 3px 8px;
 }
 
 
@@ -104,3 +109,4 @@ nav ul li a {
 #goCen {
 	margin-left: 30%;
 }
+

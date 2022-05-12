@@ -27,43 +27,46 @@
 					  	<input type="hidden" name="ad_list_num" th:value="${noticeVO.ad_list_num}">
                             <ul style="display: block;">
                                 <li>
-                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
-                                        <tbody>
-                                            <tr>
-                                                <th>등록일</th>
-                                                <td colspan="5">
-                                                    <input type="date" class="datepicker hasDatepicker" value="[[${#temporals.format(vo.prod_regdate, 'yyyy-MM-dd') }]]">
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>아이디</th>
-                                                <td>
-                                                    <input type="text" class="inputw150" name="admin_id" value="admin" readonly required>
-                                                   <!-- <span class="valid">[[${valid_admin_id}]]</span>  --> 
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>제목</th>
-                                                <td colspan="5">
-                                                    <input type="text" class="inputw99p" name="ad_list_title" th:value="${noticeVO.ad_list_title}">
-                                                    <span class="valid">[[${valid_ad_list_title}]]</span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>내용</th>
-                                                <td colspan="5">
-                                                    <div>
-                                                    	<span class="valid">[[${valid_ad_list_content}]]</span>
-                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;">[[${noticeVO.ad_list_content}]]</textarea>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
+	                                <div class="border">
+	                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+	                                        <tbody>
+	                                            <tr>
+	                                                <th>등록일</th>
+	                                                <td colspan="5">
+	                                                    <input type="date" class="datepicker hasDatepicker" value="[[${#temporals.format(vo.prod_regdate, 'yyyy-MM-dd') }]]">
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>아이디</th>
+	                                                <td>
+	                                                    <input type="text" class="inputw150" name="admin_id" value="admin" readonly required>
+	                                                   <!-- <span class="valid">[[${valid_admin_id}]]</span>  --> 
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>제목</th>
+	                                                <td colspan="5">
+	                                                    <input type="text" class="inputw99p" name="ad_list_title" th:value="${noticeVO.ad_list_title}">
+	                                                    <span class="valid">[[${valid_ad_list_title}]]</span>
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>내용</th>
+	                                                <td colspan="5">
+	                                                    <div>
+	                                                    	<span class="valid">[[${valid_ad_list_content}]]</span>
+	                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;">[[${noticeVO.ad_list_content}]]</textarea>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                                    
 
                                     <div class="btn_area">
                                     	<input type="button" class="update" value="수정" >
