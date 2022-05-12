@@ -265,14 +265,22 @@
 	// 수정 눌렀을때 수정창 나오기
 	function comment_update(e){
 		 $(e.target).closest(".comment_box").find(".noneDiv").slideToggle()
+		
+		 if($(".comment_update")[0].innerHTML == "수정"){
+	          $(".comment_update").html("닫기")
+	                 
+	       }else if($(".comment_update")[0].innerHTML =="닫기"){
+	          $(".comment_update").html("수정")
+	          
+	       }
 	}
-	
 	
 	// 세션이 없으면 댓글등록창 숨김
 	if (document.querySelector(".comment_inbox_id").getAttribute("value")=="xxx") {
 		document.getElementById("Cmw").style.display = "none";
 	}
 	
+
 	
 </script>
 
