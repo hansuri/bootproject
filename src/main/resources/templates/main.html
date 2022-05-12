@@ -104,10 +104,10 @@
 	                            <div class="form-group af">
 	                                <label>이름</label>
 	                                <input type="text" class="form-control id" th:value="${session.userVO == null} ? '' : ${session.userVO.user_name} " readonly>
-	                                <label class="opt" >선호 동물: [[${session.userVO == null} ? '' : ${session.userVO.user_like} ]]</label> <br>
-	                                <label><a th:href="@{/rec/rec_list}" class="rec_a">▶동물추천 받기◀</a></label>
-	                                <label>입양 신청동물 수: [[${cntAdopt}]]개</label> <br>
-	                                <label>등록한 게시글 수: [[${cntFree}]]개</label> <br>
+	                                <label class="opt" >선호 동물: &nbsp&nbsp [[${session.userVO == null} ? '' : ${session.userVO.user_like} ]]</label> <br>
+	                                <label><a th:href="@{/rec/rec_list}" class="rec_a"> ✦ &nbsp 동물추천 받기 &nbsp ✦ </a></label>
+	                                <label style="margin-top: 30px;">입양 신청동물 수: &nbsp&nbsp&nbsp&nbsp[[${cntAdopt}]] 개</label> <br>
+	                                <label>등록한 게시글 수: &nbsp&nbsp&nbsp&nbsp[[${cntFree}]] 개</label> <br>
 	                            </div>
 	                        </form>
                         

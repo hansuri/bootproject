@@ -44,12 +44,12 @@
                             	<input type="hidden" name="adopt_list_num" th:value="${vo.adopt_list_num}">
                             	<input type="hidden" name="adopt_list_name" th:value="${vo.adopt_list_name}">
                             	<input type="hidden" name="animal_num" th:value="${vo.animal_num}">
-                                <td>[[${state.index + 1}]]</td>
+                                <td style="color: #FF8873; font-weight: 700;" >[[${state.index + 1}]]</td>
                                 <td>[[${vo.adopt_list_name}]]</td>
-                                <td>[[${vo.adopt_list_type}]]</td>
+                                <td style="color: #555;">[[${vo.adopt_list_type}]]</td>
                                 <td  class="content_">[[${vo.adopt_list_content}]]</td>
                                 <td>[[${vo.adopt_list_date}]]</td>
-                                <td>[[${vo.adopt_list_progress}]]</td>
+                                <td style="color: #FF8873">[[${vo.adopt_list_progress}]]</td>
                                 <td th:if="${vo.adopt_list_progress} == '입양진행중'"><button type="submit" class="cancell">취소</button></td>
                                 <td th:unless="${vo.adopt_list_progress} == '입양진행중'">...</td>
                             </tr>
