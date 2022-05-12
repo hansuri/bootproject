@@ -103,6 +103,16 @@ public class UserController {
 			RA.addFlashAttribute("msg", "로그인 후에 이용하세요!");
 			return "redirect:/main";
 		}
+		UserVO vo = (UserVO)session.getAttribute("userVO");
+		String user_id= vo.getUser_id();
+		int getFree = userService.getFree(user_id);
+		int getAdopt = userService.getAdopt(user_id);
+		int getAnimal = userService.getAnimal(user_id);
+		model.addAttribute("getFree", getFree);
+		model.addAttribute("getAdopt", getAdopt);
+		model.addAttribute("getAnimal", getAnimal);
+		
+		
 		
 		return "user/mypage";
 	}

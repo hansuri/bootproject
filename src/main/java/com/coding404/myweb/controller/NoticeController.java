@@ -167,7 +167,7 @@ public String noticeUpdateToReg(@RequestParam("getNum") int getNum,
 	NoticeVO vo = noticeService.updateToReg(getNum);
 	
 	model.addAttribute("noticeVO", vo);
-	
+	model.addAttribute("hide", "hide");
 
 	
 	System.out.println(getNum);
