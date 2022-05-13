@@ -1,7 +1,16 @@
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	outline: 0;
+	color: #fff;
+	text-decoration: none;
+	background-color: #FFF6D0;
+	border-radius: 4px 4px 0 0;
+}
+
 
 ul, li{
     list-style: none; 
 }
+
 
 .headbox{ 
     width: 100%; margin: 80px auto;
@@ -22,18 +31,19 @@ ul, li{
 
 .box{
     display: inline-block;   
-    margin: 5px auto; 
+    margin: 0px auto; 
     padding: 15px;
-    background-color: #FFF6D0;
+    background-color: #ede68e;
     cursor: pointer; 
-    border-right: 5px solid #fff;
+    border: 3px solid #fff;
 
 }
 
 .box > .ani_img {
 	border-radius: 5px;
 	width: 100%;
-	border: 5px solid #2222 ;
+	
+	
 }
 
 
@@ -56,13 +66,14 @@ ul, li{
     font-size: 15px;
     color: #555;
     padding: 10px 15px;
-    background-color: #2222;
+    background-color: #FFF;
     border-radius: 6px;
+    
 }
 
 .boxRight{
     float: right; 
-
+	color: #222;
     font-size: 14px;
     font-weight: bolder;
 }
@@ -71,6 +82,26 @@ ul, li{
     display: block;
     margin: 5px 0;
 }
+
+
+#updateAnimal {
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: #FF8873;
+	color: #fff;
+	float: left;
+	margin: -5px 0 0 350px; 	
+}
+
+
+#updateAnimal:hover {
+	
+    border: 2px solid #FF5F4A;
+	background: #FF5F4A;
+}
+
+
 
 .btn-write {
     background: #555;
@@ -97,10 +128,11 @@ ul, li{
 
 /* search */
 .search_block {
-
-    padding-bottom: 10px;
-    background-color: #FFF6D0;
-    border-radius: 4px;
+	
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: #fff;
 }
 
 .fl div {
@@ -114,7 +146,7 @@ ul, li{
 
 
 .fl div input:hover {
-    border: 1px solid #3333;
+     border: 1.5px solid #4444;
 }
 
 .search_block:after {
@@ -125,7 +157,7 @@ ul, li{
 
 .search_block.flfull .fl {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
 
 }
 
@@ -150,8 +182,14 @@ input[type=text], select {
 
 select {
     height: 30px;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #2222;
     margin-right: 4px;
+}
+
+select:hover {
+   
+    border: 1.5px solid #4444;
+   
 }
 
 .search_block.flfull .fr {
@@ -169,7 +207,14 @@ select {
     line-height: 30px;
     border-radius: 5px;
     outline: none;
-    border: none;
+    border: 2px solid #FF8873;
+}
+
+
+.purplebtn:hover {
+	 color: #fff;
+	 background-color: #FF5F4A;
+	 border: 2px solid  #FF5F4A;	
 }
 
 .sel {
@@ -190,8 +235,18 @@ select {
     position: absolute;
     top: 20px;
     right: 25px;
-    color: #4f4f4f;
+    color: #777;
     cursor: pointer;
+    font-size: 18px;
+}
+
+#modal .modal_close_btn:hover {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #222;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 #article {
@@ -201,6 +256,16 @@ select {
 
 .btn-write {
     background: #FF8873;
+    border: 2px solid #FF8873;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.btn-write:hover {
+    background: #FF5F4A;
+    border: 2px solid #FF5F4A;
     color: #fff;
     border-radius: 5px;
     outline: none;
@@ -228,13 +293,14 @@ select {
 }
 
 .container > h3 {
-    padding:15px 0px 20px 0px;
+  	width: 130px;
     color: rgb(79, 79, 79);
     font-size: 20px;
+    display: inline-block;
 }
 
 .detail_wrap {
-    padding: 10px 0px 0px 10px;
+    padding: 20px 0px 0px 20px;
 }
 
 /* 디테일 정보 - 왼 */
@@ -250,11 +316,12 @@ select {
 .detail_content .detail_left{
     float: left;
     text-align: left;
+    margin-top: 20px;
 }
 
 .animal_num {
     font-size: 20px;
-    padding-top: 15px;
+ 
 }
 
 .animal_type { 
@@ -330,7 +397,7 @@ select {
 .detail_pic {
     width: 380px;
     float: right;
-    margin: 80px 10px 10px 0px;
+    margin: 30px 20px 0px 0px;
 }
 
 .detail_pic > span {
@@ -356,21 +423,29 @@ select {
     height: 100%;
     z-index: 10;
     border-radius: 50px;
+    
 }
 
 /* 입양하기 버튼 */
 .adopt{
-    margin:40px 0px 0px 0px;
-    border: 2px solid #5926e5;
-    text-align: center;
-    padding: 10px 170px;
-    height: auto;
-    font-size: 15px;
-    font-weight: bolder;
-    position: relative;
-    left: 10px;
-    color: #5926e5;
-    background-color: #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
+	float: left;
+	margin: 90px 0px 80px 20px;
+	border: 3px solid #FF8873;
+	text-align: center;
+	padding: 10px 180px;
+	height: auto;
+	font-size: 15px;
+	font-weight: bolder;
+	position: relative;
+	color: #FF8873;
+	background-color: #FFF;
+	border-radius: 5px;
+}
+
+.adopt:hover {
+	
+	border: 3px solid #FF5F4A;
+	color: #FFF;
+	background-color: #FF5F4A;
+	border-radius: 5px;
 }

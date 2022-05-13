@@ -3415,9 +3415,9 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 100px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 2px 0;
   font-size: 14px;
   text-align: left;
   list-style: none;
@@ -3454,6 +3454,8 @@ tbody.collapse.in {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
+  color: #FF8873;
+
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -3886,10 +3888,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eee;
-  
-
+	
+	outline: 0;
+	color: #fff;
+	text-decoration: none;
+	background-color: #FF8873;
+	border-radius: 4px 4px 0 0;
 }
+
 .nav .nav-divider {
   height: 1px;
   margin: 9px 0;

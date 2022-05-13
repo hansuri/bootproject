@@ -51,11 +51,23 @@ li, ol {
     outline: 0;
 }
 
+.my-grid ul > .mypage > a:hover {
+    text-decoration: none;
+    color: #FF5F4A;
+    outline: 0;
+}
+
 .my-grid ul > .logout > a {
 	color: #FFf;
 	background-color: #FF8873;
 	border-radius: 4px;
 	padding: 3px 8px;
+}
+
+.my-grid ul > .logout > a:hover {
+	
+	background-color: #FF5F4A;
+	
 }
 
 
@@ -96,14 +108,30 @@ nav ul li a {
 	text-decoration: none;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+  border-radius: 4px 4px 0 0;
+}
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  background-color: #FF8873;
+  border-radius: 4px 4px 0 0;
+}
+
 .dropdown-menu > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 3px auto;
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
+    text-align: center;
 }
 
 #goCen {

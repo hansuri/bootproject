@@ -28,24 +28,26 @@ li.collum_tit {
 .collum_tit h3 {
     display: inline-block;
     font-size: 18px;
+    font-weight: 500;
     line-height: 55px;
-    margin-left: 20px;
+    margin: 5px 0 0 40px;
 }
 
 .full_collum ul li ul {
     display: block;
-    background-color: #fff;
+    background-color: #FFF6D0;
 }
 
 .full_collum ul li ul li {
-    padding: 20px;
     overflow: auto;
     overflow-y: hidden;
+    background-color: #FFF6D0;
 }
 
 .border {
 	border: none;
-	background-color: #FFF6D0;
+	background-color: #FFF;
+	margin: 0 40px;
 }
 
 table {
@@ -74,7 +76,7 @@ tr {
 }
 
 .board_basic_view tr td {
-    border-bottom: 1.5px solid #fff;
+    border-bottom: 1.5px solid #FFF;
     padding-left: 12px;
     line-height: 30px;
     height: 45px;
@@ -99,7 +101,7 @@ input[type='text'].datepicker {
 
 select {
     height: 30px;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #FFD473;
     margin-right: 4px;
 }
 
@@ -109,16 +111,18 @@ input[type=text], select {
 
 input {
     height: 30px;
-    border: 1px solid #FFD473;
+	border: none;
     margin-right: 10px;
+    padding-left: 5px;
     
 }
 
 .inputw99p {
     width: 99.5%;
     resize: vertical;
-    border: 1px solid #FFD473;
+    border: 1px solid #FFF;
     margin-top: 5px;
+    padding-left: 5px;
 }
 
 .inputw99p:hover {
@@ -131,7 +135,7 @@ input {
 .btn_area {
     text-align: center;
     padding: 20px 0;
-    margin-top: 15px;
+    margin: 15px 0 0 10px;
 }
 
 .btn_area .update {

@@ -11,7 +11,9 @@
 <th:block th:replace="~{/include/header :: header2}"></th:block>
 
 
-    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block>
+    <th:block th:replace="~{/include/sidebar :: sidebar}"></th:block> 
+    <th:block th:replace="~{/include/sidebar_r :: sidebar_r}"></th:block>
+    
 
 
     <section class="section">
@@ -187,44 +189,6 @@
             	
             });
             
-            modal_close_btn.setStyle({
-            	color: '#555555',
-            	fontSize: '16px',
-            	cursor: 'pointer'
-            });
-            
-            
-            
-            modal_update_btn.setStyle({
-			    color: '#fff',
-			    backgroundColor: '#FF8873',
-			    borderRadius: '3px',
-			    float: 'right',
-			    right: '5%',
-			    width: '15%',
-			    padding: '3px',
-			 	marginRight: '-10%',
-			 	border: '2px solid #FF8873',
-			    outline: 'none',
-			    right: '50px'
-            	
-            });
-            
-            
-			modal_delete_btn.setStyle({
-				
-			    color: '#FF8873',
-			    backgroundColor: '#FFF',
-			    borderRadius: '3px',
-			    float: 'right',
-			    width: '15%',
-			    padding: '3px',
-			    marginRight: '2%',
-			    border: '2px solid #FF8873',
-			    outline: 'none'
-			    
-
-            });
             
            
 		}

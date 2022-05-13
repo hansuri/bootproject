@@ -68,7 +68,7 @@
 
     <div class ="animated-text">
 	<th:block  th:each="noticeVO : ${noticeList}">
-      <div class="line">[[${noticeVO.ad_list_title}]]</div>
+      <div class="line"><a th:href="@{/notice/notice(ad_list_title=${noticeVO.ad_list_title})}">[[${noticeVO.ad_list_title}]]</a></div>
 	</th:block>
     </div>
 

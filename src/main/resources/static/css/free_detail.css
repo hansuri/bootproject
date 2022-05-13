@@ -27,7 +27,7 @@ li.collum_tit {
     display: inline-block;
     font-size: 18px;
     line-height: 55px;
-    margin-left: 20px;
+     margin: 5px 0 0 40px;
 }
 
 .full_collum ul li ul {
@@ -91,16 +91,17 @@ input[type='text'].datepicker {
     width: 150px;
     height: 30px;
     line-height: 30px;
-    color: #999;
+    color: #555;
 }
 
 
 
 select {
     height: 30px;
-    border: 1px solid #d5d5d5;
+    border: none;
     margin-right: 4px;
 }
+
 
 input[type=text], select {
     min-width: 60px;
@@ -140,84 +141,52 @@ input {
 }
 
 .btn_area .save {
-    background-color: #4981e1;
+    background-color: #FF8873;
     text-align: center;
     padding: 0 40px;
     color: #fff;
     border: none;
     height: auto;
     margin: 0;
+    border-radius: 4px;
+    border: 2px solid #FF8873;
+}
+
+.btn_area .save:hover {
+    background-color: #FF5F4A;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #FF5F4A;
+    border-radius: 4px;
 }
 
 .btn_area .delete {
-    background-color: #999;
+    background-color: #fff;
     text-align: center;
     padding: 0 40px;
-    color: #fff;
+    color: #FF8873;
     border: none;
     height: auto;
     margin: 0;
+    border: 2px solid #FF8873;
+    border-radius: 4px;
 }
 
-
-.filebox {
-    padding: 10px 0;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.filebox .left {
-    display: inline-block;
-}
-
-.filebox .upload-display {
-    width: 160px;
-    height: 160px;
-    margin-bottom: 10px;
-}
-
-.filebox label {
-    font-size: 12px;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0.25em;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-
-.filebox .upload-thumb-wrap {
-    display: block;
-    height: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    cursor: pointer;
-    background: url(../img/bg_imgItem.png) 50% 50% no-repeat;
-}
-
-.filebox .upload-thumb-wrap img {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    max-width: 100%;
+.btn_area .delete:hover {
+    background-color: #FF5F4A;
+    text-align: center;
+    padding: 0 40px;
+    color: #FFF;
+    border: none;
     height: auto;
+    margin: 0;
+    border: 2px solid #FF5F4A;
+    border-radius: 4px;
 }
-
-.filebox input[type="file"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
 
 
 /* 댓글 */
@@ -288,7 +257,7 @@ input {
 }
 
 
-.CommentBox .comment_list+.CommentWriter {
+.CommentBox .comment_list .CommentWriter {
     margin-top: 10px;
 }
 
@@ -317,6 +286,7 @@ input {
 
 .CommentWriter .comment_inbox {
     position: relative;
+
 
 }
 
@@ -363,19 +333,17 @@ textarea.comment_inbox_text[data-v-3b426d7d] {
 
 .comment_delete:hover {
 	color: #FFF;
-    background-color: #FF8873;
-    border: 2px solid #FF8873;
+    background-color: #FF5F4A;;
+    border: 2px solid #FF5F4A;;
     outline: none;
 }
 
 .CommentWriter {
-
-    padding: 15px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    box-sizing: border-box;
-    background: rgb(230, 243, 255);
-    
+	padding: 20px 30px;
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: white;
 }
 
 .CommentWriter .comment_inbox_text {
@@ -406,18 +374,23 @@ textarea.comment_inbox_text[data-v-3b426d7d] {
 }
 
 .CommentWriter .register_box .button_btn_register{
-	border-style: none;
+	
 	width: 50px;
 	height: 30px;
-	background-color: #fff;
 	border-radius: 3px;
-    border: 0px;
-    outline: none;
     margin-top: -10px;
-    /* 
-    color: #FF8873;
-    border: 2px solid #FF8873;
-    */
-    
-}
+	background-color: #FF8873;
+	border: 2px solid #FF8873;
+	color: #fff;
+	outline: none;
+
+	}
+	
+	.CommentWriter .register_box .button_btn_register:hover {
+	
+	
+	background-color: #FF5F4A;;
+	border: 2px solid #FF5F4A;;
+	
+	}
 

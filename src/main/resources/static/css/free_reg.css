@@ -14,7 +14,7 @@ li.collum_tit {
 }
 
 .collum_tit {
-    background-color: rgb(250, 237, 246);
+    background-color: #fcebed;
     position: relative;
     line-height: 55px;
     border: none;
@@ -29,22 +29,24 @@ li.collum_tit {
     font-size: 18px;
     line-height: 55px;
     margin-left: 20px;
+    margin: 5px 0 0 40px;
 }
 
 .full_collum ul li ul {
     display: block;
-    background-color: #fff;
+    background-color: #fcebed;
+
 }
 
 .full_collum ul li ul li {
-    padding: 20px;
     overflow: auto;
     overflow-y: hidden;
 }
 
 .border {
 	border: none;
-	background-color: rgb(250, 237, 246);
+	background-color: #FFF;
+	margin: 0 40px;
 }
 
 table {
@@ -64,7 +66,7 @@ tr {
 .board_basic_view tr th {
     width: 140px;
     font-weight: 500;
-    background-color: #f7dbf2;
+    background-color: #fabfc3;
     text-align: center;
     border-bottom: 1.5px solid #fff;
     height: 45px;
@@ -97,8 +99,13 @@ input[type='text'].datepicker {
 
 select {
     height: 30px;
-    border: 1px solid #f7dbf2;
+    border: 1px solid #fabfc3;
     margin-right: 4px;
+}
+
+select:hover {
+    border: 2px solid #fc9da6;
+   
 }
 
 input[type=text], select {
@@ -107,20 +114,22 @@ input[type=text], select {
 
 input {
     height: 30px;
-    border: 1px solid #f7dbf2;
+    border: none;
     margin-right: 10px;
+    padding-left: 5px;
 }
 
 .inputw99p {
     width: 99.5%;
     resize: vertical;
-    border: 1px solid #f7dbf2;
+    border: 1px solid #fff;
     margin-top: 5px;
+    padding-left: 5px;
 }
 
 .inputw99p:hover {
     
-    border: 2px solid #4981e1;
+    border: 2px solid #fc9da6;
     
 }
 
@@ -128,11 +137,11 @@ input {
 .btn_area {
     text-align: center;
      padding: 20px 0;
-    margin-top: 15px;
+    margin-top: 15px 0 0 10px;
 }
 
 .btn_area .save {
-    background-color: #f7dbf2;
+    background-color: #fabfc3;
     text-align: center;
      padding: 0px 20px 0 30px;
     margin: 0;
@@ -140,21 +149,21 @@ input {
     border: none;
 	height: auto;
     border-radius: 4px;
-    border: 2px solid #f7dbf2;
+    border: 2px solid #fabfc3;
     letter-spacing: 10px;
 }
 
 .btn_area .save:hover {
-	background-color: #4981e1;
-	border: 2px solid #4981e1;
+	background-color: #fc9da6;
+	border: 2px solid #fc9da6;
 }
 
 .btn_area .delete {
     background-color: #FFF;
     text-align: center;
     padding: 0px 20px 0 30px;
-    color: #f7dbf2;
-    border: 2px solid #f7dbf2;
+    color: #fabfc3;
+    border: 2px solid #fabfc3;
     height: auto;
     margin: 0;
     border-radius: 4px;
@@ -162,7 +171,7 @@ input {
 }
 
 .btn_area .delete:hover {
-	background-color: #4981e1;
-	border: 2px solid #4981e1;
+	background-color: #fc9da6;
+	border: 2px solid #fc9da6;
 	color: #FFF;
 }

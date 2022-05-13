@@ -4,30 +4,53 @@
         /* 사이드 메뉴 */
         .side_r {
             position: fixed;
-            right: 0;
+            right: 1.5%;
             top: 210px;
             z-index: 10; /* z축의 높이 (피지션 간의 우선순위 결정) */
             background-color: white;
-            border: 1px inset #777;
             width: 200px;
-            text-align: center;
+            padding: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+       
+            
         }
-        .side_r .side-list li {border-bottom: 1px solid #777;}
+        .side_r .side-list li {
+
+        	margin-bottom: 5px;	
+        }
+        
+        
         .side_r .side-list li a {
-            color: black;
+            color: #391b1b;
             text-decoration: none;
             font-size: 10px;
             display: block; /* a가 인라인 태그이기 때문에 변경 */
-            padding: 3px 0;
+            padding: 0;
             letter-spacing: -1px; /* 자간 */
         }
-        .side_r .side-list li a span {
-            display: block;
-        }
+        
 
         .li_first{
-            background-color: #eafbe8;
+            background-color: #fae300;
             color: black;
+            padding: 10px;
+           
+            
+        }
+        
+         .li_first > .kakao {
+			margin: 0;
+        	text-align: left;
+        	
+		} 
+     
+        
+        .kakaologo {
+        	width: 45px;
+        	height: 45px;
+        	margin: 0 10px 0px 0;
+        	float: left;
+        	text-align: center;
         }
 
         .side_r_a{
@@ -44,12 +67,14 @@
         	width: 100%;
         	height: 100%;
         	margin: 6px 0;
+        	border: none;
         }
         
         .side_r_b > a > img {
         	width: 100%;
         	height: 100%;
         	margin: -3px 0;
+        	border: none;
         }
         
         .side_r_c > a > img {

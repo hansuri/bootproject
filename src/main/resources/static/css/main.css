@@ -219,3 +219,11 @@ section, article {
 	padding: 30px 15px;
 
 }
+
+  .kakaologo {
+        	width: 45px;
+        	height: 45px;
+        	margin: 0 10px 0px 0;
+        	float: left;
+        	text-align: center;
+        }
