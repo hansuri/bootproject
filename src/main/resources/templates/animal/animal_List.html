@@ -73,37 +73,37 @@
                         </div>
                     </form>
         
-                    <hr>
             
-                    <div class="row">
-                    <th:block th:each=" anivo : ${animal}">
-                	<!-- <th:block th:if="${anivo.LIST_NUM} == 1"> -->
-                  	
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
-                            <div class="ani_img">
-                                <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
-                            </div>
-                            
-                            
-                            <div class="boxDetail">
-                                <div class="boxLeft">
-                                	
-                                	<span style="display: none">[[${anivo.ANIMAL_NUM}]]</span>
-                                    <span>이름:[[${anivo.ANIMAL_NAME}]]</span>
-                                    <span>종류:[[${anivo.ANIMAL_TYPE}]]</span>
-                                    <span>나이:[[${anivo.ANIMAL_AGE}]]</span>
-                                    <span>성별:[[${anivo.ANIMAL_GENDER}]]</span>
-                                    
-                                </div>
-                                
-                                <div class="boxRight">
-                                    <span>등록일:[[${#strings.substring(anivo.ANIMAL_DATE,0,10)}]]</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    <!-- </th:block> -->
-					</th:block>				
+            
+                    <div class="row aniPic">
+		                    <th:block th:each=" anivo : ${animal}">
+		                	<!-- <th:block th:if="${anivo.LIST_NUM} == 1"> -->
+		                  	
+		                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
+		                            <div class="ani_img">
+		                                <img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
+		                            </div>
+		                            
+		                            
+		                            <div class="boxDetail">
+		                                <div class="boxLeft">
+		                                	
+		                                	<span style="display: none">[[${anivo.ANIMAL_NUM}]]</span>
+		                                    <span>이름 &nbsp&nbsp&nbsp[[${anivo.ANIMAL_NAME}]]</span>
+		                                    <span>종류 &nbsp&nbsp&nbsp[[${anivo.ANIMAL_TYPE}]]</span>
+		                                    <span>나이 &nbsp&nbsp&nbsp[[${anivo.ANIMAL_AGE}]]</span>
+		                                    <span>성별 &nbsp&nbsp&nbsp[[${anivo.ANIMAL_GENDER}]]</span>
+		                                    
+		                                </div>
+		                                
+		                                <div class="boxRight">
+		                                    <span>등록일:[[${#strings.substring(anivo.ANIMAL_DATE,0,10)}]]</span>
+		                                </div>
+		                            </div>
+		                            
+		                        </div>
+		                    <!-- </th:block> -->
+							</th:block>				
                     </div>
                     
                         <div class="wrtie-btn">

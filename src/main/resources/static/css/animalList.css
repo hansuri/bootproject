@@ -8,50 +8,68 @@ ul, li{
 }
 
 .row {
-    width: 101.5%;
+	padding: 0;
+	margin: 0;
 }
+
+.aniPic {
+    width: 101.5%;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+
 
 .box{
     display: inline-block;   
-    width: 22%;
-    margin: 10px auto; 
-    border: 5px outset rgb(237, 252, 245);
-    margin: 5px 0px ; 
+    margin: 5px auto; 
+    padding: 15px;
+    background-color: #FFF6D0;
     cursor: pointer; 
+    border-right: 5px solid #fff;
+
 }
 
-
-.box > ul {
-    padding: 0;
+.box > .ani_img {
+	border-radius: 5px;
+	width: 100%;
+	border: 5px solid #2222 ;
 }
+
 
 .box > .ani_img >img {
     width: 100%;
     height: 200px;
-    border-bottom: 1px solid #777;
+    border: none;
 }
 
 .boxDetail{
     overflow: hidden;
     
+    
 }
 
 .boxLeft{
     float: left; 
-    margin: 15px 0;  
+    width: 100%;
+    margin: 20px 0;
     font-size: 15px;
-    
+    color: #555;
+    padding: 10px 15px;
+    background-color: #2222;
+    border-radius: 6px;
 }
 
 .boxRight{
     float: right; 
-    margin: 15px 0; 
-    font-size: 15px;
+
+    font-size: 14px;
     font-weight: bolder;
 }
 
 .boxLeft > span{
     display: block;
+    margin: 5px 0;
 }
 
 .btn-write {
@@ -74,12 +92,15 @@ ul, li{
 
 
 
+
+
+
 /* search */
 .search_block {
-    border: 1px solid #111;
-    margin-top: 10px;
+
     padding-bottom: 10px;
-    background-color: rgb(237, 252, 245);
+    background-color: #FFF6D0;
+    border-radius: 4px;
 }
 
 .fl div {
@@ -88,6 +109,12 @@ ul, li{
 
 .fl div input {
     border: none;
+    width: 50px;
+}
+
+
+.fl div input:hover {
+    border: 1px solid #3333;
 }
 
 .search_block:after {
@@ -97,11 +124,9 @@ ul, li{
 }
 
 .search_block.flfull .fl {
-    float: left;
     width: 100%;
     padding: 15px;
-    padding-bottom: 0px;
-    margin: 0 10%
+
 }
 
 .search_block.flfull .fl > div {
@@ -131,18 +156,20 @@ select {
 
 .search_block.flfull .fr {
     float: right;
-    padding: 15px;
-    padding-bottom: 0px;
+    padding: 0px 15px 20px 15px;
+
 }
 
 .purplebtn {
     padding: 0 23px;
     color: #fff;
     display: inline-block;
-    background-color: #7866c9;
-    border: 1px solid #7866c9;
+    background-color: #FF8873;
     height: 30px;
     line-height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 }
 
 .sel {
@@ -173,8 +200,11 @@ select {
 }
 
 .btn-write {
-    background: #555;
+    background: #FF8873;
     color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 }
 
 .write-btn {

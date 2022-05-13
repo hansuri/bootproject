@@ -13,16 +13,7 @@ li.collum_tit {
     margin-top: 10px;
 }
 
-.a_header {
-	font-size: 50px;
-    letter-spacing: 30px;
-    text-align: center;
-    margin: 0;
-    padding-top: 55px;
-    height: 125px;
-    font-weight: bold;
-    color: #000;
-}
+
 
 .collum_tit {
     background-color: #FFF6D0;
@@ -77,13 +68,13 @@ tr {
     font-weight: 500;
     background-color: #FFD473;
     text-align: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1.5px solid #fff;
     height: 45px;
     line-height: 45px;
 }
 
 .board_basic_view tr td {
-    border-bottom: 2px solid #fff;
+    border-bottom: 1.5px solid #fff;
     padding-left: 12px;
     line-height: 30px;
     height: 45px;

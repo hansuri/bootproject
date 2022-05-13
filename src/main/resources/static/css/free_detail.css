@@ -14,16 +14,17 @@ li.collum_tit {
 }
 
 .collum_tit {
-    background-color: #d5e3fd;
+   background-color: #ebecef;
     position: relative;
     line-height: 55px;
-    border: 1px solid #ededed;
-    min-width: 950px;
+    border: none;
+    min-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9);
 }
 
 .collum_tit h3 {
     display: inline-block;
-    color: rgb(0, 0, 0);
     font-size: 18px;
     line-height: 55px;
     margin-left: 20px;
@@ -31,25 +32,24 @@ li.collum_tit {
 
 .full_collum ul li ul {
     display: block;
-    background-color: rgb(230, 243, 255);
+    background-color: #fff;
 }
 
 .full_collum ul li ul li {
     padding: 20px;
     overflow: auto;
     overflow-y: hidden;
+    margin-bottom: 30px;
 }
 
 table {
     border-spacing: 0px;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    border-style:hidden;
+    margin: 0 auto;
 }
 
-.board_basic_view {
-    border-top: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-}
 
 tr {
     display: table-row;
@@ -58,21 +58,24 @@ tr {
 }
 
 .board_basic_view tr th {
-    width: 140px;
-    background-color: #d5e3fd;
-    text-align: center;
+    width: 130px;
+    text-align: left;
     border-bottom: 1px solid #fff;
-    border-right: 1px solid #ededed;
     height: 45px;
-    line-height: 45px;
+    line-height: 20px;
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-right: 150px;
+    
 }
 
 .board_basic_view tr td {
-    border-bottom: 1px solid #ededed;
-    padding-left: 12px;
+	
+    padding-left: 5px;
     line-height: 30px;
-    height: 45px;
+    height: 25px;
     text-align: left;
+
 }
 
 
@@ -88,7 +91,10 @@ input[type='text'].datepicker {
     width: 150px;
     height: 30px;
     line-height: 30px;
+    color: #999;
 }
+
+
 
 select {
     height: 30px;
@@ -102,13 +108,28 @@ input[type=text], select {
 
 input {
     height: 30px;
-    border: 1px solid #d5d5d5;
-    margin-right: 4px;
+    border: 1px solid #fff;
+    margin-right: 0px;
 }
 
 .inputw99p {
     width: 99.5%;
     resize: vertical;
+    margin: 10px 0;
+}
+
+.freeDtitle {
+	font-weight: 700;
+	font-size: 16px;
+	
+	padding: 40px 10px;
+	border-bottom: 1px solid #2222;
+}
+
+.freeDcontent {
+	color: #555;
+	margin-left: 10px;
+	border-top: 1px solid #2222;
 }
 
 
@@ -198,10 +219,11 @@ input {
 }
 
 
+
 /* 댓글 */
 .CommentBox {
-    margin-top: -17px;
-    border-top: 1px solid #ebecef;
+    margin-top: 0px;
+    border-top: 1px solid #2222;
 }
 
 .CommentBox .comment_option {
@@ -212,47 +234,32 @@ input {
 
 
 .CommentBox .comment_option .comment_title {
-    float: left;
-    margin-top: 18px;
-    margin-left: 10px;
-    margin-right: 12px;
     font-size: 18px;
-}
-
-.CommentBox .comment_list .CommentItem:first-child {
-    border-top: 0;
+    font-weight: 700;
+    margin: 10px 0;
+	padding: 10px 5px ;
+	box-sizing: border-box;
 }
 
 .CommentBox .comment_list .CommentItem {
     position: relative;
-    border-top: 1px solid #f2f2f2;
 }
 
 .CommentBox .comment_list .comment_area {
     position: relative;
-    padding: 12px 23px 10px 0;
 }
 
 .CommentBox .comment_list .comment_box {
-    padding-left: 46px;
+    padding: 10px 20px ;
 }
 
 .CommentBox .comment_list .comment_id_box {
     margin-bottom: 4px;
 }
 
-.comment_list {
-    margin: 12px 0 29px;
-    padding: 16px 10px 10px 18px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    box-sizing: border-box;
-    background: rgb(230, 243, 255);
-}
-
 .comment_list .CommentItem {
-    margin: 12px 0 29px;
-    padding: 16px 10px 10px 18px;
+    margin: 10px 0;
+    padding: 10px;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     box-sizing: border-box;
@@ -264,12 +271,14 @@ input {
     font-size: 13px;
     word-break: break-all;
     word-wrap: break-word;
+    width: 80%
 }
 
 .CommentBox .comment_list .comment_info_box {
     margin-top: 7px;
     font-size: 12px;
-    color: #979797
+    color: #979797;
+    width: 80%;
 }
 
 .CommentBox .comment_list .comment_btn {
@@ -303,18 +312,21 @@ input {
 .CommentBox .cup {
 	width: 100%; 
 	height: 80px;
+	border: 1px solid #3333;
 }
 
 .CommentWriter .comment_inbox {
     position: relative;
-    margin-bottom: 10px;
+
 }
 
 .CommentWriter .comment_inbox_id {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: 700;
     font-size: 13px;
+    background-color: transparent;
+    border: none;
 }
 
 textarea.comment_inbox_text[data-v-3b426d7d] {
@@ -322,32 +334,64 @@ textarea.comment_inbox_text[data-v-3b426d7d] {
 }
 
 .comment_tool {
-    margin-left: 90%;
+	text-align: right;
+    width: 100%;
+}
+
+.comment_update {
+	color: #FF8873;
+    background-color: #FFF;
+    border: 2px solid #FF8873;
+    outline: none;
+}
+
+.comment_delete {    
+    color: #fff;
+    background-color: #FF8873;
+    border: 2px solid #FF8873;
+    outline: none;
+    right: 50px;
+	
+}
+
+.comment_update:hover {
+	color: #FFF;
+    background-color: #FF8873;
+    border: 2px solid #FF8873;
+    outline: none;
+}
+
+.comment_delete:hover {
+	color: #FFF;
+    background-color: #FF8873;
+    border: 2px solid #FF8873;
+    outline: none;
 }
 
 .CommentWriter {
-    margin: 12px 0 29px;
-    padding: 16px 10px 10px 18px;
+
+    padding: 15px;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     box-sizing: border-box;
     background: rgb(230, 243, 255);
+    
 }
 
 .CommentWriter .comment_inbox_text {
     overflow-x: hidden;
     overflow-y: auto;
     display: block;
-    width: 100%;
+    width: 90%;
     min-height: 17px;
-    padding-right: 1px;
-    border: 0;
+    padding: 15px 0;
+    border: none;
     font-size: 13px;
     -webkit-appearance: none;
     resize: none;
     box-sizing: border-box;
-    background: transparent;
-    color: #111;
+    background: #fff;
+    color: #555;
     outline: 0;
 }
 
@@ -358,13 +402,22 @@ textarea.comment_inbox_text[data-v-3b426d7d] {
 
 .CommentWriter .register_box {
     float: right;
-    margin-top: -20px;
+    margin-top: -25px;
 }
 
 .CommentWriter .register_box .button_btn_register{
 	border-style: none;
 	width: 50px;
-	height: 20px;
-	background: none;
+	height: 30px;
+	background-color: #fff;
+	border-radius: 3px;
+    border: 0px;
+    outline: none;
+    margin-top: -10px;
+    /* 
+    color: #FF8873;
+    border: 2px solid #FF8873;
+    */
+    
 }
 
