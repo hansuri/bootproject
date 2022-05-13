@@ -14,27 +14,18 @@ li.collum_tit {
 }
 
 .collum_tit {
-    background-color: #d5e3fd;
+    background-color: rgb(250, 237, 246);
     position: relative;
     line-height: 55px;
-    border: 1px solid #ededed;
-    min-width: 950px;
+    border: none;
+    min-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9);
 }
 
-.a_header {
-	font-size: 50px;
-    letter-spacing: 30px;
-    text-align: center;
-    margin: 0;
-    padding-top: 55px;
-    height: 125px;
-    font-weight: bold;
-    color: #000;
-}
 
 .collum_tit h3 {
     display: inline-block;
-    color: rgb(0, 0, 0);
     font-size: 18px;
     line-height: 55px;
     margin-left: 20px;
@@ -42,7 +33,7 @@ li.collum_tit {
 
 .full_collum ul li ul {
     display: block;
-    background-color: rgb(230, 243, 255);
+    background-color: #fff;
 }
 
 .full_collum ul li ul li {
@@ -51,16 +42,18 @@ li.collum_tit {
     overflow-y: hidden;
 }
 
+.border {
+	border: none;
+	background-color: rgb(250, 237, 246);
+}
+
 table {
     border-spacing: 0px;
     border-collapse: collapse;
     width: 100%;
+    border-style:hidden;
 }
 
-.board_basic_view {
-    border-top: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-}
 
 tr {
     display: table-row;
@@ -70,20 +63,21 @@ tr {
 
 .board_basic_view tr th {
     width: 140px;
-    background-color: #d5e3fd;
+    font-weight: 500;
+    background-color: #f7dbf2;
     text-align: center;
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #ededed;
+    border-bottom: 1.5px solid #fff;
     height: 45px;
     line-height: 45px;
 }
 
 .board_basic_view tr td {
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1.5px solid #fff;
     padding-left: 12px;
     line-height: 30px;
     height: 45px;
     text-align: left;
+    padding-right: 5px;
 }
 
 
@@ -103,7 +97,7 @@ input[type='text'].datepicker {
 
 select {
     height: 30px;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #f7dbf2;
     margin-right: 4px;
 }
 
@@ -113,38 +107,62 @@ input[type=text], select {
 
 input {
     height: 30px;
-    border: 1px solid #d5d5d5;
-    margin-right: 4px;
+    border: 1px solid #f7dbf2;
+    margin-right: 10px;
 }
 
 .inputw99p {
     width: 99.5%;
     resize: vertical;
+    border: 1px solid #f7dbf2;
+    margin-top: 5px;
+}
+
+.inputw99p:hover {
+    
+    border: 2px solid #4981e1;
+    
 }
 
 
 .btn_area {
     text-align: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
+     padding: 20px 0;
+    margin-top: 15px;
 }
 
 .btn_area .save {
-    background-color: #4981e1;
+    background-color: #f7dbf2;
     text-align: center;
-    padding: 0 40px;
-    color: #fff;
-    border: none;
-    height: auto;
+     padding: 0px 20px 0 30px;
     margin: 0;
+    color: #555;
+    border: none;
+	height: auto;
+    border-radius: 4px;
+    border: 2px solid #f7dbf2;
+    letter-spacing: 10px;
+}
+
+.btn_area .save:hover {
+	background-color: #4981e1;
+	border: 2px solid #4981e1;
 }
 
 .btn_area .delete {
-    background-color: #999;
+    background-color: #FFF;
     text-align: center;
-    padding: 0 40px;
-    color: #fff;
-    border: none;
+    padding: 0px 20px 0 30px;
+    color: #f7dbf2;
+    border: 2px solid #f7dbf2;
     height: auto;
     margin: 0;
+    border-radius: 4px;
+    letter-spacing: 10px;
+}
+
+.btn_area .delete:hover {
+	background-color: #4981e1;
+	border: 2px solid #4981e1;
+	color: #FFF;
 }

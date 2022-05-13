@@ -29,6 +29,16 @@
                                 <li>
                                     <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
                                         <tbody>
+                                        
+                                        	<tr>
+                                                <td colspan="5">
+                                                    <input type="text" class="inputw99p freeDtitle" name="free_list_title" th:value="${freeVO.free_list_title}" >
+                                                    [[${valid_free_list_title}]]
+                                                </td>
+                                                
+                                            </tr>
+                                        
+                                           
                                             <tr>
                                                 <th>글 번호</th>
                                                 <td>
@@ -81,21 +91,13 @@
                                                 </td>
                                             </tr>
 
-                                            <tr>
-                                                <th>제목</th>
-                                                <td colspan="5">
-                                                    <input type="text" class="inputw99p" name="free_list_title" th:value="${freeVO.free_list_title}" >
-                                                    [[${valid_free_list_title}]]
-                                                </td>
-                                                
-                                            </tr>
+                                            
 
                                             <tr>
-                                                <th>내용</th>
                                                 <td colspan="5">
                                                     <div>
                                                     	[[${valid_free_list_content}]]
-                                                        <input type="text" name="free_list_content" th:value="${freeVO.free_list_content}" class="inputw99p" style="height: 200px;" >
+                                                        <input type="text" name="free_list_content" th:value="${freeVO.free_list_content}" class="inputw99p freeDcontent" style="height: 200px;" >
                                                     </div>
                                                 </td>
                                             </tr>

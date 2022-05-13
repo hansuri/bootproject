@@ -31,24 +31,24 @@
     top: 35px;
     bottom: 0;
     width: 22%;
-    padding: 7px;
+    padding: 7.5px;
     font-size: 13px;
   }
   
   #board-search .search-window .search-wrap input {
     height: 35px;
-    width: 105%;
+    width: 100%;
     font-size: 13px;
     padding: 8px 10px;
     border: 1px solid #ccc;
   }
   #board-search .search-window .search-wrap input:focus {
-    border-color: #333;
+    border-color: #777;
     border-width: 1px;
   }
   #board-search .search-window .search-wrap .btn {
     position: absolute;
-    right: -16px;
+    right: 0.5px;
     top: 22;
     bottom: 0;
     width: 20%;
@@ -63,7 +63,7 @@
 
   .board-table {
     font-size: 13px;
-    width: 100%;
+    width: 98%;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
   }
@@ -73,8 +73,10 @@
     display: inline-block;
   }
   
+  
   .board-table th {
     text-align: center;
+    
   }
   
   .board-table .th-num {
@@ -95,6 +97,14 @@
     text-align: center;
   }
   
+  .board-table tbody tr td:first-child {
+    color: #FF8873;
+  }
+  
+ .views-count {
+    color: #999;
+  }
+  
   .board-table tbody th {
     padding-left: 12px;
     padding-right: 14px;
@@ -102,23 +112,26 @@
     text-align: left;
   }
   
-  .btn-dark, .btn-write {
-    background: #555;
-    color: #fff;
-  }
-  
-  .write-btn {
-    display: inline-block;
-  }
-  
-  .btn-write {
-    position: relative;
-    left: 12px;
-    float: right;
-    width: 7%;
-    padding: 5.5px;
-    margin: 12px;
-  }
+   .btn-dark, .btn-write {
+        background: #FF8873;
+        color: #fff;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+    }
+    
+    .write-btn {
+        display: inline-block;
+      }
+      
+    .btn-write {
+        position: relative;
+        float: right;
+        right: 3%;
+        width: 7%;
+        padding: 5.5px;
+        margin: 12px;
+    }
   
   * {
     list-style: none;
@@ -126,8 +139,4 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
-  .container {
-    width: 1100px;
-    margin: 0 auto;
   }
