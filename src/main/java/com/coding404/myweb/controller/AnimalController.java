@@ -135,22 +135,7 @@ public class AnimalController {
 		
 		
 		
-		//파일확인(form형식을 multipart타입으로 반드시 선언)
-//		for(MultipartFile f: list) {
-//			System.out.println(f.isEmpty()); //비어있다면 true
-//			System.out.println(f.getContentType()); //파일의 타입
-//		}
-		
-		
-		//1.빈 형태로 넘어오는 이미지 제거
-//		list = list.stream().filter((f) -> f.isEmpty() == false).collect(Collectors.toList());
-//		if(vo.getANIMAL_FILENAME() ==null) {
-//			ra.addAttribute("msg", "사진은 필수입니다");
-//			return "redirect:/animal/animal_reg";
-//		}
-		
-		//2.업로드 된 확장자가 이미지만 가능하도록 처리
-//		for(MultipartFile f : list) {
+
 			if(f.getContentType().contains("image") == false) { //이미지를 포함하고 있지 않은경우
 				model.addAttribute("msg", "jpg,png,jpeg 이미지 형식만 등록가능");
 				
@@ -162,8 +147,7 @@ public class AnimalController {
 			}
 		
 		
-		//3.파일 업로드 코드는 서비스 영역으로 위임
-		//vo를 등록
+		
 		int result = animalService.regist(vo,f);
 		
 		if(result == 1 ) {
@@ -172,11 +156,7 @@ public class AnimalController {
 			ra.addFlashAttribute("msg", "동물 등록에 실패했습니다.");
 		}
 		
-		
-		
-		
-		
-		
+	
 		return "redirect:/animal/animal_List";
 	}
 	
@@ -222,19 +202,37 @@ public class AnimalController {
 	
 	@PostMapping("/getpkUpdate")
 	public String updateAnimal(@RequestParam("animal_num") String num,
-								Model model) {
+								Model model,
+								HttpSession session,
+								RedirectAttributes ra) {
+		
+		UserVO uservo = (UserVO)session.getAttribute("userVO");
+		
+		if(uservo == null) {
+			ra.addFlashAttribute("msg", "관리자만 사용가능한 기능입니다");
+			return "redirect:/animal/animal_List";
+		}
 		
 		
+		if(uservo.getUser_id().contains("admin")) {
+			
+			
+			animalVO vo = animalService.getupdateselect(num);
+			model.addAttribute("anivo", vo);
+			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+			String nowdate = sd.format(new Date());
+			
+			model.addAttribute("nowdate", nowdate);
+			model.addAttribute("hide", "hide");
+			
+			return "animal/animal_Reg";
+			
+			
+		}else {
+			ra.addFlashAttribute("msg", "관리자만 사용가능한 기능입니다");
+			return "redirect:/animal/animal_List";
+		}
 		
-		animalVO vo = animalService.getupdateselect(num);
-		model.addAttribute("anivo", vo);
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		String nowdate = sd.format(new Date());
-		
-		model.addAttribute("nowdate", nowdate);
-		model.addAttribute("hide", "hide");
-		
-		return "animal/animal_Reg";
 	}
 	
 	
@@ -253,11 +251,14 @@ public class AnimalController {
 								 Model model) {
 		
 		
+		
+		
+		
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
 		String nowdate = sd.format(new Date());
 		
 		model.addAttribute("nowdate", nowdate);
-		
+		model.addAttribute("hide", "hide");
 		
 		
 		

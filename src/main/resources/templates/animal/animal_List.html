@@ -375,20 +375,13 @@
                 	
                 	var inner_HTML = ($(e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild));
                 	var inner_HTML = inner_HTML[0].innerHTML;
-                	console.log(inner_HTML)
                 	
-                	
-                	
-                	
+                		
                 	$.ajax({
                 	type:'GET',
                 	url:'/modalview?pk='+inner_HTML,
                 	success : function(data){
-                		console.log(data);
                 		
-                		console.log($(".animal_pic"));
-                		console.log("asd")
-                		console.log($(".animal_pic").attr("src"));
                 		
                 		$(".animal_num").html("동물번호:"+data.animal_NUM);
                 		$(".animal_type").html("종류:"+data.animal_TYPE);
