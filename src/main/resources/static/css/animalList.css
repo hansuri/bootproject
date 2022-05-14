@@ -409,7 +409,7 @@ select:hover {
 }
 
 .detail_pic > .like {
-    color:indianred;
+    color: #FF5F4A;
     z-index: z-index + 1;
 }
 
