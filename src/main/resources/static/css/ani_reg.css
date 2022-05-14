@@ -202,10 +202,11 @@ input:hover, select:hover {
     padding: 0px 20px 0 30px;
     margin: 0;
     color: #555;
+    background-color: #ede68e;
     border: none;
 	height: auto;
     border-radius: 4px;
-    border: 2px solid #d6d661;
+    border: 2px solid #ede68e;
     letter-spacing: 10px;
 }
 
