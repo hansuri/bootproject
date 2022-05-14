@@ -23,6 +23,7 @@
 	padding: 10px;
 	width: 100%;
 	margin: 0;
+	text-align: center;
 }
 
 .my-grid .sidenav li a {
@@ -36,10 +37,6 @@
     box-sizing: border-box;
     overflow: hidden; /* 넘치는 글자에 대해서 숨김 */
     font-size: small;
-}
-
-.my-grid .sidenav li a > span {
-	padding-left: 15px;
 }
 
 

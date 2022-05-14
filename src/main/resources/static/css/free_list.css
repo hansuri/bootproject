@@ -31,13 +31,13 @@
     top: 35px;
     bottom: 0;
     width: 22%;
-    padding: 7.5px;
+    padding: 7px;
     font-size: 13px;
   }
   
   #board-search .search-window .search-wrap input {
     height: 35px;
-    width: 100%;
+    width: 95%;
     font-size: 13px;
     padding: 8px 10px;
     border: 1px solid #ccc;
@@ -48,8 +48,8 @@
   }
   #board-search .search-window .search-wrap .btn {
     position: absolute;
-    right: 0.5px;
-    top: 22;
+    right: 5px;
+    height : 35px;
     bottom: 0;
     width: 20%;
     padding: 7px;
