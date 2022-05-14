@@ -87,7 +87,7 @@
     font-weight: 800;
     background-color: #fff;
     border-radius: 10px;
-    
+    border: 2px solid #FF5F4A;
     
 }
 
@@ -141,6 +141,14 @@ button, input, select {
 }
 
 
+.box:hover {
+	border: 2px solid #777;
+}
+
+.error_box:hover {
+	border: none;
+}
+
 
 
 .sub {
@@ -158,6 +166,10 @@ button, input, select {
 	background-color: #FF8873;
 }
 
+.sub:hover {
+	background-color: #FF5F4A;
+}
+
 
 .pw_check_box {
 	display: block;
@@ -170,6 +182,14 @@ button, input, select {
 	margin-top: 5px;
 	color: #FFf;
 	background-color:#FF8873;
+}
+
+
+
+.pw_check_box:hover {
+
+	border: 2px solid #FF5F4A;
+	background-color: #FF5F4A;
 }
 
 
