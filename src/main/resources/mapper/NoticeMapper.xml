@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
 	  		  from ( select *
 			 		 from ADMIN_LIST
 			 		 where admin_id = 'admin'
-			 		 order by ad_list_date, ad_list_num DESC) A, (select @ROWNUM := 0)D
+			 		 order by ad_list_num DESC) A, (select @ROWNUM := 0)D
 		) B 
 		where RN > ( #{page}-1 ) * #{amount} and RN <=  #{page} * #{amount}
 		]]>

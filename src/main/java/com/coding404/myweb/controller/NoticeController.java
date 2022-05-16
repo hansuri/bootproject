@@ -37,7 +37,8 @@ public class NoticeController {
 	
 	//공지게시판등록 화면처리
 	@GetMapping("/notice_reg")
-	public String notice_reg(HttpSession session,
+	public String notice_reg(NoticeVO vo,
+							 HttpSession session,
 							 Model model,
 			  				 RedirectAttributes RA) {
 		

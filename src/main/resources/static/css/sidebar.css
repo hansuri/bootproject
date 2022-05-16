@@ -23,6 +23,7 @@
 	padding: 10px;
 	width: 100%;
 	margin: 0;
+	text-align: center;
 }
 
 .my-grid .sidenav li a {
@@ -38,9 +39,6 @@
     font-size: small;
 }
 
-.my-grid .sidenav li a > span {
-	padding-left: 15px;
-}
 
 
 .my-grid .sidenav li a:hover {
