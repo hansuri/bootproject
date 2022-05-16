@@ -83,6 +83,19 @@ button, input, select {
 }
 
 
+.box:hover {
+	
+	border: 2px solid #777;
+		
+}
+
+
+.error_box:hover {
+
+	border: none;
+}
+
+
 
 .sub{
     display: block;
@@ -101,6 +114,14 @@ button, input, select {
     
 }
 
+.sub:hover {
+	
+	color: #fff;
+    background-color: #FF5F4A;
+	
+}
+	
+	
 .bir{
     overflow: hidden;
 }
@@ -186,4 +207,9 @@ input[type='radio'] {
 	margin-top: 3%;
 	border: none;
 	background-color: #FFD473;
+}
+
+
+.pw_check_box:hover {
+	background-color: #FFC043; 
 }

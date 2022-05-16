@@ -44,7 +44,7 @@
                                             <tr>
                                                 <th>아이디</th>
                                                 <td>
-                                                    <input type="text" class="inputw150 inputId" value="admin" readonly required>
+                                                    <input type="text" class="inputw150" value="admin" readonly required>
                                                     
                                                 </td>
 
@@ -181,9 +181,10 @@
                                     <div class="btn_area">
                                     		<input type="button" class="update" th:if="${hide == 'hide'}" value="수정">
                                     		
-                                        
+                                     
                                         	<input type="submit" class="save" th:if="${hide != 'hide'}" value="등록">
                                         
+
                                         <input type="button" class="delete" th:onclick="location.href='/animal/animal_List'" value="목록">
                                     </div>
 
@@ -227,16 +228,6 @@
 </script>
 
 <th:block th:replace="~{/include/footer :: footer2}"></th:block>
-
-
-
-
-
-
-
-
-
-
 
 
 
