@@ -212,4 +212,5 @@ input[type='radio'] {
 
 .pw_check_box:hover {
 	background-color: #FFC043; 
+	border: 2px solid #FFC043; 
 }

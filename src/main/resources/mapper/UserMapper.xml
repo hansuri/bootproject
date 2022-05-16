@@ -94,7 +94,7 @@
   	<!-- 최신 공지글 가져오기 -->
   	<select id="getNoticeNew" resultType="NoticeVO">
   		select * from ADMIN_LIST
-		order by ad_list_date desc
+		order by ad_list_num desc
 		limit 0, 5
   	</select>
   	
@@ -103,7 +103,7 @@
   	<!-- 최신 전체 자유글 -->
   	<select id="getFreeNew" resultType="FreeVO">
   		select * from FREE_LIST
-		order by free_list_date desc
+		order by free_list_num desc
 		limit 0, 5;
   	</select>
   	
@@ -111,7 +111,7 @@
   	<select id="getInfoNew" resultType="FreeVO">
 	  	select * from FREE_LIST
 		where free_list_type = '정보'
-		order by free_list_date desc
+		order by free_list_num desc
 		limit 0, 5
   	</select>
   	
@@ -119,7 +119,7 @@
   	<select id="getAfterNew" resultType="FreeVO">
 	  	select * from FREE_LIST
 		where free_list_type = '후기'
-		order by free_list_date desc
+		order by free_list_num desc
 		limit 0, 5
   	</select>
   	
@@ -127,7 +127,7 @@
   	<select id="getFunNew" resultType="FreeVO">
   		select * from FREE_LIST
 		where free_list_type = '유머'
-		order by free_list_date desc
+		order by free_list_num desc
 		limit 0, 5
   	</select>
   	
