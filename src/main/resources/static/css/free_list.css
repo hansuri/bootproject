@@ -30,14 +30,17 @@
     right: 54px;
     top: 35px;
     bottom: 0;
-    width: 22%;
+    width: 28%;
     padding: 7px;
     font-size: 13px;
+    appearance: auto;
+    height: 35px;
   }
   
   #board-search .search-window .search-wrap input {
+    margin-left: 30px;
     height: 35px;
-    width: 95%;
+    width: 85%;
     font-size: 13px;
     padding: 8px 10px;
     border: 1px solid #ccc;

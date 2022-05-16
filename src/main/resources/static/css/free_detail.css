@@ -13,6 +13,10 @@ li.collum_tit {
     margin-top: 10px;
 }
 
+.sub_tit {
+	letter-spacing: 2px;
+}
+
 .collum_tit {
    background-color: #ebecef;
     position: relative;
@@ -88,10 +92,11 @@ input[type='text'].datepicker {
 }
 
 .inputw150 {
-    width: 150px;
+    width: 65px;
     height: 30px;
     line-height: 30px;
     color: #555;
+    appearance: auto;
 }
 
 
@@ -119,10 +124,13 @@ input {
     margin: 10px 0;
 }
 
+.inputw99p:hover {
+	border: 2px solid #777;
+}
+
 .freeDtitle {
 	font-weight: 700;
-	font-size: 16px;
-	
+	font-size: 20px;
 	padding: 40px 10px;
 	border-bottom: 1px solid #2222;
 }
@@ -131,6 +139,8 @@ input {
 	color: #555;
 	margin-left: 10px;
 	border-top: 1px solid #2222;
+	padding: 20px;
+	font-size: 17px;
 }
 
 
